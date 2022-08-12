@@ -64,7 +64,7 @@ body {
 	font-weight: 400;
     -webkit-font-smoothing: antialiased;
     --tw-text-opacity: 1;
-    color: rgb(32 14 50/var(--tw-text-opacity));
+    background-color: #f9f9f9;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -216,7 +216,7 @@ hr{margin-top: 1em;margin-bottom: 2em;border: 0; border-top-color: currentcolor;
 .bodycont{width:100%; margin:0px auto;}
 
 .container12, footer{width:100%; float:left; position:relative;}
-article{width:80%; margin:0px auto;}
+article{width:90%; margin:0px auto;}
 
 .home header{ position: absolute; width: 100%; padding: 0em 0px 1em 0px; z-index: 10; top:0px; left:0px; }
 
@@ -233,11 +233,20 @@ header nav ul li a:hover{ color: #ffd74c; transition: all 0.7s ease-in-out;}
 header nav .lastnav a{background-color: var(--orange); border-radius: 200px;}
 header nav .lastnav a:hover{background-color: var(--light-orange); color:var(---black)}
 
+.inner header{background-color:var(--navyblue); color:var(--white);     margin-bottom: 2em; }
+
 .banner{position:relative; margin-bottom:3em; height:100vh;}
 .banner .bannerimg{height:100vh; width:100%; position:relative;} 
 .banner .bannerimg::before{content:""; height:100%; width:100%; position:absolute; background:url(../images/dots.png) repeat;} 
-.banner .caption{ position: absolute; bottom: 5em;  color: var(--white);  left: 7em;  width: 41%;  font-size: 23px; font-weight: 300;}
+.banner .caption{ position: absolute; bottom: 5em;  color: var(--white);  left: 4em;  width: 41%;  font-size: 23px; font-weight: 300;}
 .banner .caption h1{color:var(--white)}
+
+.inner .banner{margin-top: -34px; height: 300px;}
+.inner .banner .bannerimg { height: 100%; width: 100%; position: relative;}
+.inner .banner .caption h2{color:var(--white)}
+.inner .banner .caption { position: absolute;  bottom: 2em;  color: var(--white);  left: 4em;  width: 41%;  font-size: 23px;  font-weight: 300;}
+
+.about{min-height:50vh;}
 
 .howto{ padding:5em 0px;}
 .howto .cont{text-align: center; padding:20px 30px;}
@@ -253,67 +262,34 @@ header nav .lastnav a:hover{background-color: var(--light-orange); color:var(---
 .whyus .whycont p{margin-bottom:0px;}
 .whyus .cont{ color:var(--white); position:relative;}
 
-.bgimg{min-height: 100vh; background:url(../images/img1.webp) no-repeat center; background-size:cover; position: absolute; width: 100%; top: 0px; left: 0px;}
-.logbx{display: flex; flex-flow: column; width: 500px; align-items: center; flex-direction: column;  margin: 2em auto 0px auto;  padding: 30px; background-color: #fbfbfb;}
-.logbx .logo{text-align:center;}
+.login{background:url(../images/img5.jpg) no-repeat center; background-size:cover; position:relative; min-height:100vh;}
+.logobx{ position: absolute; top: 2em;  left: 8em; width: 220px;}
 
-.logform{width: 66%;}
-.logbx .logoimg{width: 167px; margin-bottom: 30px;}
-.logbx h2{font-weight: 300; text-align: center;}
-.signform{display: flex; flex-flow: column; width: 43%; align-items: center; flex-direction: column; margin: 2em auto 0px auto; padding: 30px; background-color: #fbfbfb;}
-.signform .logo{text-align:center;}
-.logform{width: 66%;}
-.signform .logoimg{width: 167px; margin-bottom: 30px;}
-.signform h2{font-weight: 300; text-align: center;}
+.login:before{content:""; position:absolute; width:100%; height:100%; background:url(../images/dots.png) repeat; }
 
-.signform .logcopy, .logbx .logcopy{font-size: 10px;}
-.signform .logcopy a, .logbx .logcopy a{ font-weight: 700;}
+.loginflex{display: flex;  align-items: center; position:relative;}
+.loginbx{ width: 30vw; align-self: center; margin: 3em auto; min-height: 68vh; background-color: #afafaf87; padding: 6em 3em 3em 3em;  color: var(--white);  border-radius: 20px;}
+.loginbx .logobx{  margin-bottom: 4em;  text-align: center; }
+.loginbx .logobx img{ width: 300px;}
+.loginbx h3{color:#fff;}
+.loginbx a{text-decoration:none; font-weight:700; color:var(--white);}
 
-.mainbar a{text-decoration: none;}
+.workbx{min-height:90vh;}
+.workbx .sidebar{background-color:var(--white); border-radius:20px; box-shadow: #f1f1f1 3px 3px 13px 3px;}
+.workbx .sidebar .sidenav{padding: 31px 20px;  text-align: center;  min-height: 5em; }
+.workbx .sidebar .sidenav a{text-decoration: none;}
+.workbx .sidebar .sidenav i{    height: 40px; width: 40px; padding: 10px 9px; margin-bottom: 7px; border: 2px solid var(--navyblue); border-radius: 200px; color: var(--navyblue);}
 
-.mainbar .useractions{background-color: #fffcd0; padding: 37px 20px 27px 20px; margin-bottom: 3em; transition: all 0.3s ease-in-out;}
-.mainbar a:hover .useractions{background-color:#feed40; }
+.workbx .workarea{background-color:var(--white); border-radius:20px; box-shadow: #f1f1f1 3px 3px 13px 3px; width:100%; min-height:100vh; margin-bottom:3em; padding: 20px;}
 
-.dash{ padding: 20px 20px 30px 20px;}
-.jobboard{background-color:#f3f3f3;}
-.jobboard h5 span{font-size: 14px;}
+.cvresized{position: relative;  background-color: var(--white);  border-radius: 20px;  box-shadow: #f1f1f1 3px 3px 13px 3px;  transform: scale(0.45);  transform-origin: 0 0;  width: max-content; min-height: 149vh;}
+
+.collcont { display: none; }
 
 .addbtnbx, .delbtnbx{display: flex; justify-content: center; float: left;}
 .addbtnbx i, .delbtnbx i{padding: 39px 17px 14px 17px;  font-size: 25px; margin: -4px 6px -2px 6px !important;}
 
 .smalltext{font-size: 12px; color: #666;}
-
-.appliedjb{float:left; width:100%;}
-.appliedjb h4 span{font-size:14px;}
-
-.vacancies h3{margin-bottom:1em;}
-.vacancies ul{margin:0px; padding:0px}
-.vacancies ul li{list-style: none; padding-bottom:5px; margin-bottom:10px; border-bottom:#333 dotted 1px;}
-.vacancies ul li a{color:inherit; text-decoration: none;}
-.vacancies ul li span{font-size:80%;}
-
-.updates{padding:7em 0}
-.updates .blockimg{min-height: 60vh; position:relative;}
-.updates .blockimg .block{ position: absolute; top: 6em; width: 60%; padding: 20px; color: #fff;}
-.updates .blockimg .block h2{color:#fff;}
-
-.cvpage{background-color: #fff; padding: 3em; margin-top:3em;}
-.cvpage .thintext{font-size:14.5px; padding: 3em 20px; background-color: #fafafa;}
-.cvpage .thintext .bio{line-height: 2.5;}
-.cvpage h1{font-weight: 300; margin-bottom: 24px; font-size: 61px;}
-.cvpage .socials{font-size:20px;}
-.cvpage .socials a{padding:0px .5em;}
-
-.cvpage .skillset{width:100%;}
-.cvpage .skillset .skillbx{width: 100%; float: left; margin: 19px 0px;}
-.cvpage .skillset .skillbx .skilldesc{width: 42%; float: left;}
-.cvpage .skillset .skillbx .progbar{width: 50%; background-color: #e0e0e0; float: left; height: 11px; border-radius: 200px; margin-top: 6px;}
-.cvpage .skillset .skillbx .progbar .range{width: 100%; height: 11px; background-color: #164966; border-radius: 200px;}
-
-.cvpage .fullcont{ padding-left: 30px;}
-.cvpage .fullcont h5{font-weight: 700; font-size: 17px;}
-.cvpage .fullcont h5 span{color: #898989; }
-.cvpage .refbx{margin-bottom:30px;}
 
 .contacts{margin-bottom:3em;}
 
@@ -328,23 +304,17 @@ header nav .lastnav a:hover{background-color: var(--light-orange); color:var(---
 .contactForm input, .contactForm textarea, .contactForm select{ margin-bottom:20px; padding: 10px; width: 100%;}
 .contactForm input[type="checkbox"]{width: 20px !important;}
 .contactForm input:focus, .contactForm textarea:focus, .contactForm input:hover, .contactForm textarea:hover{background:#f2f2f2;}
-.contactForm .submit{
-    border:none;
--o-transition: all 0.3s ease-in-out;
-	-webkit-transition: all 0.3s ease-in-out;
-	-moz-transition: all 0.3s ease-in-out;
-	transition: all 0.3s ease-in-out;
-	background-color: #feed40;  padding: 15px 34px;  color: #171717;  text-decoration: none;  border-radius: 7px;  font-size: 95%; width: auto;
-}
+.contactForm .submit{background-color: var(--orange);  padding: 15px 34px;  color: var(--white);  text-decoration: none;  border-radius: 200px;transition: all 0.3s ease-in-out; text-transform: uppercase; font-size:1rem; font-weight:400; border:none; width: auto;}
+
+.contactForm .submit:hover, .contactForm .submit:focus{background-color:var(--light-orange); color:var(--black);}
+
 .contactForm label{padding: 0;cursor: pointer;text-decoration: none;text-align: left;background:none;margin-bottom:6px;}
 .contactForm input{ margin-bottom:20px;}
 .contactForm .short{ width:43%;}
 .contactForm input[type="radio"]{width:20px;}
-.contactForm .submit:hover, .contactForm .submit:focus{background-color:#c8c496;}
 .disabledbtn{background-color:#ccc !important}
 
-.contactForm i{margin-left:-34px;}
-
+.contactForm i{margin-left:-34px; color: var(--black);}
 .contactForm i.italic{margin:0px; color:#999; font-size:12px;}
 
 footer{ padding: 0x;  position: relative;}

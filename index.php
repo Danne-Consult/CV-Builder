@@ -19,23 +19,7 @@
     <script src="assets/js/jquery.min.js"></script>
 </head>
 <body class="home">
-    <header>
-        <article>
-            <div class="logo">
-                <a href="#"><img src="assets/images/logo.svg" alt="Realtime CVs"></a>
-            </div>
-            <div class="avigation">
-                <nav>
-                    <ul>
-                        <li class="fitstnav"><a href="#">About</a></li>
-                        <li><a href="#">Documentation</a></li>
-                        <li><a href="#">pricing</a></li>
-                        <li class="lastnav"><a href="#">Signin/Register</a></li>
-                    </ul>
-                </nav>
-            </div>
-</article>
-    </header>
+    <?php include "includes/nav/header.inc"; ?>
     <div class="container12 banner">
         <div class="flexslider">
             <ul class="slides">
@@ -45,7 +29,7 @@
                         <h1>We have got you sorted</h1>
                         <p>Having trouble creating a professional resume? <br />We can help!</p>
                         <br />
-                        <p><a href="" class="rounded-white-btn">Register Now</a></p>
+                        <p><a href="signup.php" class="rounded-white-btn">Register Now</a></p>
                     </div>
                 </li>
                 <li>
@@ -54,11 +38,21 @@
                         <h1>Get your professional CV now!</h1>
                         <p>We know the hustle for creating professional CVs. <br />Realtime CVs is here to help!</p>
                         <br />
-                        <p><a href="" class="rounded-white-btn">Get yours!</a></p>
+                        <p><a href="signup.php" class="rounded-white-btn">Get yours!</a></p>
                     </div>
                 </li>
             </ul>
         </div>
+    </div>
+
+    <div class="container12">
+        <article>
+            <div class="row justify-content-center">
+                <div class="col-lg-10 aligncenter">
+                    
+                </div>
+            </div>
+        </article>
     </div>
     <div class="container12 howto">
         <article>
@@ -99,7 +93,7 @@
                         </div>
                         <div class="whycont">
                             <h5>Easy Resume Creator</h5>
-                            <p> Aenean sollicitudin, lorem quis bibendum auctor</p>
+                            <p>With our tested templates you stand a 45% chance of getting shortlist and interviews.</p>
                         </div>
                     </div>
                     <div class="whybx">
@@ -108,7 +102,7 @@
                         </div>
                         <div class="whycont">
                             <h5>Easy to update</h5>
-                            <p> Aenean sollicitudin, lorem quis bibendum auctor</p>
+                            <p>Create your professional resume using our online builder and download it in real- time averagely 30 minutes</p>
                         </div>
                     </div>
                     <div class="whybx">
@@ -117,22 +111,20 @@
                         </div>
                         <div class="whycont">
                             <h5>Safe and Secure</h5>
-                            <p> Aenean sollicitudin, lorem quis bibendum auctor</p>
+                            <p>We guarantee security for your information.</p>
                         </div>
                     </div>
                     
                 </div>
                 <div class="col-lg-6 offset-lg-1 cont">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas pharetra luctus leo in tempus. Morbi mi massa, imperdiet id iaculis non, lobortis vel nisi. Curabitur ac lectus quis tortor dapibus aliquet. Suspendisse ac nisl fermentum, ornare leo nec, ultrices ante. Quisque porta magna nisl, vitae porta neque vestibulum eu. Sed pharetra enim id interdum mollis. Vestibulum nec ultrices erat. In laoreet in odio sit amet dignissim. Morbi massa felis, condimentum non sem ut, convallis pulvinar magna. Etiam placerat, justo ut tempor fringilla, massa nunc auctor erat, nec volutpat dui turpis quis nisi. Donec felis magna, ultricies vitae ultricies sed, volutpat sodales purus. Nulla ornare volutpat scelerisque. Donec porta porta libero, iaculis convallis arcu mattis vitae. Etiam vestibulum interdum tempor.</p>
+                    <p>We understand the predicament that many job seekers and professionals face while trying to timely create, update, format and align cover letters and curriculum vitae to new opportunities while ensuring that they conform to professional and ATS requirements.</p>
+                    <p>We have created an online platform that offers you real time, user friendly, 24/7 access and ATS compliant cover page/ curriculum vitae builder to enable you to conveniently create, update, format, download, directly tailor make your documents using more than fifteen of our professionally designed templates that also allow you to directly apply for jobs from our platform.</p>
+                    <p>We are undertaking continuous product development and rolling out new features of our platform as we strive to enhance our client experience and generating stunning and professional cover letters and CVs within a couple of minutes.</p>
                 </div>
             </div>
         </article>  
     </div>
-    <footer> 
-        <article>
-            <div class="copy">&copy;2022 Open Talent Africa | Developed by <a heref="danneconsult.com" target="_new">Danne Consult Ltd</a></div>
-        </article>
-    </footer> 
+    <?php include "includes/footer.inc"; ?>
     <script src="assets/js/jquery.flexslider-min.js"></script>
     <script src="assets/js/slick.js"></script>
     <script>
