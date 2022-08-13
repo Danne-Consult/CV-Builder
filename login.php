@@ -17,7 +17,7 @@
 </head>
 <body class="login">
     <div class="logobx">
-        <img src="assets/images/logo.svg" alt="Realtime CVs">
+        <a href="index.php"><img src="assets/images/logo.svg" alt="Realtime CVs"></a>
     </div>
     <div class="container12 loginflex">
             <div class="loginbx">
@@ -33,8 +33,11 @@
                     </form>
                     <p><a href="signup.php">Create an account</a></p>
                 </div>
+
+                <?php include "includes/footer.inc"; ?>
             </div>
     </div>
+    <?php include "includes/footer.inc"; ?>
 </body>
 <script>
     const togglePassword = document.querySelector("#togglePassword");

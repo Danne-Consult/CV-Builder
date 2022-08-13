@@ -63,36 +63,29 @@
                             </div>
                         </div>
                         <hr />
-                        <h4>Personal Information</h4>
                         <div class="row">
-                            <div class="col-lg-6">
-                                <label for="fname">First name</label><br />
+                            <div class="col-lg-8">
+                                <label for="fname">Full Name</label><br />
                                 <input type="text" name="fname" />
                             </div>
-                            <div class="col-lg-6">
-                                <label for="lname">Last Name</label><br />
-                                <input type="text" name="lname" />
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-8">
+                                <label for="jtitle">Job Title</label><br />
+                                <input type="text" name="jtitle" />
                             </div>
+                        </div>
+                        <h4>Contact Details</h4>
+                        <div class="row">
                             <div class="col-lg-6">
                                 <label for="email">Email</label><br />
                                 <input type="email" name="email" />
                             </div>
                             <div class="col-lg-6">
-                                <label for="dob">Date of Birth</label><br />
-                                <input type="date" name="dob" />
-                            </div>
-                        </div>
-                        <div class="row">
-                            
-                            <div class="col-lg-6">
                                 <label for="lname">Tel/Mobile</label><br />
                                 <input type="tel" name="mobileno" placeholder="eg. +25407..." required />
                             </div>
                             <div class="col-lg-6">
-                                <label for="nationality">Nationality</label><br />
-                                <input type="text" name="nationality" required />
-                            </div>
-                            <div class="col-lg-4">
                                 <label for="address">Address</label><br />
                                 <input type="text" name="address" />
                             </div>
@@ -100,18 +93,23 @@
                                 <label for="postalcode">Postal Code</label><br />
                                 <input type="number" name="postalcode" />
                             </div>
-                            <div class="col-lg-4">
-                                <label for="gender">Gender</label><br />
-                                <select name="gender">
-                                    <option>...</option>
-                                    <option value="Female">Female</option>
-                                    <option value="Male">Male</option>
-                                    <option value="Other">Other</option>
-                                </select>
-                            </div>
                         </div>
-                        <div class="row">     
-                            <div class="col-lg-12">
+                        <div class="row">
+                            <h4>Personal Information</h4>
+                            <div class="col-lg-6">
+                                <label for="dob">Date of Birth</label><br />
+                                <input type="date" name="dob" />
+                            </div>
+                            <div class="col-lg-6">
+                                <label for="gender">Gender/Pronoun</label><br />
+                                <input type="text" name="gender">
+                            </div>
+                            <div class="col-lg-6">
+                                <label for="nationality">Nationality</label><br />
+                                <input type="text" name="nationality" required />
+                            </div>  
+                            
+                            <div class="col-lg-6">
                                 <label for="languages">Languages <i class="italic">*Separated with a comma(,)</i></label><br />
                                 <input type="text" name="languages" />
                             </div>
@@ -221,7 +219,7 @@
                         <div class="collcont">
                             <div class="skillbar">
                                 <div class="row">
-                                    <div class="col-lg-4">
+                                    <div class="col-lg-6">
                                         <label for="skilltitle">Skill Name</label><br />
                                         <input type="text" name="skill[] "/>
                                     </div>
@@ -229,7 +227,7 @@
                                         <label for="capacity">Proficiency</label><br />
                                         <input class="range" type="range" name="capacity[]" min="0" max="100" />
                                     </div>
-                                    <div class="col-lg-4">
+                                    <div class="col-lg-2">
                                         <div class="addbtnbx moreskills"><i class="fa-solid fa-circle-plus" id="addbtn"></i></div>
                                     </div>
                                 </div>
@@ -317,12 +315,7 @@
         </article>
     </div>
     
-    <footer> 
-        <article>
-            <div class="copy">&copy;2022 Open Talent Africa | Developed by <a heref="danneconsult.com" target="_new">Danne Consult Ltd</a></div>
-        </article>
-    </footer>
-
+    <?php include "includes/footer.inc"; ?>
     <script src="manage/assets/js/tinymce/tinymce.min.js" referrerpolicy="origin"></script>
     <script>
         

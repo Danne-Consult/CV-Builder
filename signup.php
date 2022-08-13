@@ -17,7 +17,7 @@
 </head>
 <body class="login">
     <div class="logobx">
-        <img src="assets/images/logo.svg" alt="Realtime CVs">
+        <a href="index.php"><img src="assets/images/logo.svg" alt="Realtime CVs"></a>
     </div>
     <div class="container12 loginflex">
             <div class="loginbx">
@@ -34,8 +34,14 @@
                         <button class="submit" name="loginx">Create Account</button>
                     </form>
                 </div>
+                <div class="terms">
+                    <p>By creating an account, you agree to our <a href=""><b>Terms of Service</b></a>. We do not sell your personal data. To learn more about how we collect, use, share and protect it please read our <a href=""><b>Privacy Policy</b></a></p>
+                </div>
+
+                <?php include "includes/footer.inc"; ?>
             </div>
     </div>
+    
 </body>
 <script>
         const togglePassword = document.querySelector("#togglePassword");
