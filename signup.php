@@ -23,14 +23,35 @@
             <div class="loginbx">
                 
                 <div class="logform">
-                    <h3 class="aligncenter">Create an account</h3>
-                    <form action="#" class="contactForm">
-                        <label for="username">Email:</label><br />
-                        <input type="email" name="unername" id="username" required><br />
-                        <label for="password">Password:</label><br />
-                        <input type="password" name="passx" id="passx" required><i class="fa-solid fa-eye" id="togglePassword"></i><br />
-                        <label for="password">Re-type Password:</label><br />
-                        <input type="password" name="repassx" id="repassx" required><i class="fa-solid fa-eye" id="togglePassword1"></i><br />
+                    <h3 class="aligncenter">Create an account</h3><br />
+                    <form action="controller/signup.php" method="POST" class="contactForm">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <label for="fname">First Name:</label><br />
+                                <input type="text" name="fname" id="fname" required>
+                            </div>
+                            <div class="col-lg-6">
+                                <label for="lname">Last Name:</label><br />
+                                <input type="text" name="lname" id="fname" required>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <label for="username">Email:</label><br />
+                                <input type="email" name="unername" id="username" required>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <label for="password">Password:</label><br />
+                                <input type="password" name="passx" id="passx" required><i class="fa-solid fa-eye" id="togglePassword"></i>
+                            </div>
+                            <div class="col-lg-6">
+                                <label for="password">Re-type Password:</label><br />
+                                <input type="password" name="repassx" id="repassx" required><i class="fa-solid fa-eye" id="togglePassword1"></i>
+                            </div>
+                        </div>
+
                         <button class="submit" name="loginx">Create Account</button>
                     </form>
                 </div>

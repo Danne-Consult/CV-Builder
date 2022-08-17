@@ -1,3 +1,9 @@
+<?php 
+    session_start();
+    if(isset($_SESSION['username'])){
+        header('location:home.php');
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,9 +27,13 @@
     </div>
     <div class="container12 loginflex">
             <div class="loginbx">
-                
                 <div class="logform">
-                    <h3 class="aligncenter">login</h3>
+                    <h3 class="aligncenter">login</h3><br />
+                    <?php
+                        if(isset($_GET['error'])){
+                            echo "<div class='error-red'>". $_GET['error'] ."</div>";
+                        }
+                    ?>
                     <form action="#" class="contactForm">
                         <label for="username">Email:</label><br />
                         <input type="email" name="unername" id="username" required><br />

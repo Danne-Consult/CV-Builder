@@ -246,6 +246,10 @@ header nav .lastnav a:hover{background-color: var(--light-orange); color:var(---
 .inner .banner .caption h2{color:var(--white)}
 .inner .banner .caption { position: absolute;  bottom: 2em;  color: var(--white);  left: 4em;  width: 41%;  font-size: 23px;  font-weight: 300;}
 
+.inner .intro .cap{float: left;  padding: 9em 2em; width: 56%;}
+.inner .intro .cap h1{font-size: 61px;}
+.inner .intro .introimg{  width: 42%;}
+
 .about{min-height:50vh;}
 
 .howto{ padding:5em 0px;}
@@ -261,6 +265,9 @@ header nav .lastnav a:hover{background-color: var(--light-orange); color:var(---
 .whyus .whycont{padding: 6px 6px; width: 79%;}
 .whyus .whycont p{margin-bottom:0px;}
 .whyus .cont{ color:var(--white); position:relative;}
+
+.dash{margin-bottom:3em;}
+.mybxs{width:100%; background-color:var(--white); border-radius:20px; box-shadow: #f1f1f1 3px 3px 13px 3px; margin-bottom:2em; padding:20px 29px;}
 
 .login{background:url(../images/img5.jpg) no-repeat center; background-size:cover; position:relative; min-height:100vh;}
 .logobx{ position: absolute; top: 2em;  left: 8em; width: 220px; z-index: 5;}
@@ -280,7 +287,7 @@ header nav .lastnav a:hover{background-color: var(--light-orange); color:var(---
 
 .workbx{min-height:90vh;}
 .workbx .sidebar{background-color:var(--white); border-radius:20px; box-shadow: #f1f1f1 3px 3px 13px 3px;}
-.workbx .sidebar .sidenav{padding: 31px 20px;  text-align: center;  min-height: 5em; }
+.workbx .sidebar .sidenav{padding: 22px 11px; text-align: center; min-height: 5em; font-size: 11px; }
 .workbx .sidebar .sidenav a{text-decoration: none;}
 .workbx .sidebar .sidenav i { height: 50px;
     width: 50px;
@@ -292,13 +299,13 @@ header nav .lastnav a:hover{background-color: var(--light-orange); color:var(---
     font-size: 32px;
 }
 
-.workbx .workarea{background-color:var(--white); border-radius:20px; box-shadow: #f1f1f1 3px 3px 13px 3px; width:100%; min-height:100vh; margin-bottom:3em; padding: 20px;}
+.workbx .workarea{background-color:var(--white); border-radius:20px; box-shadow: #f1f1f1 3px 3px 13px 3px; width:100%; margin-bottom:3em; padding: 20px;}
 
-.cvresized{position: relative;  background-color: var(--white);  border-radius: 20px;  box-shadow: #f1f1f1 3px 3px 13px 3px;  transform: scale(0.45);  transform-origin: 0 0;  width: max-content; min-height: 149vh;}
+.cvresized{position: relative;  background-color: var(--white);  border-radius: 20px;  box-shadow: #f1f1f1 3px 3px 13px 3px;  transform: scale(0.45);  transform-origin: 0 0;  width: max-content; }
 
 .collcont { display: none; }
 
-.addbtnbx, .delbtnbx{display: flex; justify-content: center; float: left;}
+.addbtnbx, .delbtnbx{display: flex; justify-content: center; float: right;}
 .addbtnbx i, .delbtnbx i{padding: 39px 17px 14px 17px;  font-size: 25px; margin: -4px 6px -2px 6px !important;}
 
 .smalltext{font-size: 12px; color: #666;}
@@ -306,6 +313,16 @@ header nav .lastnav a:hover{background-color: var(--light-orange); color:var(---
 .contacts{margin-bottom:3em;}
 
 .collapsible{ padding: 17px 15px 10px 15px;  margin-left: 0px;  margin-bottom: 2em;  border-radius: 20px;  box-shadow: #f1f1f1 3px 3px 13px 3px;}
+
+.sectionholder{ position: relative; overflow: hidden; width: 100%;}
+.sectionholder .section{display:none; transition: all 0.3s ease-in-out; margin-left:49vw; transition: all 1s ease;}
+.sectionholder .secshow{display:block;  margin-left:0px;}
+
+.next-prev{background-color:var(--gray); border-radius: 200px; transition: all 0.3s ease-in-out;}
+.next-prev:hover{background-color: var(--navyblue);}
+    
+
+.sectionholder .section h4{margin:1em 0;}
 
 .paginationbx{float:left; width:100%; position:relative;}
 .paginationbx .nextprevbtn{ padding:10px 15px; background-color: #feed40; margin-right: 5px;}
