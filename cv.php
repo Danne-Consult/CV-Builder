@@ -33,7 +33,7 @@
                             <div class="row">
                                 <div class="col-lg-8">
                                     <label for="fname">Full Name</label><br />
-                                    <input type="text" name="fname" />
+                                    <input type="text" name="fname" id="fname" />
                                 </div>
                             </div>
                             <div class="row">

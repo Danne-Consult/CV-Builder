@@ -300,8 +300,10 @@ header nav .lastnav a:hover{background-color: var(--light-orange); color:var(---
 }
 
 .workbx .workarea{background-color:var(--white); border-radius:20px; box-shadow: #f1f1f1 3px 3px 13px 3px; width:100%; margin-bottom:3em; padding: 20px;}
+.scrollwork{overflow-x: hidden; max-height: 87vh; overflow-y: visible;}
+.scrollwork::-webkit-scrollbar { display: none;}
 
-.cvresized{position: relative;  background-color: var(--white);  border-radius: 20px;  box-shadow: #f1f1f1 3px 3px 13px 3px;  transform: scale(0.45);  transform-origin: 0 0;  width: max-content; }
+.cvresized{position: relative;  background-color: var(--white);  border-radius: 20px;  box-shadow: #f1f1f1 3px 3px 13px 3px;  transform: scale(0.55);  transform-origin: 0 0;  height: 100vh; }
 
 .collcont { display: none; }
 
@@ -320,6 +322,26 @@ header nav .lastnav a:hover{background-color: var(--light-orange); color:var(---
 
 .next-prev{background-color:var(--gray); border-radius: 200px; transition: all 0.3s ease-in-out;}
 .next-prev:hover{background-color: var(--navyblue);}
+
+.step {
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbbbbb;
+    border: none;  
+    border-radius: 50%;
+    display: inline-block;
+    opacity: 0.5;
+  }
+  
+  .step.active {
+    opacity: 1;
+  }
+  
+  /* Mark the steps that are finished and valid: */
+  .step.finish {
+    background-color: #04AA6D;
+  }
     
 
 .sectionholder .section h4{margin:1em 0;}

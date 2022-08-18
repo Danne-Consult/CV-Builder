@@ -25,52 +25,99 @@
                     <?php include "includes/nav/sidenav.inc"; ?>
                 </div>
                 <div class="col-lg-6">
-                    <div class="workarea">
+                    <div class="workarea scrollwork">
                         <h4>Cover Letter</h4><br />
                         <form class="contactForm">
-                        <div class="com-work">
-                            <div class="row">
+                             <div class="row">
                                 <div class="col-lg-6">
-                                    <label for="occupation">Address</label><br />
-                                    <input type="text" name="address" />
+                                    <label for="fname">Full Name</label><br />
+                                    <input type="text" name="fname" id="fname" />
+                                </div>
+                                <div class="col-lg-6">
+                                    <label for="occupation">Occupation</label><br />
+                                    <input type="text" name="occupation " id="occupation" />
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-lg-6">
-                                    <label for="workyearcorfrom">Letter Date</label><br />
-                                    <input type="date" name="letterdate"  />
+                                    <label for="email">Email Address</label><br />
+                                    <input type="text" name="email" id="email" />
+                                </div>
+                                <div class="col-lg-6">
+                                    <label for="city">City</label><br />
+                                    <input type="text" name="city" id="city" />
                                 </div>
                             </div>
                             <hr /><br />
 
+                            <h4>Links</h4><br />
+                        
+                             <div class="row">
+                                <div class="col-lg-6">
+                                    <label for="website">Website <i class="italic">*optional</i></label><br />
+                                    <input type="url" name="website" id="website" />
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-4">
+                                    <label for="facebook">facebook <i class="italic">*optional</i></label><br />
+                                    <input type="text" name="facebook " id="facebook" />
+                                </div>
+                                <div class="col-lg-4">
+                                    <label for="occupattwitterion">Twitter <i class="italic">*optional</i></label><br />
+                                    <input type="text" name="twitter " id="twitter" />
+                                </div>
+                                <div class="col-lg-4">
+                                    <label for="linkedin">linkedin <i class="italic">*optional</i></label><br />
+                                    <input type="text" name="linkedin " id="linkedin" />
+                                </div>
+                            </div>
+                            <hr /><br />
+                            <h4>Date</h4><br />
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <label for="letterdate">Letter Date</label><br />
+                                    <input type="date" name="letterdate" id="letterdate"  />
+                                </div>
+                            </div>
+                            <hr /><br />
                             <h4>Recipient Details</h4><br />
                             <div class="row">
                                 <div class="col-md-12">
-                                    <label for="occupation">Name of recipient/department <i class="italic">*optional</i></label><br />
-                                    <input type="text" name="recipient" />
+                                    <label for="recipient">Name of recipient/department <i class="italic">*optional</i></label><br />
+                                    <input type="text" name="recipient" id="recipient" />
                                 </div>
                                 <div class="col-md-12">
-                                    <label for="occupation">Company Name <i class="italic">*optional</i></label><br />
-                                    <input type="text" name="company" />
+                                    <label for="company">Company Name <i class="italic">*optional</i></label><br />
+                                    <input type="text" name="company" id="company" />
                                 </div>
                                 <div class="col-md-12">
-                                    <label for="occupation">Address <i class="italic">*optional</i></label><br />
-                                    <input type="text" name="companyaddress" />
+                                    <label for="companyaddress">Address <i class="italic">*optional</i></label><br />
+                                    <input type="text" name="companyaddress" id="companyaddress" />
                                 </div>
                             </div>
                             <hr /><br />
 
+                            <h4>Letter Reference</h4><br />
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <label for="ref"><i class="italic">*optional</i></label><br />
+                                    <input type="text" name="ref" id="ref" />
+                                </div>
+                            </div>
+                            <hr /><br />
                             <div class="row">
                                 <div class="col-lg-12">
                                     <h4>Body</h4><br />
-                                    <textarea rowspan="3" class="editor" name="coverbody" >
-                                        <p>Dear , </p><p><br></p><p><br><br></p><p>Sincerely,</p>
+                                    <textarea rowspan="3" class="editor" name="coverbody" id="coverbody" >
+                                        <p>Dear , </p><p><br></p><p></p><p>Sincerely,</p>
                                     </textarea>
                                 </div>
                             </div>
-                            
-                        </div>
-                    </form>
+                            <br /><br />
+                            <p class="alignright"><input type="submit" name="submitcov" class="submit" value="Save" /></p>
+                        </form>
+                    </div>
                 </div>
                 <div class="col-lg-5">
                     <div class="cvresized">
@@ -83,6 +130,7 @@
     
     <?php include "includes/footer.inc"; ?>
     <script src="manage/assets/js/tinymce/tinymce.min.js" referrerpolicy="origin"></script>
+    
     <script>
         
         $(document).ready(function() {
@@ -101,5 +149,6 @@
             
         });
     </script>
+    <script src="assets/js/cover.js" referrerpolicy="origin"></script>
 </body>
 </html>
