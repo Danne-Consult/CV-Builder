@@ -2,7 +2,9 @@ const fname = document.getElementById("fname");
 const occupation = document.getElementById("occupation");
 const email = document.getElementById("email");
 const tel = document.getElementById("tel");
+const caddressbx = document.getElementById("caddressbx");
 const address = document.getElementById("address");
+const postalcode = document.getElementById("postalcode");
 const city = document.getElementById("city");
 const country = document.getElementById("country");
 const website = document.getElementById("website");
@@ -14,6 +16,9 @@ const letterdate = document.getElementById("letterdate");
 const recipient = document.getElementById("recipient");
 const company = document.getElementById("company");
 const companyaddress = document.getElementById("companyaddress");
+const companycity = document.getElementById("companycity");
+const companycountry = document.getElementById("companycountry");
+
 const ref = document.getElementById("ref");
 const coverbody = document.getElementById("coverbody");
 
@@ -23,6 +28,7 @@ const coccupation = document.getElementById("coccupation");
 const cemail = document.getElementById("cemail");
 const ctel = document.getElementById("ctel");
 const caddress = document.getElementById("caddress");
+const cpostalcode = document.getElementById("cpostalcode");
 const ccity = document.getElementById("ccity");
 const ccountry = document.getElementById("ccountry");
 
@@ -35,6 +41,9 @@ const cdate = document.getElementById("cdate");
 const crecipient = document.getElementById("crecipient");
 const ccompany = document.getElementById("ccompany");
 const ccomaddress = document.getElementById("ccomaddress");
+const ccomcity = document.getElementById("ccomcity");
+const ccomountry = document.getElementById("ccomountry");
+
 const cref = document.getElementById("cref");
 const cbody = document.getElementById("cbody");
 
@@ -55,7 +64,8 @@ occupation.addEventListener('keyup', function(){coccupation.innerHTML = occupati
 
 email.addEventListener('keyup', function(){if(email.value==""){cemail.style.display="none";}else{cemail.style.display="block"; cemail.innerHTML = email.value}});
 tel.addEventListener('keyup', function(){if(tel.value==""){ctel.style.display="none";}else{ctel.style.display="block"; ctel.innerHTML=tel.value}});
-address.addEventListener('keyup', function(){if(address.value==""){caddress.style.display="none";}else{caddress.style.display="block"; caddress.innerHTML=address.value}});
+address.addEventListener('keyup', function(){if(address.value==""){caddressbx.style.display="none";}else{caddressbx.style.display="block"; caddress.innerHTML=address.value}});
+postalcode.addEventListener('keyup', function(){if(postalcode.value==""){cpostalcode.style.display="none";}else{cpostalcode.style.display="block"; cpostalcode.innerHTML="-"+postalcode.value}});
 city.addEventListener('keyup', function(){if(city.value==""){ccity.style.display="none";}else{ccity.style.display="block"; ccity.innerHTML=city.value}});
 country.addEventListener('keyup', function(){if(country.value==""){ccountry.style.display="none";}else{ccountry.style.display="block"; ccountry.innerHTML=country.value}});
 
@@ -67,9 +77,13 @@ linkedin.addEventListener('change', function(){if(linkedin.value==""){clinkedin.
 
 
 letterdate.addEventListener('change', function(){cdate.innerHTML = letterdate.value;});
-recipient.addEventListener('keyup', function(){crecipient.innerHTML = recipient.value;});
-company.addEventListener('keyup', function(){ccompany.innerHTML = company.value;});
-companyaddress.addEventListener('keyup', function(){ccomaddress.innerHTML = companyaddress.value;});
+recipient.addEventListener('keyup', function(){crecipient.innerHTML = recipient.value+"<br />";});
+company.addEventListener('keyup', function(){ccompany.innerHTML = company.value+"<br />";});
+companyaddress.addEventListener('keyup', function(){ccomaddress.innerHTML = companyaddress.value+"<br />";});
+companycity.addEventListener('keyup', function(){if(companycity.value==""){ccomcity.style.display="none";}else{ccomcity.style.display="block"; ccomcity.innerHTML = companycity.value+"<br />";}});
+companycountry.addEventListener('keyup', function(){if(companycountry.value==""){ccomountry.style.display="none";}else{ccomountry.style.display="block"; ccomountry.innerHTML = companycountry.value+"<br />";}});
+
+
 ref.addEventListener('keyup', function(){if(ref.value==""){cref.style.display="none"}else{ cref.style.display="block"; cref.innerHTML = "<h4><u>REF: "+ref.value+"</u></h4><br />";}});
 coverbody.addEventListener('keyup', function(){cbody.innerHTML = coverbody.value;});
 

@@ -77,7 +77,7 @@ h1, h2, h3, h4, h5, h6 {
 h1 {font-size: 50px;}
 h2 {font-size: 36px;}
 h3 {font-size: 32px;}
-h4 {font-size: 24px;}
+h4 {font-size: 20px;}
 h5 {font-size: 18px;}
 h6 {font-size: 17px;}
 
@@ -302,10 +302,11 @@ header nav .lastnav a:hover{background-color: var(--light-orange); color:var(---
 }
 
 .workbx .workarea{background-color:var(--white); border-radius:20px; box-shadow: #f1f1f1 3px 3px 13px 3px; width:100%; margin-bottom:3em; padding: 20px;}
-.scrollwork{overflow-x: hidden; max-height: 87vh; overflow-y: visible;}
+.scrollwork{}
 .scrollwork::-webkit-scrollbar { display: none;}
 
-.cvresized{position: relative;  background-color: var(--white);  border-radius: 20px;  box-shadow: #f1f1f1 3px 3px 13px 3px;  transform: scale(0.55);  transform-origin: 0 0;  height: 100vh; }
+.cvresized{ position: absolute; background-color: var(--white);  border-radius: 20px;  box-shadow: #f1f1f1 3px 3px 13px 3px;  transform: scale(0.52);  transform-origin: 0 0;  height: fit-content;  float: left;  overflow: scroll;}
+.cvresized::-webkit-scrollbar { display: none;}
 
 .collcont { display: none; }
 
@@ -346,7 +347,7 @@ header nav .lastnav a:hover{background-color: var(--light-orange); color:var(---
   }
     
 
-.sectionholder .section h4{margin:1em 0;}
+.sectionholder .section h4{margin: 1em 0;}
 
 .paginationbx{float:left; width:100%; position:relative;}
 .paginationbx .nextprevbtn{ padding:10px 15px; background-color: #feed40; margin-right: 5px;}

@@ -44,7 +44,7 @@
                 <div class="aligncenter fullwidth flexcenter" id="cpersonalinfo">
                     <div id="cemail" class="hidediv"></div>
                     <div id="ctel" class="hidediv"></div>
-                    <div id="caddress" class="hidediv"></div>
+                    <div id="caddressbx" class="hidediv"><span style="float:left" id="caddress"></span><span style="float:left" id="cpostalcode"></span></div>
                     <div id="ccity" class="hidediv"></div>
                     <div id="ccountry" class="hidediv"></div>
                 </div>
@@ -58,9 +58,11 @@
                 <div class="alignright fullwidth"><span id="cdate"></span></div>
                 <p>&nbsp;</p>
                 <p>
-                    <span id="crecipient"></span><br />
-                    <span id="ccompany"></span><br />
-                    <span id="ccomaddress"></span><br />
+                    <span id="crecipient"></span>
+                    <span id="ccompany"></span>
+                    <span id="ccomaddress"></span>
+                    <span id="ccomcity"></span>
+                    <span id="ccomountry"></span>
                 </p>
                 <p>&nbsp;</p>
                 <div id="cref" class="hidediv"></div>

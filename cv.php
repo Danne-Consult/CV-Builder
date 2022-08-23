@@ -26,6 +26,7 @@
                 </div>
                 <div class="col-lg-6">
                    <div class="workarea">
+                    <h3>My CV</h3>
                    <form class="contactForm" action="#" method="POST">
                     <div class="sectionholder">
                         <div class="section secshow" id="section1">
