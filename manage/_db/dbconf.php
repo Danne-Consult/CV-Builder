@@ -25,4 +25,9 @@
     public function escape_string($value){
         return $this->conn->real_escape_string($value);
     }
+
+    public function convertdate($daydate){
+        $formatdate = date_format(date_create($daydate),"D d M, Y H:i:s");
+        echo $formatdate;
+    }
 }

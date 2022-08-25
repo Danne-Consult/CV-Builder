@@ -154,6 +154,12 @@
                                 </div>
                             </div>
                         </form>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <a href="javascript:void(0)" onclick="gettemp(this)" rec="default">Default Template</a>&nbsp;&nbsp;
+                                <a href="javascript:void(0)" onclick="gettemp(this)" rec="classic">Classic Template</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="col-lg-5">

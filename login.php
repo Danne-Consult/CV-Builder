@@ -1,6 +1,6 @@
 <?php 
     session_start();
-    if(isset($_SESSION['username'])){
+    if(isset($_SESSION['userid'])){
         header('location:home.php');
     }
 ?>
@@ -34,20 +34,19 @@
                             echo "<div class='error-red'>". $_GET['error'] ."</div>";
                         }
                     ?>
-                    <form action="#" class="contactForm">
+                    <form action="controller/login.php" method="POST" class="contactForm">
                         <label for="username">Email:</label><br />
-                        <input type="email" name="unername" id="username" required><br />
+                        <input type="email" name="username" id="username" required /><br />
                         <label for="password">Password:</label><br />
-                        <input type="password" name="passx" id="passx" required><i class="fa-solid fa-eye" id="togglePassword"></i><br />
-                        <button class="submit" name="loginx">Login</button>
+                        <input type="password" name="passx" id="passx" required /><i class="fa-solid fa-eye" id="togglePassword"></i><br />
+                        <input type="submit" class="submit" name="loginx" value="Login" />
                     </form>
                     <p><a href="signup.php">Create an account</a></p>
                 </div>
-
                 <?php include "includes/footer.inc"; ?>
             </div>
     </div>
-    <?php include "includes/footer.inc"; ?>
+
 </body>
 <script>
     const togglePassword = document.querySelector("#togglePassword");

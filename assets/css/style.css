@@ -287,6 +287,8 @@ header nav .lastnav a:hover{background-color: var(--light-orange); color:var(---
 .loginbx footer article{width:100%;}
 .loginbx footer .copy{font-size:11px;}
 
+.minheight76{min-height:76vh}
+
 .workbx{min-height:90vh;}
 .workbx .sidebar{background-color:var(--white); border-radius:20px; box-shadow: #f1f1f1 3px 3px 13px 3px;}
 .workbx .sidebar .sidenav{padding: 22px 11px; text-align: center; min-height: 5em; font-size: 11px; }
@@ -302,7 +304,7 @@ header nav .lastnav a:hover{background-color: var(--light-orange); color:var(---
 }
 
 .workbx .workarea{background-color:var(--white); border-radius:20px; box-shadow: #f1f1f1 3px 3px 13px 3px; width:100%; margin-bottom:3em; padding: 20px;}
-.scrollwork{}
+
 .scrollwork::-webkit-scrollbar { display: none;}
 
 .cvresized{ position: absolute; background-color: var(--white);  border-radius: 20px;  box-shadow: #f1f1f1 3px 3px 13px 3px;  transform: scale(0.52);  transform-origin: 0 0;  height: fit-content;  float: left;  overflow: scroll;}

@@ -1,32 +1,85 @@
 <?php
-include "manage/_db-conf/dbconf.php";
-$db = new DBconnect();
+	session_start();
+    date_default_timezone_set("Africa/Nairobi");
 
-class Signup{
+    include "../manage/_db/dbconf.php";
 
-    public function setUser($fname, $lname, $gender, $email, $password){
+    function signup($firstname, $lastname, $email, $pass, $passretype, $ran){
         
-        $hashedpw = password_hash($password, PASSWORD_DEFAULT);
-        //$sql = "INSERT INTO qwe_cvappusers (firstname, lastname, gender, email, passwd) VALUES ('$fname','$lname','$gender','$email','$hashedpw')";
+        $currentdate= date("y-m-d h:i:s"); 
+        $db = new DBconnect;
+        $prefix = $db->prefix;
+        $sqlecmail = "SELECT email FROM ".$prefix."users WHERE email='$email'";
+        $resultemail = $db->conn->query($sqlecmail);
+        $emailrws = mysqli_num_rows($resultemail);
+
         
-        $result=$db->createData("_cvappusers","(firstname, lastname, gender, email, passwd)","('$fname','$lname','$gender','$email','$hashedpw')" );
-        
-        if(!$result){
-           
-            header("location:signup.php?error=Connot Add User");
+        if($pass!==$passretype){
+            header('location:../signup.php?error=Password Missmatch');
             exit();
         }
-        $result = null;
-    }
-
-    public function checkUser($email){
-
-        $result = $db->countData("email",$email);
-        
-        if($result){
-            header("location:signup.php?error=User already Exists");
+        if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
+            header('location:../signup.php?error=invalid Email');
+            exit();
         }
-        return $result;
-    }
 
-}
+        if($emailrws==1){
+            header('location:../signup.php?error=That email is already in use.');
+            exit();
+        }
+
+        $hashedpw = password_hash($pass, PASSWORD_DEFAULT);
+
+        $sql = "INSERT INTO ".$prefix."users (usercode, fname, lname, email, password, createdon, status) VALUES('$ran','$firstname','$lastname','$email','$hashedpw','$currentdate','1')";
+        $result = $db->conn->query($sql);
+
+        $sql1 = "SELECT * FROM ".$prefix."users WHERE email='$email'";
+        $result1 = $db->conn->query($sql1);
+        $trws = mysqli_num_rows($result1);
+        $rws = $result1->fetch_array();
+
+        if($trws=1){   
+            $_SESSION['user']= $rws['id'];
+            $_SESSION['userid']= $rws['usercode'];
+            $_SESSION['fname'] = $rws['fname'];
+            $_SESSION['lname'] = $rws['lname'];
+            $_SESSION['lastlogintime'] = time();
+
+            if(isset($_SESSION['userid'])){
+                header("location:../home.php");
+            }else{
+                header("location:../signup.php?error=unable to login");
+                exit();
+            }
+        }else{
+            header('location:../signup.php?error=Sorry! We Could not register you at the moment. Please try later.');
+            exit();
+        }        
+    }
+    function generateRandomString($length = 10) {
+		$characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+		$charactersLength = strlen($characters);
+		$randomString = '';
+		for ($i = 0; $i < $length; $i++) {
+			$randomString .= $characters[rand(0, $charactersLength - 1)];
+		}
+		return $randomString;
+	}
+    
+
+    if(isset($_POST['signupx'])){
+
+        $randstr = generateRandomString();
+        $fname = $_POST['fname'];
+        $lname = $_POST['lname'];
+        $useremail = $_POST['useremail'];
+        $pass = $_POST['passx'];
+        $repass = $_POST['repassx'];
+
+        signup($fname,$lname, $useremail, $pass, $repass, $randstr);
+
+    }else{
+        header('location:../signup.php?error=Signup first');
+    }
+	
+?>

@@ -24,6 +24,11 @@
                 
                 <div class="logform">
                     <h3 class="aligncenter">Create an account</h3><br />
+                    <?php
+                        if(isset($_GET['error'])){
+                            echo "<div class='error-red'>". $_GET['error'] ."</div>";
+                        }
+                    ?>
                     <form action="controller/signup.php" method="POST" class="contactForm">
                         <div class="row">
                             <div class="col-lg-6">
@@ -38,7 +43,7 @@
                         <div class="row">
                             <div class="col-lg-12">
                                 <label for="username">Email:</label><br />
-                                <input type="email" name="unername" id="username" required>
+                                <input type="email" name="useremail" id="useremail" required>
                             </div>
                         </div>
                         <div class="row">
@@ -52,7 +57,7 @@
                             </div>
                         </div>
 
-                        <button class="submit" name="loginx">Create Account</button>
+                        <button type="submit" class="submit" name="signupx">Create Account</button>
                     </form>
                 </div>
                 <div class="terms">

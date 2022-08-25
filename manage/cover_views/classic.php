@@ -1,5 +1,5 @@
     <style>
-        /* Default Template */
+        /* Classic Template */
         :root{
             --white: #fff;
             --black: #171717;
@@ -12,11 +12,14 @@
             --error-red:#ecd4d4;
 
         }
-        .cover{width: 900px; min-height: 1250px; background-color: #fff; padding: 6em; margin: 0px auto;}
+        .cover{width: 900px; min-height: 1250px; background-color: #fff; padding: 6em; margin: 0px auto; font-family:san-serif;} 
 
         .aligncenter{text-align:center;}
         .alignright{text-align:right;}
+        .cover h2, .cover h3, .cover h4, .cover h5{font-family:san-serif;}
 
+        .flexleft{display: flex; align-items: end; flex-flow: column;}
+        .flexbx{display: flex;}
         .fullwidth{width:100%; }
         .width-80{width: 80%; margin: 0px auto;}
         .cover .thintext{font-size:14.5px; padding: 3em 20px; background-color: #fafafa;}
@@ -39,16 +42,16 @@
     <div class="cover">
         <div class="row">
             <div class="col-lg-12">
-                <h3 class="aligncenter" id="cfullname"></h3>
-                <p class="aligncenter" id="coccupation"></p>
-                <div class="aligncenter fullwidth flexcenter" id="cpersonalinfo">
+                <h3 class="alignright" id="cfullname"></h3>
+                <p class="alignright" id="coccupation"></p>
+                <div class="fullwidth flexleft" id="cpersonalinfo">
                     <div id="cemail" class="hidediv"></div>
                     <div id="ctel" class="hidediv"></div>
                     <div id="caddressbx" class="hidediv"><span style="float:left" id="caddress"></span><span style="float:left" id="cpostalcode"></span></div>
-                    <div id="ccity" class="hidediv"></div>
-                    <div id="ccountry" class="hidediv"></div>
+                    <div class="flexbx"><span id="ccity" class="hidediv"></span>,&nbsp;<span id="ccountry" class="hidediv"></span></div>
+                    
                 </div>
-                <div class="aligncenter fullwidth flexcenter">
+                <div class="fullwidth flexleft">
                     <div id="cwebsite" class="hidediv"></div>
                     <div id="cfacebook" class="hidediv"></div>
                     <div id="clinkedin" class="hidediv"></div>
@@ -61,8 +64,7 @@
                     <span id="crecipient"></span>
                     <span id="ccompany"></span>
                     <span id="ccomaddress"></span>
-                    <span id="ccomcity"></span>
-                    <span id="ccomountry"></span>
+                    <div class="flexbx"><span id="ccomcity"></span>,&nbsp;<span id="ccomountry"></span></div>
                 </p>
                 <p>&nbsp;</p>
                 <div id="cref" class="hidediv"></div>
@@ -72,4 +74,3 @@
             </div>    
         </div>
     </div>
-    

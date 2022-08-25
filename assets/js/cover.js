@@ -1,3 +1,4 @@
+
 const fname = document.getElementById("fname");
 const occupation = document.getElementById("occupation");
 const email = document.getElementById("email");
@@ -49,15 +50,6 @@ const cbody = document.getElementById("cbody");
 
 cbody.innerHTML = coverbody.value;
 
-/*function fillcover(){
-    cfullname.innerHTML = fname.value;
-    coccupation.innerHTML = occupation.value;
-    crecipient.innerHTML = recipient.value;
-    ccompany.innerHTML = company.value;
-    caomaddress.innerHTML = companyaddress.value;
-    cbody.innerHTML = coverbody.value;
-}*/
-
 
 fname.addEventListener('keyup', function(){cfullname.innerHTML = fname.value;});
 occupation.addEventListener('keyup', function(){coccupation.innerHTML = occupation.value;});
@@ -67,7 +59,7 @@ tel.addEventListener('keyup', function(){if(tel.value==""){ctel.style.display="n
 address.addEventListener('keyup', function(){if(address.value==""){caddressbx.style.display="none";}else{caddressbx.style.display="block"; caddress.innerHTML=address.value}});
 postalcode.addEventListener('keyup', function(){if(postalcode.value==""){cpostalcode.style.display="none";}else{cpostalcode.style.display="block"; cpostalcode.innerHTML="-"+postalcode.value}});
 city.addEventListener('keyup', function(){if(city.value==""){ccity.style.display="none";}else{ccity.style.display="block"; ccity.innerHTML=city.value}});
-country.addEventListener('keyup', function(){if(country.value==""){ccountry.style.display="none";}else{ccountry.style.display="block"; ccountry.innerHTML=country.value}});
+country.addEventListener('keyup', function(){if(country.value==""){ccountry.style.display="none";}else{ccountry.style.display="block"; ccountry.innerHTML+=country.value}});
 
 
 website.addEventListener('change', function(){if(website.value==""){cwebsite.style.display="none";}else{cwebsite.style.display="block"; cwebsite.innerHTML= "<i class='fa-solid fa-earth-africa'></i> "+website.value;}});
@@ -115,3 +107,15 @@ window.onclick = function(event) {
     modal.style.display = "none";
   }
 }
+
+function gettemp(e){
+  const clbx = document.getElementById("clbx");
+  const tempname = e.getAttribute("rec");
+  const url ="manage/cover_views/"+tempname+".php";
+  
+  fetch(url)
+  .then(response=> response.text())
+  .then(text=> clbx.innerHTML = text);
+}
+
+  
