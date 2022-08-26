@@ -32,18 +32,48 @@
            
         </article>
     </div>
+    <?php 
+        include "manage/_db/dbconf.php";
+        $db = new DBconnect;
+        $prefix = $db->prefix;
+        $user=$_SESSION['userid'];
+        $sql="SELECT * FROM ".$prefix."user_coverletter WHERE userid='$user'";
+        $result= $db->conn->query($sql);
+        $trws = mysqli_num_rows($result);
+        $rws = $result->fetch_array();
+        $covers="";
+        $resumes="";
+        if($trws==1){
+            $covers = '<div class="mybxs">My Cover Letter - Created on '.$db->convertdate($rws["createdon"]).'</div>';
+            $covers .='<p class="alignright"><a class="rounded-white-btn" href="viewcoverletter.php">View Letter</a></p>';
+        }else{
+            $covers = '<div class="mybxs">No letters Created.</div>';
+            $covers .='<p class="alignright"><a class="rounded-white-btn" href="covertemplates.php">Create Letter</a></p>';
+        }
+
+        $sql2="SELECT * FROM ".$prefix."user_resume WHERE userid='$user'";
+        $result2= $db->conn->query($sql2);
+        $trws2 = mysqli_num_rows($result2);
+        $rws2 = $result2->fetch_array();
+        if($trws2==1){
+            $resumes = '<div class="mybxs">My Resume - Created on '.$db->convertdate($rws2["createdon"]).'</div>';
+            $resumes .='<p class="alignright"><a class="rounded-white-btn" href="viewresume.php">View Resume</a></p>';
+        }else{
+            $resumes = '<div class="mybxs">No resume Created.</div>';
+            $resumes .='<p class="alignright"><a class="rounded-white-btn" href="resumetemplates.php">Create Resume</a></p>';
+        }
+        
+    ?>
     <div class="container12 dash">
         <article>
             <div class="row justify-content-center">
                 <div class="col-lg-5">
                     <h3>My CVs</h3>
-                    <div class="mybxs">CV - Created on 12 june 2022</div>
-                    <p class="alignright"><a class="rounded-white-btn" href="cv.php">Create CV</a></p>
+                    <?php echo $resumes; ?>
                 </div>
                 <div class="col-lg-5 offset-1">
                     <h3>My Cover Letters</h3>
-                    <div class="mybxs">Cover Letter - Created on 12 june 2022</div>
-                    <p class="alignright"><a class="rounded-white-btn" href="coverletter.php">Create Cover Letter</a></p>
+                    <?php echo $covers; ?>
                 </div>
             </div>
         </article>
