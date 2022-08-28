@@ -1,4 +1,14 @@
 <?php include "controller/sessioncheck.php"; ?>
+<?php 
+    include "manage/_db/dbconf.php"; 
+    $db = new DBconnect;
+    $prefix = $db->prefix;
+    $coverid = $_GET['clt'];
+    $user=$_SESSION['userid'];
+    $sql="SELECT * FROM ".$prefix."coverletter_templates WHERE id='$coverid'";
+    $result= $db->conn->query($sql);
+    $rws = $result->fetch_array();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,42 +38,57 @@
                 <div class="col-lg-6">
                     <div class="workarea scrollwork">
                         <h3>Cover Letter</h3>
-                        <form class="contactForm">
+                        <?php
+                        if(isset($_GET['error'])){
+                            echo "<div class='error-red'>". $_GET['error'] ."</div>";
+                        }
+                        if(isset($_GET['success'])){
+                            echo "<div class='success-green'>". $_GET['success'] ."</div>";
+                        }
+                        ?>
+                        <?php
+                                $sqlx="SELECT * FROM ".$prefix."user_coverletter WHERE userid='$user'";
+                                $resultx= $db->conn->query($sqlx);
+                                $rwsx = $resultx->fetch_array();
+                        ?>
+                        
+                        <form class="contactForm" method="POST" action="controller/coversubmit.php">
                         <div class="sectionholder">
                                 <div class="section secshow" id="section1">
                                     <h4>Personal Details</h4>
+                                    <input type="hidden" name="covertpl" value="<?php echo $coverid; ?>" />
                                     <div class="row">
                                         <div class="col-lg-6">
                                             <label for="fname">Full Name</label><br />
-                                            <input type="text" name="fname" id="fname" />
+                                            <input type="text" name="fname" id="fname" value="<?php if(!$rwsx['fullnames']==""){echo $rwsx['fullnames'];} ?>" />
                                         </div>
                                         <div class="col-lg-6">
                                             <label for="occupation">Occupation</label><br />
-                                            <input type="text" name="occupation " id="occupation" />
+                                            <input type="text" name="occupation" id="occupation" value="<?php if(!$rwsx['occupation']==""){echo $rwsx['occupation'];} ?>" />
                                         </div>
                                         <div class="col-lg-6">
                                             <label for="email">Email Address</label><br />
-                                            <input type="text" name="email" id="email" />
+                                            <input type="text" name="email" id="email" value="<?php if(!$rwsx['email']!==""){echo $rwsx['email'];} ?>" />
                                         </div>
                                         <div class="col-lg-6">
                                             <label for="email">Telephone/Mobile</label><br />
-                                            <input type="tel" name="tel" id="tel" />
+                                            <input type="tel" name="tel" id="tel" value="<?php if(!$rwsx['tel']==""){echo $rwsx['tel'];} ?>" />
                                         </div>
                                         <div class="col-lg-4">
                                             <label for="city">Address</label><br />
-                                            <input type="text" name="address" id="address" />
+                                            <input type="text" name="address" id="address" value="<?php if(!$rwsx['address']==""){echo $rwsx['address'];} ?>" />
                                         </div>
                                         <div class="col-lg-4">
                                             <label for="postalcode">Postal Code</label><br />
-                                            <input type="text" name="postalcode" id="postalcode" />
+                                            <input type="text" name="postalcode" id="postalcode" value="<?php if(!$rwsx['postalcode']==""){echo $rwsx['postalcode'];} ?>" />
                                         </div>
                                         <div class="col-lg-4">
                                             <label for="city">City</label><br />
-                                            <input type="text" name="city" id="city" />
+                                            <input type="text" name="city" id="city" value="<?php if(!$rwsx['city']==""){echo $rwsx['city'];} ?>" />
                                         </div>
                                         <div class="col-lg-4">
                                             <label for="city">Country</label><br />
-                                            <input type="text" name="country" id="country" />
+                                            <input type="text" name="country" id="country" value="<?php if(!$rwsx['country']==""){echo $rwsx['country'];} ?>" />
                                         </div>
                                     
                                     </div>
@@ -76,21 +101,21 @@
                                     <div class="row">
                                         <div class="col-lg-6">
                                             <label for="website">Website <i class="italic">*optional</i></label><br />
-                                            <input type="url" name="website" id="website" />
+                                            <input type="text" name="website" id="website" value="<?php if(!$rwsx['website']==""){echo $rwsx['website'];} ?>" />
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-lg-4">
                                             <label for="facebook">facebook <i class="italic">*optional</i></label><br />
-                                            <input type="text" name="facebook " id="facebook" />
+                                            <input type="text" name="facebook" id="facebook" value="<?php if(!$rwsx['facebook']==""){echo $rwsx['facebook'];} ?>" />
                                         </div>
                                         <div class="col-lg-4">
                                             <label for="occupattwitterion">Twitter <i class="italic">*optional</i></label><br />
-                                            <input type="text" name="twitter " id="twitter" />
+                                            <input type="text" name="twitter" id="twitter" value="<?php if(!$rwsx['twitter']==""){echo $rwsx['twitter'];} ?>" />
                                         </div>
                                         <div class="col-lg-4">
                                             <label for="linkedin">linkedin <i class="italic">*optional</i></label><br />
-                                            <input type="text" name="linkedin " id="linkedin" />
+                                            <input type="text" name="linkedin" id="linkedin" value="<?php if(!$rwsx['linkedin']==""){echo $rwsx['linkedin'];} ?>" />
                                         </div>
                                     </div>
                                     <hr /><br />
@@ -102,30 +127,30 @@
                                     <div class="row">
                                         <div class="col-lg-6">
                                             <label for="letterdate">Letter Date</label><br />
-                                            <input type="date" name="letterdate" id="letterdate"  />
+                                            <input type="date" name="letterdate" id="letterdate" value="<?php if(!$rwsx['letterdate']==""){echo $rwsx['letterdate'];} ?>"  />
                                         </div>
                                     </div>
                                     <h4>Recipient Details</h4>
                                     <div class="row">
                                         <div class="col-md-12">
                                             <label for="recipient">Name of recipient/department <i class="italic">*optional</i></label><br />
-                                            <input type="text" name="recipient" id="recipient" />
+                                            <input type="text" name="recipient" id="recipient" value="<?php if(!$rwsx['recipient']==""){echo $rwsx['recipient'];} ?>" />
                                         </div>
                                         <div class="col-md-12">
                                             <label for="company">Company Name <i class="italic">*optional</i></label><br />
-                                            <input type="text" name="company" id="company" />
+                                            <input type="text" name="company" id="company" value="<?php if(!$rwsx['company']==""){echo $rwsx['company'];} ?>" />
                                         </div>
                                         <div class="col-md-4">
                                             <label for="companyaddress">Address <i class="italic">*optional</i></label><br />
-                                            <input type="text" name="companyaddress" id="companyaddress" />
+                                            <input type="text" name="companyaddress" id="companyaddress" value="<?php if(!$rwsx['comaddress']==""){echo $rwsx['comaddress'];} ?>" />
                                         </div>
                                         <div class="col-md-4">
                                             <label for="companycity">City <i class="italic">*optional</i></label><br />
-                                            <input type="text" name="companycity" id="companycity" />
+                                            <input type="text" name="companycity" id="companycity" value="<?php if(!$rwsx['comcity']==""){echo $rwsx['comcity'];} ?>" />
                                         </div>
                                         <div class="col-md-4">
                                             <label for="companycountry">Country <i class="italic">*optional</i></label><br />
-                                            <input type="text" name="companycountry" id="companycountry" />
+                                            <input type="text" name="companycountry" id="companycountry" value="<?php if(!$rwsx['comcountry']==""){echo $rwsx['comcountry'];} ?>" />
                                         </div>
                                     </div>
                                     <hr /><br />
@@ -137,14 +162,20 @@
                                     <div class="row">
                                         <div class="col-lg-12">
                                             <label for="ref"><i class="italic">*optional</i></label><br />
-                                            <input type="text" name="ref" id="ref" />
+                                            <input type="text" name="ref" id="ref" value="<?php if(!$rwsx['reference']==""){echo $rwsx['reference'];} ?>" />
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-lg-12">
                                             <h4>Letter Body</h4>
                                             <textarea rowspan="3" class="editor" name="coverbody" id="coverbody" >
-                                                <p>Dear , </p><p><br></p><p></p><p>Sincerely,</p>
+                                                <?php 
+                                                if(!$rwsx['coverletter']==""){
+                                                    echo $rwsx['coverletter'];
+                                                    }else{ 
+                                                        echo '<p>Dear , </p><p><br></p><p></p><p>Sincerely,</p>';
+                                                    } 
+                                                ?>
                                             </textarea>
                                         </div>
                                     </div>
@@ -155,17 +186,11 @@
                                 </div>
                             </div>
                         </form>
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <a href="javascript:void(0)" onclick="gettemp(this)" rec="default">Default Template</a>&nbsp;&nbsp;
-                                <a href="javascript:void(0)" onclick="gettemp(this)" rec="classic">Classic Template</a>
-                            </div>
-                        </div>
                     </div>
                 </div>
                 <div class="col-lg-5">
                     <div class="cvresized" id="clbx">
-                        <?php include "manage/cover_views/default.php"; ?>
+                        <?php echo $rws['tempcode']; ?>
                     </div>
                     
                 </div>

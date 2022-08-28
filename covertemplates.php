@@ -1,4 +1,5 @@
 <?php include "controller/sessioncheck.php"; ?>
+<?php include "manage/_db/dbconf.php"; ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,6 +22,34 @@
 
     <div class="container12 workbx">
         <article>
+            <h3>Cover Letter Templates</h3>
+            <p>Select a template</p>
+            <div class="row">
+                <?php
+                    $db = new DBconnect;
+                    $prefix = $db->prefix;
+                    $user=$_SESSION['userid'];
+                    $sql="SELECT * FROM ".$prefix."coverletter_templates";
+                    $result= $db->conn->query($sql);
+                    $tempbx="";
+                    $temptype="";
+                    while($rws = $result->fetch_array()){
+                        if($rws['type']=="free"){
+                            $temptype = "<i>Free</i>";
+                        }else{
+                            $temptype = "<b>Cost:</b> Kes.".$rws['tempcost'];
+                        }
+
+                        $tempbx = "<div class='col-lg-3'>";
+                        $tempbx .= "<div class='tempimg' style='background:url(manage/cover-views/".$rws['tempimg'].") no-repeat center; background-size:cover'></div>";
+                        $tempbx .= "<div class='cont aligncenter'><h5 class='aligncenter'>".$rws['tempname']."</h5><p>".$temptype."</p><p><a class='small-round-btn' href='coverletter.php?clt=".$rws['id']."'>Use Template</a></p></div>";
+                        $tempbx .= "</div>";
+
+                        echo $tempbx;
+                    }
+                ?>
+            </div>
+           
         </article>
     </div>
     

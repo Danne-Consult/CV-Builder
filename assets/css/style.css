@@ -201,6 +201,9 @@ tr:hover{background-color:#F9F7F7;}
 .rounded-white-btn{border:none; background-color: var(--orange);  padding: 15px 34px;  color: var(--white);  text-decoration: none;  border-radius: 200px;transition: all 0.3s ease-in-out; text-transform: uppercase; font-size:1rem; font-weight:400;}
 .rounded-white-btn:hover{background-color:var(--light-orange); color:var(--black);}
 
+.small-round-btn{border:none; background-color: var(--orange);  padding: 10px 20px; font-size:13px; color: var(--white);  text-decoration: none;  border-radius: 200px;transition: all 0.3s ease-in-out; text-transform: uppercase; font-size:1rem; font-weight:400;}
+.small-round-btn:hover{background-color:var(--light-orange); color:var(--black);}
+
 .small-btn{font-size:12px; float:right;}
 
 .arrow{width:27px;}
@@ -271,6 +274,8 @@ header nav .lastnav a:hover{background-color: var(--light-orange); color:var(---
 .dash{margin-bottom:3em;}
 .mybxs{width:100%; background-color:var(--white); border-radius:20px; box-shadow: #f1f1f1 3px 3px 13px 3px; margin-bottom:2em; padding:20px 29px;}
 
+.tempimg{height: 17em; margin-bottom: 2em; border-radius: 10px;}
+
 .login{background:url(../images/img5.jpg) no-repeat center; background-size:cover; position:relative; min-height:100vh;}
 .logobx{ position: absolute; top: 2em;  left: 8em; width: 220px; z-index: 5;}
 
@@ -325,7 +330,7 @@ header nav .lastnav a:hover{background-color: var(--light-orange); color:var(---
 .sectionholder .section{display:none; transition: all 0.3s ease-in-out; margin-left:49vw; transition: all 1s ease;}
 .sectionholder .secshow{display:block;  margin-left:0px;}
 
-.next-prev{background-color:var(--gray); border-radius: 200px; transition: all 0.3s ease-in-out;}
+.next-prev{background-color:var(--gray); border-radius: 200px; transition: all 0.3s ease-in-out; border: none;}
 .next-prev:hover{background-color: var(--navyblue);}
 
 .step {

@@ -44,10 +44,10 @@
         $covers="";
         $resumes="";
         if($trws==1){
-            $covers = '<div class="mybxs">My Cover Letter - Created on '.$db->convertdate($rws["createdon"]).'</div>';
-            $covers .='<p class="alignright"><a class="rounded-white-btn" href="viewcoverletter.php">View Letter</a></p>';
+            $covers = '<div class="mybxs">My Cover Letter - Created on <span>'.$db->convertdate($rws["createdon"]).'</span></div>';
+            $covers .='<p class="alignright"><a class="rounded-white-btn" href="coverletter.php?clt='.$rws["covertemp"] .'">View Letter</a></p>';
         }else{
-            $covers = '<div class="mybxs">No letters Created.</div>';
+            $covers = '<div class="mybxs">No Letters Created.</div>';
             $covers .='<p class="alignright"><a class="rounded-white-btn" href="covertemplates.php">Create Letter</a></p>';
         }
 
@@ -59,7 +59,7 @@
             $resumes = '<div class="mybxs">My Resume - Created on '.$db->convertdate($rws2["createdon"]).'</div>';
             $resumes .='<p class="alignright"><a class="rounded-white-btn" href="viewresume.php">View Resume</a></p>';
         }else{
-            $resumes = '<div class="mybxs">No resume Created.</div>';
+            $resumes = '<div class="mybxs">No Resume Created.</div>';
             $resumes .='<p class="alignright"><a class="rounded-white-btn" href="resumetemplates.php">Create Resume</a></p>';
         }
         

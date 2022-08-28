@@ -27,7 +27,6 @@
     }
 
     public function convertdate($daydate){
-        $formatdate = date_format(date_create($daydate),"D d M, Y H:i:s");
-        echo $formatdate;
+        return date_format(date_create($daydate),"D d M, Y H:i:s");
     }
 }
