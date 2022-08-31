@@ -33,12 +33,12 @@
                             $sql="SELECT * FROM ".$prefix."users WHERE usercode='$user'";
                             $result= $db->conn->query($sql);
                             $rws = $result->fetch_array();
-                            
+                            $createddate = $db->convertdate($rws['createdon']);
                         ?>
                         <h3>User: <?php echo $rws['fname']." ".$rws['lname']; ?></h3>
                         <p><b>Email:</b> <?php echo $rws['email']; ?><br />
                         <b>User ID:</b> <?php echo $rws['usercode']; ?><br />
-                        <b>Joined on:</b> <?php $db->convertdate($rws['createdon']); ?></p>
+                        <b>Joined on:</b> <?php echo $createddate; ?></p>
                     </div>
                     <div class="col-md-5 minheight76">
                         <h3>Change Password</h3>

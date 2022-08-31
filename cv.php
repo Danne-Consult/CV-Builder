@@ -28,20 +28,66 @@
                 <div class="col-lg-6">
                    <div class="workarea">
                     <h3>My CV</h3>
-                   <form class="contactForm" action="#" method="POST">
+                    <?php
+                        if(isset($_GET['error'])){
+                            echo "<div class='error-red'>". $_GET['error'] ."</div>";
+                        }
+                        if(isset($_GET['success'])){
+                            echo "<div class='success-green'>". $_GET['success'] ."</div>";
+                        }
+                    ?>
+
+                    <?php 
+                        include "manage/_db/dbconf.php";
+                        $db = new DBconnect;
+                        $prefix = $db->prefix;
+                        $userid = $_SESSION['userid'];
+                        $sqlresume = "SELECT * FROM ".$prefix."user_resume a RIGHT JOIN ".$prefix."users b ON a.userid = b.usercode WHERE b.usercode = '$userid'";
+                        $resultres = $db->conn->query($sqlresume);
+                        $rwres = $resultres->fetch_array();
+
+                        if(isset($_GET['cvtpl'])){
+                            $cvtpl = $_GET['cvtpl'];
+                        }else{
+                            $cvtpl = $rwres["cvtemp"];
+                        }
+                    
+                        $sqlres="SELECT * FROM ".$prefix."resume_templates WHERE id='$cvtpl'";
+                        $resultres= $db->conn->query($sqlres);
+                        $rwresume = $resultres->fetch_array();
+                    ?>
+                   <form class="contactForm" action="controller/resumesubmit.php" method="POST">
+                    <input type="hidden" value="<?php echo $cvtpl; ?>" name="cvtpl" />
                     <div class="sectionholder">
                         <div class="section secshow" id="section1">
-                            <h4>About me</h4>
+                            <h4>Personal Details</h4>
                             <div class="row">
-                                <div class="col-lg-8">
+                                <div class="col-lg-12">
                                     <label for="fname">Full Name</label><br />
-                                    <input type="text" name="fname" id="fname" />
+                                    <input type="text" name="fname" id="fname" value="<?php if(!$rwres["fullnames"]==""){echo $rwres['fullnames'];}else{echo $rwres['fname']." ".$rwres['lname'];} ?>" required />
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-lg-8">
+                                <div class="col-lg-6">
                                     <label for="jtitle">Job Title</label><br />
-                                    <input type="text" name="jtitle" />
+                                    <input type="text" name="jtitle" value="<?php if(!$rwres['jobtitle']==""){echo $rwres['jobtitle'];} ?>" />
+                                </div>
+                                <div class="col-lg-6">
+                                    <label for="dob">Date of Birth</label><br />
+                                    <input type="date" name="dob" value="<?php if(!$rwres['dob']==""){echo $rwres['dob'];} ?>" required />
+                                </div>
+                                <div class="col-lg-6">
+                                    <label for="gender">Gender/Pronoun</label><br />
+                                    <input type="text" name="gender" value="<?php if(!$rwres['gender']==""){echo $rwres['gender'];} ?>" />
+                                </div>
+                                <div class="col-lg-6">
+                                    <label for="nationality">Nationality</label><br />
+                                    <input type="text" name="nationality" value="<?php if(!$rwres['nationality']==""){echo $rwres['nationality'];} ?>" required />
+                                </div>  
+                                
+                                <div class="col-lg-12">
+                                    <label for="languages">Languages <i class="italic">*Separated with a comma(,)</i></label><br />
+                                    <input type="text" name="languages" value="<?php if(!$rwres['languages']==""){echo $rwres['languages'];} ?>" />
                                 </div>
                             </div>
                             <br /><hr /> 
@@ -53,19 +99,19 @@
                             <div class="row">
                                 <div class="col-lg-6">
                                     <label for="email">Email</label><br />
-                                    <input type="email" name="email" />
+                                    <input type="email" name="email" value="<?php if(!$rwres['resemail']==""){echo $rwres['resemail'];}else{echo $rwres['email'];} ?>" />
                                 </div>
                                 <div class="col-lg-6">
                                     <label for="lname">Tel/Mobile</label><br />
-                                    <input type="tel" name="mobileno" placeholder="eg. +25407..." required />
+                                    <input type="tel" name="mobileno" placeholder="eg. +25407..." value="<?php if(!$rwres['phone']==""){echo $rwres['phone'];} ?>" required />
                                 </div>
                                 <div class="col-lg-6">
                                     <label for="address">Address</label><br />
-                                    <input type="text" name="address" />
+                                    <input type="text" name="address" value="<?php if(!$rwres['address']==""){echo $rwres['address'];} ?>" required  />
                                 </div>
                                 <div class="col-lg-4">
                                     <label for="postalcode">Postal Code</label><br />
-                                    <input type="number" name="postalcode" />
+                                    <input type="number" name="postalcode" value="<?php if(!$rwres['postalcode']==""){echo $rwres['postalcode'];} ?>" />
                                 </div>
                             </div>
                             <br /><hr /> 
@@ -74,24 +120,10 @@
                         </div>
 
                         <div class="section" id="section3">
-                            <h4>Personal Information</h4>
+                            <h4>Brief About Me</h4>
                             <div class="row">
-                                <div class="col-lg-6">
-                                    <label for="dob">Date of Birth</label><br />
-                                    <input type="date" name="dob" />
-                                </div>
-                                <div class="col-lg-6">
-                                    <label for="gender">Gender/Pronoun</label><br />
-                                    <input type="text" name="gender">
-                                </div>
-                                <div class="col-lg-6">
-                                    <label for="nationality">Nationality</label><br />
-                                    <input type="text" name="nationality" required />
-                                </div>  
-                                
-                                <div class="col-lg-6">
-                                    <label for="languages">Languages <i class="italic">*Separated with a comma(,)</i></label><br />
-                                    <input type="text" name="languages" />
+                                <div class="col-lg-12">
+                                    <textarea name="aboutme" class="editor" cols="30" rows="3" maxlength="500"><?php if(!$rwres['brief']==""){echo $rwres['brief'];} ?></textarea><br /><i class="italic">*Max 500 characters</i>
                                 </div>
                             </div>
                             <br /><hr /> 
@@ -100,24 +132,30 @@
                         </div>
 
                         <div class="section" id="section4">
-                            <h4>Brief About Me</h4>
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    <textarea name="aboutme" class="editor" cols="30" rows="3" maxlength="500"></textarea><br /><i class="italic">*Max 500 characters</i>
-                                </div>
-                            </div>
-                            <br /><hr /> 
-                            <button type="button" class="btn btn-primary next-prev" data-next-prev="section3">Prev</button>
-                            <button type="button" class="btn btn-primary next-prev" data-next-prev="section5">Next</button>
-                        </div>
-
-                        <div class="section" id="section5">
                             <h4>Education Background</h4>
                             <div class="com-edu">
+                                <?php if(!$rwres['education']==""){
+
+                                    $edulist= explode("||", $rwres['education']);
+                                    $edulist= array_filter($edulist);
+
+                                    $edulistcount = count($edulist);
+                                    $edu = "";
+                                    foreach($edulist as $key => $value)
+                                        {
+                                            $edulist = explode("/~",$value);
+                                            
+                                            $year=explode("-",$edulist[3]);
+
+                                            $edu= '<div class="educont"> <hr /> <div class="row"> <div class="col-lg-6"> <label for="work">Education Level</label><br /> <select name="educationlevel[]" required> <option value="'.$edulist[1].'" selected>'.$edulist[1].'</option><option>...</option> <option value="Secondary">Secondary</option> <option value="Certificate">Certificate</option> <option value="Diploma">Diploma</option> <option value="Bachelors">Bachelors</option> <option value="Post Graduate Diploma">Post Graduate Diploma</option> <option value="Masters">Masters</option> </select> </div> <div class="col-lg-6"> <label for="Institution">School/Institution</label><br /> <input type="text" name="institution[]" value="'.$edulist[2].'" required /> </div> </div> <div class="row"> <div class="col-lg-4"> <label for="comyearfrom">From</label><br /> <input type="number" name="comyearfrom[]" min="1960" max="2099" step="1" value="'.$year[0].'" required /> </div> <div class="col-lg-4"> <label for="comyearto">To</label><br /> <input type="number" name="comyearto[]" min="1960" max="2099" step="1" value="'.$year[1].'" required /> </div> </div> <div class="row"> <div class="col-lg-12"> <label for="schoolcomment">Area of Study/Course</label><br /> <textarea rowspan="3" class="editor" name="schoolcomment[]">'.$edulist[4].'</textarea> </div> </div> <div class="row justify-content-end"> <div class="col-lg-4"> <div class="addbtnbx moreschool"><i class="fa-solid fa-circle-plus"></i></div> <div class="delbtnbx deleteedu"><i class="fa-solid fa-circle-minus"></i></div> </div> </div> </div><br />';
+                                            echo $edu;
+                                        }
+
+                                }else{?>
                                 <div class="row">
                                     <div class="col-lg-6">
                                         <label for="work">Education Level</label><br />
-                                        <select name="educationlevel[]" required>
+                                        <select name="educationlevel[]" >
                                             <option>...</option>
                                             <option value="Secondary">Secondary</option>
                                             <option value="Certificate">Certificate</option>
@@ -129,17 +167,17 @@
                                     </div>
                                     <div class="col-lg-6">
                                         <label for="Institution">School/Institution</label><br />
-                                        <input type="text" name="institution[]" required />
+                                        <input type="text" name="institution[]" />
                                     </div>  
                                 </div>
                                 <div class="row">
                                     <div class="col-lg-4">
                                         <label for="comyearfrom">From</label><br />
-                                        <input type="number" name="comyearfrom[]" min="1960" max="2099" step="1" required />
+                                        <input type="number" name="comyearfrom[]" min="1960" max="2099" step="1" />
                                     </div>
                                     <div class="col-lg-4">
                                         <label for="comyearto">To</label><br />
-                                        <input type="number" name="comyearto[]" min="1960" max="2099" step="1" required />
+                                        <input type="number" name="comyearto[]" min="1960" max="2099" step="1" />
                                     </div>
                                 </div>
                                 <div class="row">
@@ -153,15 +191,33 @@
                                         <div class="addbtnbx moreschool"><i class="fa-solid fa-circle-plus"></i></div>
                                     </div>
                                 </div>
+                                <?php } ?>
                             </div> 
                             <br /><hr /> 
-                            <button type="button" class="btn btn-primary next-prev" data-next-prev="section4">Prev</button>
-                            <button type="button" class="btn btn-primary next-prev" data-next-prev="section6">Next</button>
+                            <button type="button" class="btn btn-primary next-prev" data-next-prev="section3">Prev</button>
+                            <button type="button" class="btn btn-primary next-prev" data-next-prev="section5">Next</button>
                         </div>
 
-                        <div class="section" id="section6">
+                        <div class="section" id="section5">
                             <h4>Work Experience</h4>
                             <div class="com-work">
+                            <?php if(!$rwres['work']==""){
+                                $wklist= explode("||", $rwres['work']);
+                                $wklist= array_filter($wklist);
+                                
+                                $workcount = count($wklist);
+                                $edu = "";
+                                foreach($wklist as $key => $value)
+                                    {
+                                        $wklist = explode("/~",$value);	
+                                        $yearx = explode("~",$wklist[3]);
+
+                                        $works= '<div class="workcont"> <hr /> <div class="row"> <div class="col-lg-6"> <label for="work">Company/Organization</label><br /> <input type="text" name="company[]" value="'.$wklist[1].'" /> </div> <div class="col-lg-6"> <label for="occupation">Position</label><br /> <input type="text" name="occupation[]" value="'.$wklist[2].'" /> </div> </div> <div class="row"> <div class="col-lg-4"> <label for="workyearcorfrom">From</label><br /> <input type="month" name="workyearfrom[]" placeholder="YYYY-MM" value="'.$yearx[0].'" /> </div> <div class="col-lg-4"> <label for="workyearto">To</label><br /> <input type="month" name="workyearto[]" placeholder="YYYY-MM" value="'.$yearx[1].'" /> </div> </div> <div class="row"> <div class="col-lg-12"> <label for="workcomment">Key Responsibilities</label><br /> <textarea rowspan="3" class="editor" name="workcomment[]" >'.$wklist[4].'</textarea> </div> </div> <div class="row justify-content-end"> <div class="col-lg-4"> <div class="addbtnbx morework"><i class="fa-solid fa-circle-plus" id="addbtn"></i></div> <div class="delbtnbx deletework"><i class="fa-solid fa-circle-minus"></i></div> </div> </div> </div><br />';
+
+
+                                        echo $works;
+                                    }
+                            }else{?>
                                 <div class="row">
                                     <div class="col-lg-6">
                                         <label for="work">Company/Organization</label><br />
@@ -193,6 +249,19 @@
                                         <div class="addbtnbx morework"><i class="fa-solid fa-circle-plus" id="addbtn"></i></div>
                                     </div>
                                 </div>
+                                <?php } ?>
+                            </div>
+                            <br /><hr /> 
+                            <button type="button" class="btn btn-primary next-prev" data-next-prev="section4">Prev</button>
+                            <button type="button" class="btn btn-primary next-prev" data-next-prev="section6">Next</button>
+                        </div>
+
+                        <div class="section" id="section6">
+                            <h4>Other Accreditations/Personal Achievements</h4>
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <textarea name="achievements" class="editor" cols="30" rows="3" maxlength="200"><?php if(!$rwres['achievements']==""){echo $rwres['achievements'];} ?></textarea><br /><i class="italic">*Max 500 characters</i>
+                                </div>
                             </div>
                             <br /><hr /> 
                             <button type="button" class="btn btn-primary next-prev" data-next-prev="section5">Prev</button>
@@ -200,20 +269,23 @@
                         </div>
 
                         <div class="section" id="section7">
-                            <h4>Other Accreditations/Personal Achievements</h4>
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    <textarea name="achievements" class="editor" cols="30" rows="3" maxlength="200"></textarea><br /><i class="italic">*Max 500 characters</i>
-                                </div>
-                            </div>
-                            <br /><hr /> 
-                            <button type="button" class="btn btn-primary next-prev" data-next-prev="section6">Prev</button>
-                            <button type="button" class="btn btn-primary next-prev" data-next-prev="section8">Next</button>
-                        </div>
-
-                        <div class="section" id="section8">
                             <h4>Skills Acquired</h4>
                             <div class="skillbar">
+                            <?php if(!$rwres['skills']==""){
+                                $skilllist= explode("||", $rwres['skills']);
+                                $skilllist= array_filter($skilllist);
+                                
+                                $arrayskillcount = count($skilllist);
+                                $list = "";
+                                foreach($skilllist as $key => $value)
+                                    {
+                                        $eachlist = explode("/~",$value);	
+                        
+                                        $list= '<div class="skillcont" ><div class="row"><div class="col-lg-4"><label for="skilltitle">Skill Name</label><br /><input type="text" name="skill[]" value="'.$eachlist[1].'"/></div><div class="col-lg-4"><label for="capacity">Capacity</label><br /><input class="range" type="range" name="capacity[]" min="0" max="100" value="'.$eachlist[2].'" /></div><div class="col-lg-4"><div class="addbtnbx moreskills"><i class="fa-solid fa-circle-plus" id="addbtn"></i></div><div class="delbtnbx deleteskill"><i class="fa-solid fa-circle-minus"></i></div></div></div></div>';
+                
+                                        echo $list;
+                                    }
+                            }else{?>
                                 <div class="row">
                                     <div class="col-lg-4">
                                         <label for="skilltitle">Skill Name</label><br />
@@ -227,27 +299,40 @@
                                         <div class="addbtnbx moreskills"><i class="fa-solid fa-circle-plus" id="addbtn"></i></div>
                                     </div>
                                 </div>
+                            <?php } ?>
+                            </div>
+                            <br /><hr /> 
+                            <button type="button" class="btn btn-primary next-prev" data-next-prev="section6">Prev</button>
+                            <button type="button" class="btn btn-primary next-prev" data-next-prev="section8">Next</button>
+                        </div>
+
+
+                        <div class="section" id="section8">
+                            <h4>Social Media</h4>
+                            <div class="row">
+                                <div class="col-lg-4">
+                                    <label for="facebook">Facebook</label><br />
+                                    <input type="url" name="facebook" placeholder="https://...." value="<?php if(!$rwres['facebook']==""){echo $rwres['facebook'];} ?>" />
+                                </div>
+                                <div class="col-lg-4">
+                                    <label for="twitter">Twitter</label><br />
+                                    <input type="url" name="twitter" placeholder="https://...." value="<?php if(!$rwres['twitter']==""){echo $rwres['twitter'];} ?>" />
+                                </div>
+                                <div class="col-lg-4">
+                                    <label for="linkedin">Linkedin</label><br />
+                                    <input type="url" name="linkedin" placeholder="https://...." value="<?php if(!$rwres['linkedin']==""){echo $rwres['linkedin'];} ?>" />
+                                </div>
                             </div>
                             <br /><hr /> 
                             <button type="button" class="btn btn-primary next-prev" data-next-prev="section7">Prev</button>
                             <button type="button" class="btn btn-primary next-prev" data-next-prev="section9">Next</button>
                         </div>
 
-
                         <div class="section" id="section9">
-                            <h4>Social Media</h4>
+                            <h4>Interests</h4>
                             <div class="row">
-                                <div class="col-lg-4">
-                                    <label for="facebook">Facebook</label><br />
-                                    <input type="url" name="facebook" placeholder="https://...." />
-                                </div>
-                                <div class="col-lg-4">
-                                    <label for="twitter">Twitter</label><br />
-                                    <input type="url" name="twitter" placeholder="https://...." />
-                                </div>
-                                <div class="col-lg-4">
-                                    <label for="linkedin">Linkedin</label><br />
-                                    <input type="url" name="linkedin" placeholder="https://...." />
+                                <div class="col-lg-12">
+                                    <textarea name="interests" class="editor" cols="30" rows="3" maxlength="500"><?php if(!$rwres['interests']==""){echo $rwres['interests'];} ?></textarea><br /><i class="italic">*Max 500 characters</i>
                                 </div>
                             </div>
                             <br /><hr /> 
@@ -255,22 +340,24 @@
                             <button type="button" class="btn btn-primary next-prev" data-next-prev="section10">Next</button>
                         </div>
 
+
                         <div class="section" id="section10">
-                            <h4>Interests</h4>
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    <textarea name="interests" class="editor" cols="30" rows="3" maxlength="500"></textarea><br /><i class="italic">*Max 500 characters</i>
-                                </div>
-                            </div>
-                            <br /><hr /> 
-                            <button type="button" class="btn btn-primary next-prev" data-next-prev="section9">Prev</button>
-                            <button type="button" class="btn btn-primary next-prev" data-next-prev="section11">Next</button>
-                        </div>
-
-
-                        <div class="section" id="section11">
                             <h4>References</h4>
                             <div class="refbar">
+                            <?php if(!$rwres['referees']==""){
+                                $refs= explode("||", $rwres['referees']);
+                                $refs= array_filter($refs);
+                                
+                                $reflist = "";
+                                foreach($refs as $key => $value)
+                                    {
+                                        $refsent = explode("/~",$value);	
+
+                                        $reflist= '<div class="refmore"> <hr /> <div class="row"> <div class="col-lg-12"> <label for="refname">Referee Name</label><br /> <input type="text" name="refname[]" value="'.$refsent[1].'" /> </div> </div> <div class="row"> <div class="col-lg-6"> <label for="orgcom">Organization/Company</label><br /> <input type="text" name="orgcom[]" value="'.$refsent[3].'" /> </div> <div class="col-lg-6"> <label for="reftitle">Occupation Title</label><br /> <input type="text" name="reftitle[]" value="'.$refsent[2].'"  /> </div> </div> <div class="row"> <div class="col-lg-6"> <label for="refemail">Email</label><br /> <input type="email" name="refemail[]" value="'.$refsent[4].'" /> </div> <div class="col-lg-6"> <label for="refnareftelme">Telephone</label><br /> <input type="tel" name="reftel[]" value="'.$refsent[5].'" /> </div> </div> <div class="row justify-content-end"> <div class="col-lg-4"> <div class="addbtnbx moreref"><i class="fa-solid fa-circle-plus"></i></div> <div class="delbtnbx deleteref"><i class="fa-solid fa-circle-minus"></i></div> </div> </div> </div>';
+                
+                                        echo $reflist;
+                                    }   
+                            }else{?>
                                 <div class="row">
                                     <div class="col-lg-12">
                                         <label for="refname">Referee Name</label><br />
@@ -302,10 +389,12 @@
                                         <div class="addbtnbx moreref"><i class="fa-solid fa-circle-plus"></i></div>
                                     </div>
                                 </div>
+                            <?php } ?>
                             </div>
                             <br /><hr /> 
-                            <button type="button" class="btn btn-primary next-prev" data-next-prev="section10">Prev</button>
-                            <input type="submit" class="submit" name="submit" value="Save CV" />
+                            <button type="button" class="btn btn-primary next-prev" data-next-prev="section9">Prev</button>
+                            <input type="submit" class="submit" name="saveresume" value="Save Resume" />
+                            <button type="button" class="rounded-white-btn small-btn" id="myBtn">View Resume</button>
                         </div>   
                     </div>
                     </form>
@@ -313,12 +402,17 @@
                    </div>
                 </div>
                 <div class="col-lg-5">
-                    <div class="cvresized">
-                        <?php include "manage/cv-views/default.php"; ?>
+                    <div class="cvresized" id="resumebx">
+                        <?php echo $rwresume['tempcode']; ?>
                     </div>
                 </div>
             </div>
         </article>
+    </div>
+
+    <div id="myModal" class="modal">
+        <span class="close">&times;</span>
+        <div class="modal-content"></div>
     </div>
     
     <?php include "includes/footer.inc"; ?>
@@ -389,5 +483,6 @@
             
         });
     </script>
+    <script src="assets/js/resume.js" referrerpolicy="origin"></script>
 </body>
 </html>

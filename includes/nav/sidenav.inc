@@ -6,6 +6,6 @@
             <a href="cv.php"><div class="link"><i class="fa-solid fa-pen-fancy"></i><br />My CV</div></a>
     </div>
     <div class="sidenav">
-            <a href="covertemplates.php"><div class="link"><i class="fa-solid fa-envelope-open-text"></i><br />Cover Letter</div></a>
+            <a href="coverletter.php"><div class="link"><i class="fa-solid fa-envelope-open-text"></i><br />Cover Letter</div></a>
     </div>
 </div>

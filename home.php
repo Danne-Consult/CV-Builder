@@ -57,7 +57,7 @@
         $rws2 = $result2->fetch_array();
         if($trws2==1){
             $resumes = '<div class="mybxs">My Resume - Created on '.$db->convertdate($rws2["createdon"]).'</div>';
-            $resumes .='<p class="alignright"><a class="rounded-white-btn" href="viewresume.php">View Resume</a></p>';
+            $resumes .='<p class="alignright"><a class="rounded-white-btn" href="cv.php?cvtpl='.$rws2["cvtemp"].'">View Resume</a></p>';
         }else{
             $resumes = '<div class="mybxs">No Resume Created.</div>';
             $resumes .='<p class="alignright"><a class="rounded-white-btn" href="resumetemplates.php">Create Resume</a></p>';

@@ -3,8 +3,18 @@
     include "manage/_db/dbconf.php"; 
     $db = new DBconnect;
     $prefix = $db->prefix;
-    $coverid = $_GET['clt'];
     $user=$_SESSION['userid'];
+    $sqlx="SELECT * FROM ".$prefix."user_coverletter WHERE userid='$user'";
+    $resultx= $db->conn->query($sqlx);
+    $rwsx = $resultx->fetch_array();                    
+    $coverid = "";
+
+    if(isset($_GET['clt'])){
+        $coverid =$_GET['clt'];
+    }else{
+        $coverid = $rwsx["covertemp"];
+    }
+
     $sql="SELECT * FROM ".$prefix."coverletter_templates WHERE id='$coverid'";
     $result= $db->conn->query($sql);
     $rws = $result->fetch_array();
@@ -46,11 +56,7 @@
                             echo "<div class='success-green'>". $_GET['success'] ."</div>";
                         }
                         ?>
-                        <?php
-                                $sqlx="SELECT * FROM ".$prefix."user_coverletter WHERE userid='$user'";
-                                $resultx= $db->conn->query($sqlx);
-                                $rwsx = $resultx->fetch_array();
-                        ?>
+                        
                         
                         <form class="contactForm" method="POST" action="controller/coversubmit.php">
                         <div class="sectionholder">
@@ -198,8 +204,8 @@
         </article>
     </div>
     <div id="myModal" class="modal">
-    <span class="close">&times;</span>
-    <div class="modal-content"></div>
+        <span class="close">&times;</span>
+        <div class="modal-content"></div>
     </div>
     
     <?php include "includes/footer.inc"; ?>
