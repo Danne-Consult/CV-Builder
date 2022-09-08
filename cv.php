@@ -70,24 +70,24 @@
                             <div class="row">
                                 <div class="col-lg-6">
                                     <label for="jtitle">Job Title</label><br />
-                                    <input type="text" name="jtitle" value="<?php if(!$rwres['jobtitle']==""){echo $rwres['jobtitle'];} ?>" />
+                                    <input type="text" name="jtitle" id="jtitle" value="<?php if(!$rwres['jobtitle']==""){echo $rwres['jobtitle'];} ?>" />
                                 </div>
                                 <div class="col-lg-6">
                                     <label for="dob">Date of Birth</label><br />
-                                    <input type="date" name="dob" value="<?php if(!$rwres['dob']==""){echo $rwres['dob'];} ?>" required />
+                                    <input type="date" name="dob" id="dob" value="<?php if(!$rwres['dob']==""){echo $rwres['dob'];} ?>" required />
                                 </div>
                                 <div class="col-lg-6">
                                     <label for="gender">Gender/Pronoun</label><br />
-                                    <input type="text" name="gender" value="<?php if(!$rwres['gender']==""){echo $rwres['gender'];} ?>" />
+                                    <input type="text" name="gender" id="gender" value="<?php if(!$rwres['gender']==""){echo $rwres['gender'];} ?>" />
                                 </div>
                                 <div class="col-lg-6">
                                     <label for="nationality">Nationality</label><br />
-                                    <input type="text" name="nationality" value="<?php if(!$rwres['nationality']==""){echo $rwres['nationality'];} ?>" required />
+                                    <input type="text" name="nationality" id="nationality" value="<?php if(!$rwres['nationality']==""){echo $rwres['nationality'];} ?>" required />
                                 </div>  
                                 
                                 <div class="col-lg-12">
                                     <label for="languages">Languages <i class="italic">*Separated with a comma(,)</i></label><br />
-                                    <input type="text" name="languages" value="<?php if(!$rwres['languages']==""){echo $rwres['languages'];} ?>" />
+                                    <input type="text" name="languages" id="lang" value="<?php if(!$rwres['languages']==""){echo $rwres['languages'];} ?>" />
                                 </div>
                             </div>
                             <br /><hr /> 
@@ -99,19 +99,19 @@
                             <div class="row">
                                 <div class="col-lg-6">
                                     <label for="email">Email</label><br />
-                                    <input type="email" name="email" value="<?php if(!$rwres['resemail']==""){echo $rwres['resemail'];}else{echo $rwres['email'];} ?>" />
+                                    <input type="email" name="email" id="email" value="<?php if(!$rwres['resemail']==""){echo $rwres['resemail'];}else{echo $rwres['email'];} ?>" />
                                 </div>
                                 <div class="col-lg-6">
                                     <label for="lname">Tel/Mobile</label><br />
-                                    <input type="tel" name="mobileno" placeholder="eg. +25407..." value="<?php if(!$rwres['phone']==""){echo $rwres['phone'];} ?>" required />
+                                    <input type="tel" name="mobileno" id="tel" placeholder="eg. +25407..." value="<?php if(!$rwres['phone']==""){echo $rwres['phone'];} ?>" required />
                                 </div>
                                 <div class="col-lg-6">
                                     <label for="address">Address</label><br />
-                                    <input type="text" name="address" value="<?php if(!$rwres['address']==""){echo $rwres['address'];} ?>" required  />
+                                    <input type="text" name="address" id="address" value="<?php if(!$rwres['address']==""){echo $rwres['address'];} ?>" required  />
                                 </div>
                                 <div class="col-lg-4">
                                     <label for="postalcode">Postal Code</label><br />
-                                    <input type="number" name="postalcode" value="<?php if(!$rwres['postalcode']==""){echo $rwres['postalcode'];} ?>" />
+                                    <input type="number" name="postalcode" id="postcode" value="<?php if(!$rwres['postalcode']==""){echo $rwres['postalcode'];} ?>" />
                                 </div>
                             </div>
                             <br /><hr /> 
@@ -123,7 +123,7 @@
                             <h4>Brief About Me</h4>
                             <div class="row">
                                 <div class="col-lg-12">
-                                    <textarea name="aboutme" class="editor" cols="30" rows="3" maxlength="500"><?php if(!$rwres['brief']==""){echo $rwres['brief'];} ?></textarea><br /><i class="italic">*Max 500 characters</i>
+                                    <textarea name="aboutme" class="editor" id="brief" cols="30" rows="3" maxlength="500"><?php if(!$rwres['brief']==""){echo $rwres['brief'];} ?></textarea><br /><i class="italic">*Max 500 characters</i>
                                 </div>
                             </div>
                             <br /><hr /> 
@@ -147,7 +147,7 @@
                                             
                                             $year=explode("-",$edulist[3]);
 
-                                            $edu= '<div class="educont"> <hr /> <div class="row"> <div class="col-lg-6"> <label for="work">Education Level</label><br /> <select name="educationlevel[]" required> <option value="'.$edulist[1].'" selected>'.$edulist[1].'</option><option>...</option> <option value="Secondary">Secondary</option> <option value="Certificate">Certificate</option> <option value="Diploma">Diploma</option> <option value="Bachelors">Bachelors</option> <option value="Post Graduate Diploma">Post Graduate Diploma</option> <option value="Masters">Masters</option> </select> </div> <div class="col-lg-6"> <label for="Institution">School/Institution</label><br /> <input type="text" name="institution[]" value="'.$edulist[2].'" required /> </div> </div> <div class="row"> <div class="col-lg-4"> <label for="comyearfrom">From</label><br /> <input type="number" name="comyearfrom[]" min="1960" max="2099" step="1" value="'.$year[0].'" required /> </div> <div class="col-lg-4"> <label for="comyearto">To</label><br /> <input type="number" name="comyearto[]" min="1960" max="2099" step="1" value="'.$year[1].'" required /> </div> </div> <div class="row"> <div class="col-lg-12"> <label for="schoolcomment">Area of Study/Course</label><br /> <textarea rowspan="3" class="editor" name="schoolcomment[]">'.$edulist[4].'</textarea> </div> </div> <div class="row justify-content-end"> <div class="col-lg-4"> <div class="addbtnbx moreschool"><i class="fa-solid fa-circle-plus"></i></div> <div class="delbtnbx deleteedu"><i class="fa-solid fa-circle-minus"></i></div> </div> </div> </div><br />';
+                                            $edu= '<div class="educont"> <hr /> <div class="row"> <div class="col-lg-6"> <label for="work">Education Level</label><br /> <select name="educationlevel[]" class="educ" required> <option value="'.$edulist[1].'" selected>'.$edulist[1].'</option><option>...</option> <option value="Secondary">Secondary</option> <option value="Certificate">Certificate</option> <option value="Diploma">Diploma</option> <option value="Bachelors">Bachelors</option> <option value="Post Graduate Diploma">Post Graduate Diploma</option> <option value="Masters">Masters</option> </select> </div> <div class="col-lg-6"> <label for="Institution">School/Institution</label><br /> <input type="text" class="inst" name="institution[]" value="'.$edulist[2].'" required /> </div> </div> <div class="row"> <div class="col-lg-4"> <label for="comyearfrom">From</label><br /> <input type="number" class="edufrom" name="comyearfrom[]" min="1960" max="2099" step="1" value="'.$year[0].'" required /> </div> <div class="col-lg-4"> <label for="comyearto">To</label><br /> <input type="number" class="eduto" name="comyearto[]" min="1960" max="2099" step="1" value="'.$year[1].'" required /> </div> </div> <div class="row"> <div class="col-lg-12"> <label for="schoolcomment">Area of Study/Course</label><br /> <textarea rowspan="3" class="editor eduach" name="schoolcomment[]">'.$edulist[4].'</textarea> </div> </div> <div class="row justify-content-end"> <div class="col-lg-4"> <div class="addbtnbx moreschool"><i class="fa-solid fa-circle-plus"></i></div> <div class="delbtnbx deleteedu"><i class="fa-solid fa-circle-minus"></i></div> </div> </div> </div><br />';
                                             echo $edu;
                                         }
 
@@ -155,7 +155,7 @@
                                 <div class="row">
                                     <div class="col-lg-6">
                                         <label for="work">Education Level</label><br />
-                                        <select name="educationlevel[]" >
+                                        <select name="educationlevel[]" class="educ" >
                                             <option>...</option>
                                             <option value="Secondary">Secondary</option>
                                             <option value="Certificate">Certificate</option>
@@ -167,23 +167,23 @@
                                     </div>
                                     <div class="col-lg-6">
                                         <label for="Institution">School/Institution</label><br />
-                                        <input type="text" name="institution[]" />
+                                        <input type="text" name="institution[]" class="inst" />
                                     </div>  
                                 </div>
                                 <div class="row">
                                     <div class="col-lg-4">
                                         <label for="comyearfrom">From</label><br />
-                                        <input type="number" name="comyearfrom[]" min="1960" max="2099" step="1" />
+                                        <input type="number" name="comyearfrom[]" class="edufrom" min="1960" max="2099" step="1" />
                                     </div>
                                     <div class="col-lg-4">
                                         <label for="comyearto">To</label><br />
-                                        <input type="number" name="comyearto[]" min="1960" max="2099" step="1" />
+                                        <input type="number" name="comyearto[]" class="eduto" min="1960" max="2099" step="1" />
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-lg-12">
                                         <label for="schoolcomment">Area of Study/Course</label><br />
-                                        <textarea rowspan="3" class="editor" name="schoolcomment[]" ></textarea>
+                                        <textarea rowspan="3" class="editor eduach" name="schoolcomment[]" ></textarea>
                                     </div>
                                 </div>
                                 <div class="row justify-content-end">
@@ -212,7 +212,7 @@
                                         $wklist = explode("/~",$value);	
                                         $yearx = explode("~",$wklist[3]);
 
-                                        $works= '<div class="workcont"> <hr /> <div class="row"> <div class="col-lg-6"> <label for="work">Company/Organization</label><br /> <input type="text" name="company[]" value="'.$wklist[1].'" /> </div> <div class="col-lg-6"> <label for="occupation">Position</label><br /> <input type="text" name="occupation[]" value="'.$wklist[2].'" /> </div> </div> <div class="row"> <div class="col-lg-4"> <label for="workyearcorfrom">From</label><br /> <input type="month" name="workyearfrom[]" placeholder="YYYY-MM" value="'.$yearx[0].'" /> </div> <div class="col-lg-4"> <label for="workyearto">To</label><br /> <input type="month" name="workyearto[]" placeholder="YYYY-MM" value="'.$yearx[1].'" /> </div> </div> <div class="row"> <div class="col-lg-12"> <label for="workcomment">Key Responsibilities</label><br /> <textarea rowspan="3" class="editor" name="workcomment[]" >'.$wklist[4].'</textarea> </div> </div> <div class="row justify-content-end"> <div class="col-lg-4"> <div class="addbtnbx morework"><i class="fa-solid fa-circle-plus" id="addbtn"></i></div> <div class="delbtnbx deletework"><i class="fa-solid fa-circle-minus"></i></div> </div> </div> </div><br />';
+                                        $works= '<div class="workcont"> <hr /> <div class="row"> <div class="col-lg-6"> <label for="work">Company/Organization</label><br /> <input type="text" class="company" name="company[]" value="'.$wklist[1].'" /> </div> <div class="col-lg-6"> <label for="occupation">Position</label><br /> <input type="text" class="pos" name="occupation[]" value="'.$wklist[2].'" /> </div> </div> <div class="row"> <div class="col-lg-4"> <label for="workyearcorfrom">From</label><br /> <input type="month" class="comfrom" name="workyearfrom[]" placeholder="YYYY-MM" value="'.$yearx[0].'" /> </div> <div class="col-lg-4"> <label for="workyearto">To</label><br /> <input type="month" class="comto" name="workyearto[]" placeholder="YYYY-MM" value="'.$yearx[1].'" /> </div> </div> <div class="row"> <div class="col-lg-12"> <label for="workcomment">Key Responsibilities</label><br /> <textarea rowspan="3" class="editor comach" name="workcomment[]" >'.$wklist[4].'</textarea> </div> </div> <div class="row justify-content-end"> <div class="col-lg-4"> <div class="addbtnbx morework"><i class="fa-solid fa-circle-plus" id="addbtn"></i></div> <div class="delbtnbx deletework"><i class="fa-solid fa-circle-minus"></i></div> </div> </div> </div><br />';
 
 
                                         echo $works;
@@ -221,27 +221,27 @@
                                 <div class="row">
                                     <div class="col-lg-6">
                                         <label for="work">Company/Organization</label><br />
-                                        <input type="text" name="company[]" />
+                                        <input type="text" class="company" name="company[]" />
                                     </div>
                                     <div class="col-lg-6">
                                         <label for="occupation">Position</label><br />
-                                        <input type="text" name="occupation[]" />
+                                        <input type="text" class="pos"  name="occupation[]" />
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-lg-4">
                                         <label for="workyearcorfrom">From</label><br />
-                                        <input type="month" name="workyearfrom[]" placeholder="YYYY-MM" />
+                                        <input type="month" class="comfrom"  name="workyearfrom[]" placeholder="YYYY-MM" />
                                     </div>
                                     <div class="col-lg-4">
                                         <label for="workyearto">To</label><br />
-                                        <input type="month" name="workyearto[]" placeholder="YYYY-MM" />
+                                        <input type="month" class="comto"  name="workyearto[]" placeholder="YYYY-MM" />
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-lg-12">
                                         <label for="workcomment">Key Responsibilities</label><br />
-                                        <textarea rowspan="3" class="editor" name="workcomment[]" ></textarea>
+                                        <textarea rowspan="3" class="editor comach" name="workcomment[]" ></textarea>
                                     </div>
                                 </div>
                                 <div class="row justify-content-end">
@@ -260,7 +260,7 @@
                             <h4>Other Accreditations/Personal Achievements</h4>
                             <div class="row">
                                 <div class="col-lg-12">
-                                    <textarea name="achievements" class="editor" cols="30" rows="3" maxlength="200"><?php if(!$rwres['achievements']==""){echo $rwres['achievements'];} ?></textarea><br /><i class="italic">*Max 500 characters</i>
+                                    <textarea name="achievements" id="accredits" class="editor" cols="30" rows="3" maxlength="200"><?php if(!$rwres['achievements']==""){echo $rwres['achievements'];} ?></textarea><br /><i class="italic">*Max 500 characters</i>
                                 </div>
                             </div>
                             <br /><hr /> 
@@ -281,7 +281,7 @@
                                     {
                                         $eachlist = explode("/~",$value);	
                         
-                                        $list= '<div class="skillcont" ><div class="row"><div class="col-lg-4"><label for="skilltitle">Skill Name</label><br /><input type="text" name="skill[]" value="'.$eachlist[1].'"/></div><div class="col-lg-4"><label for="capacity">Capacity</label><br /><input class="range" type="range" name="capacity[]" min="0" max="100" value="'.$eachlist[2].'" /></div><div class="col-lg-4"><div class="addbtnbx moreskills"><i class="fa-solid fa-circle-plus" id="addbtn"></i></div><div class="delbtnbx deleteskill"><i class="fa-solid fa-circle-minus"></i></div></div></div></div>';
+                                        $list= '<div class="skillcont" ><div class="row"><div class="col-lg-4"><label for="skilltitle">Skill Name</label><br /><input type="text" class="skillname" name="skill[]" value="'.$eachlist[1].'"/></div><div class="col-lg-4"><label for="capacity">Capacity</label><br /><input class="range skillrange" type="range" name="capacity[]" min="0" max="100" value="'.$eachlist[2].'" /></div><div class="col-lg-4"><div class="addbtnbx moreskills"><i class="fa-solid fa-circle-plus" id="addbtn"></i></div><div class="delbtnbx deleteskill"><i class="fa-solid fa-circle-minus"></i></div></div></div></div>';
                 
                                         echo $list;
                                     }
@@ -289,11 +289,11 @@
                                 <div class="row">
                                     <div class="col-lg-4">
                                         <label for="skilltitle">Skill Name</label><br />
-                                        <input type="text" name="skill[] "/>
+                                        <input type="text" class="skillname" name="skill[] "/>
                                     </div>
                                     <div class="col-lg-4">
                                         <label for="capacity">Proficiency</label><br />
-                                        <input class="range" type="range" name="capacity[]" min="0" max="100" />
+                                        <input class="range skillrange" type="range" name="capacity[]" min="0" max="100" />
                                     </div>
                                     <div class="col-lg-4">
                                         <div class="addbtnbx moreskills"><i class="fa-solid fa-circle-plus" id="addbtn"></i></div>
@@ -312,15 +312,15 @@
                             <div class="row">
                                 <div class="col-lg-4">
                                     <label for="facebook">Facebook</label><br />
-                                    <input type="url" name="facebook" placeholder="https://...." value="<?php if(!$rwres['facebook']==""){echo $rwres['facebook'];} ?>" />
+                                    <input type="url" name="facebook" id="fb" placeholder="https://...." value="<?php if(!$rwres['facebook']==""){echo $rwres['facebook'];} ?>" />
                                 </div>
                                 <div class="col-lg-4">
                                     <label for="twitter">Twitter</label><br />
-                                    <input type="url" name="twitter" placeholder="https://...." value="<?php if(!$rwres['twitter']==""){echo $rwres['twitter'];} ?>" />
+                                    <input type="url" name="twitter" id="tw" placeholder="https://...." value="<?php if(!$rwres['twitter']==""){echo $rwres['twitter'];} ?>" />
                                 </div>
                                 <div class="col-lg-4">
                                     <label for="linkedin">Linkedin</label><br />
-                                    <input type="url" name="linkedin" placeholder="https://...." value="<?php if(!$rwres['linkedin']==""){echo $rwres['linkedin'];} ?>" />
+                                    <input type="url" name="linkedin" id="linkedin" placeholder="https://...." value="<?php if(!$rwres['linkedin']==""){echo $rwres['linkedin'];} ?>" />
                                 </div>
                             </div>
                             <br /><hr /> 
@@ -332,7 +332,7 @@
                             <h4>Interests</h4>
                             <div class="row">
                                 <div class="col-lg-12">
-                                    <textarea name="interests" class="editor" cols="30" rows="3" maxlength="500"><?php if(!$rwres['interests']==""){echo $rwres['interests'];} ?></textarea><br /><i class="italic">*Max 500 characters</i>
+                                    <textarea name="interests" id="interests" class="editor" cols="30" rows="3" maxlength="500"><?php if(!$rwres['interests']==""){echo $rwres['interests'];} ?></textarea><br /><i class="italic">*Max 500 characters</i>
                                 </div>
                             </div>
                             <br /><hr /> 
@@ -353,7 +353,7 @@
                                     {
                                         $refsent = explode("/~",$value);	
 
-                                        $reflist= '<div class="refmore"> <hr /> <div class="row"> <div class="col-lg-12"> <label for="refname">Referee Name</label><br /> <input type="text" name="refname[]" value="'.$refsent[1].'" /> </div> </div> <div class="row"> <div class="col-lg-6"> <label for="orgcom">Organization/Company</label><br /> <input type="text" name="orgcom[]" value="'.$refsent[3].'" /> </div> <div class="col-lg-6"> <label for="reftitle">Occupation Title</label><br /> <input type="text" name="reftitle[]" value="'.$refsent[2].'"  /> </div> </div> <div class="row"> <div class="col-lg-6"> <label for="refemail">Email</label><br /> <input type="email" name="refemail[]" value="'.$refsent[4].'" /> </div> <div class="col-lg-6"> <label for="refnareftelme">Telephone</label><br /> <input type="tel" name="reftel[]" value="'.$refsent[5].'" /> </div> </div> <div class="row justify-content-end"> <div class="col-lg-4"> <div class="addbtnbx moreref"><i class="fa-solid fa-circle-plus"></i></div> <div class="delbtnbx deleteref"><i class="fa-solid fa-circle-minus"></i></div> </div> </div> </div>';
+                                        $reflist= '<div class="refmore"> <hr /> <div class="row"> <div class="col-lg-12"> <label for="refname">Referee Name</label><br /> <input type="text" class="refname" name="refname[]" value="'.$refsent[1].'" /> </div> </div> <div class="row"> <div class="col-lg-6"> <label for="orgcom">Organization/Company</label><br /> <input type="text" class="reforg" name="orgcom[]" value="'.$refsent[3].'" /> </div> <div class="col-lg-6"> <label for="reftitle">Occupation Title</label><br /> <input type="text" class="refpos" name="reftitle[]" value="'.$refsent[2].'"  /> </div> </div> <div class="row"> <div class="col-lg-6"> <label for="refemail">Email</label><br /> <input type="email" class="refemail" name="refemail[]" value="'.$refsent[4].'" /> </div> <div class="col-lg-6"> <label for="refnareftelme">Telephone</label><br /> <input type="tel" class="reftel" name="reftel[]" value="'.$refsent[5].'" /> </div> </div> <div class="row justify-content-end"> <div class="col-lg-4"> <div class="addbtnbx moreref"><i class="fa-solid fa-circle-plus"></i></div> <div class="delbtnbx deleteref"><i class="fa-solid fa-circle-minus"></i></div> </div> </div> </div>';
                 
                                         echo $reflist;
                                     }   
@@ -361,27 +361,27 @@
                                 <div class="row">
                                     <div class="col-lg-12">
                                         <label for="refname">Referee Name</label><br />
-                                        <input type="text" name="refname[]" />
+                                        <input type="text" class="refname" name="refname[]" />
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-lg-6">
                                         <label for="orgcom">Organization/Company</label><br />
-                                        <input type="text" name="orgcom[]" />
+                                        <input type="text" class="reforg"  name="orgcom[]" />
                                     </div>
                                     <div class="col-lg-6">
                                         <label for="reftitle">Occupation Title</label><br />
-                                        <input type="text" name="reftitle[]" />
+                                        <input type="text" class="refpos"  name="reftitle[]" />
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-lg-6">
                                         <label for="refemail">Email</label><br />
-                                        <input type="email" name="refemail[]" />
+                                        <input type="email" class="refemail"  name="refemail[]" />
                                     </div>
                                     <div class="col-lg-6">
                                         <label for="refnareftelme">Telephone</label><br />
-                                        <input type="tel" name="reftel[]" />
+                                        <input type="tel" class="reftel"  name="reftel[]" />
                                     </div>
                                 </div>
                                 <div class="row justify-content-end">
@@ -445,7 +445,7 @@
             
             
             $(document).on('click', '.moreskills' ,function(){
-				$('.skillbar').append('<div class="skillcont" ><div class="row"><div class="col-lg-4"><label for="skilltitle">Skill Name</label><br /><input type="text" name="skill[] "/></div><div class="col-lg-4"><label for="capacity">Capacity</label><br /><input class="range" type="range" name="capacity[]" min="0" max="100" /></div><div class="col-lg-4"><div class="addbtnbx moreskills"><i class="fa-solid fa-circle-plus" id="addbtn"></i></div><div class="delbtnbx deleteskill"><i class="fa-solid fa-circle-minus"></i></div></div></div></div>');
+				$('.skillbar').append('<div class="skillcont" ><div class="row"><div class="col-lg-4"><label for="skilltitle">Skill Name</label><br /><input type="text" class="skillname" name="skill[] "/></div><div class="col-lg-4"><label for="capacity">Capacity</label><br /><input class="range skillrange" type="range" name="capacity[]" min="0" max="100" /></div><div class="col-lg-4"><div class="addbtnbx moreskills"><i class="fa-solid fa-circle-plus" id="addbtn"></i></div><div class="delbtnbx deleteskill"><i class="fa-solid fa-circle-minus"></i></div></div></div></div>');
 			});
 			$(document).on('click','.deleteskill', function(){
                 if(confirm("Are you sure you want to delete this record?") == true){
@@ -483,6 +483,6 @@
             
         });
     </script>
-    <script src="assets/js/resume.js" referrerpolicy="origin"></script>
+    <script src="assets/js/cv.js" referrerpolicy="origin"></script>
 </body>
 </html>
