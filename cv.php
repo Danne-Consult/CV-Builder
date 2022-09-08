@@ -46,11 +46,16 @@
                         $resultres = $db->conn->query($sqlresume);
                         $rwres = $resultres->fetch_array();
 
+                        if($rwres["cvtemp"]=="" && $_GET['cvtpl']==""){
+                            header("location:resumetemplates.php");
+                        }
+
                         if(isset($_GET['cvtpl'])){
                             $cvtpl = $_GET['cvtpl'];
                         }else{
                             $cvtpl = $rwres["cvtemp"];
                         }
+                       
                     
                         $sqlres="SELECT * FROM ".$prefix."resume_templates WHERE id='$cvtpl'";
                         $resultres= $db->conn->query($sqlres);

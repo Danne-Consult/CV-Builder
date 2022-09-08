@@ -9,6 +9,10 @@
     $rwsx = $resultx->fetch_array();                    
     $coverid = "";
 
+    if($rwsx["covertemp"]=="" && $_GET['clt']==""){
+        header("location:covertemplates.php");
+    }
+
     if(isset($_GET['clt'])){
         $coverid =$_GET['clt'];
     }else{
