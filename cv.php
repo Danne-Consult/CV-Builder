@@ -157,50 +157,53 @@
                                         }
 
                                 }else{?>
-                                <div class="row">
-                                    <div class="col-lg-6">
-                                        <label for="work">Education Level</label><br />
-                                        <select name="educationlevel[]" class="educ" >
-                                            <option>...</option>
-                                            <option value="Secondary">Secondary</option>
-                                            <option value="Certificate">Certificate</option>
-                                            <option value="Diploma">Diploma</option>
-                                            <option value="Bachelors">Bachelors</option>
-                                            <option value="Post Graduate Diploma">Post Graduate Diploma</option>
-                                            <option value="Masters">Masters</option>
-                                        </select>
+                                <div class="educont"> 
+                                    <br />
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <label for="work">Education Level</label><br />
+                                            <select name="educationlevel[]" class="educ" >
+                                                <option>...</option>
+                                                <option value="Secondary">Secondary</option>
+                                                <option value="Certificate">Certificate</option>
+                                                <option value="Diploma">Diploma</option>
+                                                <option value="Bachelors">Bachelors</option>
+                                                <option value="Post Graduate Diploma">Post Graduate Diploma</option>
+                                                <option value="Masters">Masters</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <label for="Institution">School/Institution</label><br />
+                                            <input type="text" name="institution[]" class="inst" />
+                                        </div>  
                                     </div>
-                                    <div class="col-lg-6">
-                                        <label for="Institution">School/Institution</label><br />
-                                        <input type="text" name="institution[]" class="inst" />
-                                    </div>  
-                                </div>
-                                <div class="row">
-                                    <div class="col-lg-4">
-                                        <label for="comyearfrom">From</label><br />
-                                        <input type="number" name="comyearfrom[]" class="edufrom" min="1960" max="2099" step="1" />
+                                    <div class="row">
+                                        <div class="col-lg-4">
+                                            <label for="comyearfrom">From</label><br />
+                                            <input type="number" name="comyearfrom[]" class="edufrom" min="1960" max="2099" step="1" />
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <label for="comyearto">To</label><br />
+                                            <input type="number" name="comyearto[]" class="eduto" min="1960" max="2099" step="1" />
+                                        </div>
                                     </div>
-                                    <div class="col-lg-4">
-                                        <label for="comyearto">To</label><br />
-                                        <input type="number" name="comyearto[]" class="eduto" min="1960" max="2099" step="1" />
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <label for="schoolcomment">Area of Study/Course</label><br />
+                                            <textarea rowspan="3" class="editor eduach" name="schoolcomment[]" ></textarea>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-lg-12">
-                                        <label for="schoolcomment">Area of Study/Course</label><br />
-                                        <textarea rowspan="3" class="editor eduach" name="schoolcomment[]" ></textarea>
-                                    </div>
-                                </div>
-                                <div class="row justify-content-end">
-                                    <div class="col-lg-2">
-                                        <div class="addbtnbx moreschool"><i class="fa-solid fa-circle-plus"></i></div>
+                                    <div class="row justify-content-end">
+                                        <div class="col-lg-2">
+                                            <div class="addbtnbx moreschool"><i class="fa-solid fa-circle-plus"></i></div>
+                                        </div>
                                     </div>
                                 </div>
                                 <?php } ?>
                             </div> 
                             <br /><hr /> 
                             <button type="button" class="btn btn-primary next-prev" data-next-prev="section3">Prev</button>
-                            <button type="button" class="btn btn-primary next-prev" data-next-prev="section5">Next</button>
+                            <button type="button" id="edusub" class="btn btn-primary next-prev" data-next-prev="section5">Next</button>
                         </div>
 
                         <div class="section" id="section5">
@@ -223,42 +226,45 @@
                                         echo $works;
                                     }
                             }else{?>
-                                <div class="row">
-                                    <div class="col-lg-6">
-                                        <label for="work">Company/Organization</label><br />
-                                        <input type="text" class="company" name="company[]" />
+                                <div class="workcont">
+                                    <br />
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <label for="work">Company/Organization</label><br />
+                                            <input type="text" class="company" name="company[]" />
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <label for="occupation">Position</label><br />
+                                            <input type="text" class="pos"  name="occupation[]" />
+                                        </div>
                                     </div>
-                                    <div class="col-lg-6">
-                                        <label for="occupation">Position</label><br />
-                                        <input type="text" class="pos"  name="occupation[]" />
+                                    <div class="row">
+                                        <div class="col-lg-4">
+                                            <label for="workyearcorfrom">From</label><br />
+                                            <input type="month" class="comfrom"  name="workyearfrom[]" placeholder="YYYY-MM" />
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <label for="workyearto">To</label><br />
+                                            <input type="month" class="comto"  name="workyearto[]" placeholder="YYYY-MM" />
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-lg-4">
-                                        <label for="workyearcorfrom">From</label><br />
-                                        <input type="month" class="comfrom"  name="workyearfrom[]" placeholder="YYYY-MM" />
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <label for="workcomment">Key Responsibilities</label><br />
+                                            <textarea rowspan="3" class="editor comach" name="workcomment[]" ></textarea>
+                                        </div>
                                     </div>
-                                    <div class="col-lg-4">
-                                        <label for="workyearto">To</label><br />
-                                        <input type="month" class="comto"  name="workyearto[]" placeholder="YYYY-MM" />
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-lg-12">
-                                        <label for="workcomment">Key Responsibilities</label><br />
-                                        <textarea rowspan="3" class="editor comach" name="workcomment[]" ></textarea>
-                                    </div>
-                                </div>
-                                <div class="row justify-content-end">
-                                    <div class="col-lg-2 ">
-                                        <div class="addbtnbx morework"><i class="fa-solid fa-circle-plus" id="addbtn"></i></div>
+                                    <div class="row justify-content-end">
+                                        <div class="col-lg-2 ">
+                                            <div class="addbtnbx morework"><i class="fa-solid fa-circle-plus" id="addbtn"></i></div>
+                                        </div>
                                     </div>
                                 </div>
                                 <?php } ?>
                             </div>
                             <br /><hr /> 
                             <button type="button" class="btn btn-primary next-prev" data-next-prev="section4">Prev</button>
-                            <button type="button" class="btn btn-primary next-prev" data-next-prev="section6">Next</button>
+                            <button type="button" class="btn btn-primary next-prev" data-next-prev="section6" id="worksub">Next</button>
                         </div>
 
                         <div class="section" id="section6">
@@ -291,24 +297,26 @@
                                         echo $list;
                                     }
                             }else{?>
-                                <div class="row">
-                                    <div class="col-lg-4">
-                                        <label for="skilltitle">Skill Name</label><br />
-                                        <input type="text" class="skillname" name="skill[] "/>
-                                    </div>
-                                    <div class="col-lg-4">
-                                        <label for="capacity">Proficiency</label><br />
-                                        <input class="range skillrange" type="range" name="capacity[]" min="0" max="100" />
-                                    </div>
-                                    <div class="col-lg-4">
-                                        <div class="addbtnbx moreskills"><i class="fa-solid fa-circle-plus" id="addbtn"></i></div>
+                                <div class="skillcont" >
+                                    <div class="row">
+                                        <div class="col-lg-4">
+                                            <label for="skilltitle">Skill Name</label><br />
+                                            <input type="text" class="skillname" name="skill[] "/>
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <label for="capacity">Proficiency</label><br />
+                                            <input class="range skillrange" type="range" name="capacity[]" min="0" max="100" />
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <div class="addbtnbx moreskills"><i class="fa-solid fa-circle-plus" id="addbtn"></i></div>
+                                        </div>
                                     </div>
                                 </div>
                             <?php } ?>
                             </div>
                             <br /><hr /> 
                             <button type="button" class="btn btn-primary next-prev" data-next-prev="section6">Prev</button>
-                            <button type="button" class="btn btn-primary next-prev" data-next-prev="section8">Next</button>
+                            <button type="button" class="btn btn-primary next-prev" data-next-prev="section8" id="skillsub">Next</button>
                         </div>
 
 
@@ -428,7 +436,7 @@
             mce();
 
 			$(document).on('click', '.moreschool' ,function(){
-				$('.com-edu').append('<div class="educont"> <hr /> <div class="row"> <div class="col-lg-6"> <label for="work">Education Level</label><br /> <select name="educationlevel[]" required> <option>...</option> <option value="Secondary">Secondary</option> <option value="Certificate">Certificate</option> <option value="Diploma">Diploma</option> <option value="Bachelors">Bachelors</option> <option value="Post Graduate Diploma">Post Graduate Diploma</option> <option value="Masters">Masters</option> </select> </div> <div class="col-lg-6"> <label for="Institution">School/Institution</label><br /> <input type="text" name="institution[]" required /> </div> </div> <div class="row"> <div class="col-lg-4"> <label for="comyearfrom">From</label><br /> <input type="number" name="comyearfrom[]" min="1960" max="2099" step="1" required /> </div> <div class="col-lg-4"> <label for="comyearto">To</label><br /> <input type="number" name="comyearto[]" min="1960" max="2099" step="1" required /> </div> </div> <div class="row"> <div class="col-lg-12"> <label for="schoolcomment">Area of Study/Course</label><br /> <textarea rowspan="3" class="editor" name="schoolcomment[]"></textarea> </div> </div> <div class="row justify-content-end"> <div class="col-lg-4"> <div class="addbtnbx moreschool"><i class="fa-solid fa-circle-plus"></i></div> <div class="delbtnbx deleteedu"><i class="fa-solid fa-circle-minus"></i></div> </div> </div> </div>');
+				$('.com-edu').append('<div class="educont"> <hr /> <div class="row"> <div class="col-lg-6"> <label for="work">Education Level</label><br /> <select name="educationlevel[]" class="educ" required> <option>...</option> <option value="Secondary">Secondary</option> <option value="Certificate">Certificate</option> <option value="Diploma">Diploma</option> <option value="Bachelors">Bachelors</option> <option value="Post Graduate Diploma">Post Graduate Diploma</option> <option value="Masters">Masters</option> </select> </div> <div class="col-lg-6"> <label for="Institution">School/Institution</label><br /> <input type="text" class="inst" name="institution[]" required /> </div> </div> <div class="row"> <div class="col-lg-4"> <label for="comyearfrom">From</label><br /> <input type="number" name="comyearfrom[]" class="edufrom" min="1960" max="2099" step="1" required /> </div> <div class="col-lg-4"> <label for="comyearto">To</label><br /> <input type="number" name="comyearto[]" class="eduto" min="1960" max="2099" step="1" required /> </div> </div> <div class="row"> <div class="col-lg-12"> <label for="schoolcomment">Area of Study/Course</label><br /> <textarea rowspan="3" class="editor eduach" name="schoolcomment[]"></textarea> </div> </div> <div class="row justify-content-end"> <div class="col-lg-4"> <div class="addbtnbx moreschool"><i class="fa-solid fa-circle-plus"></i></div> <div class="delbtnbx deleteedu"><i class="fa-solid fa-circle-minus"></i></div> </div> </div> </div>');
                 mce();
  
 			});
@@ -439,7 +447,7 @@
 			});
 
             $(document).on('click', '.morework' ,function(){
-				$('.com-work').append('<div class="workcont"> <hr /> <div class="row"> <div class="col-lg-6"> <label for="work">Company/Organization</label><br /> <input type="text" name="company[]" /> </div> <div class="col-lg-6"> <label for="occupation">Position</label><br /> <input type="text" name="occupation[]" /> </div> </div> <div class="row"> <div class="col-lg-4"> <label for="workyearcorfrom">From</label><br /> <input type="month" name="workyearfrom[]" placeholder="YYYY-MM" /> </div> <div class="col-lg-4"> <label for="workyearto">To</label><br /> <input type="month" name="workyearto[]" placeholder="YYYY-MM" /> </div> </div> <div class="row"> <div class="col-lg-12"> <label for="workcomment">Key Responsibilities</label><br /> <textarea rowspan="3" class="editor" name="workcomment[]" ></textarea> </div> </div> <div class="row justify-content-end"> <div class="col-lg-4"> <div class="addbtnbx morework"><i class="fa-solid fa-circle-plus" id="addbtn"></i></div> <div class="delbtnbx deletework"><i class="fa-solid fa-circle-minus"></i></div> </div> </div> </div>');
+				$('.com-work').append('<div class="workcont"> <hr /> <div class="row"> <div class="col-lg-6"> <label for="work">Company/Organization</label><br /> <input type="text" class="company" name="company[]" /> </div> <div class="col-lg-6"> <label for="occupation">Position</label><br /> <input type="text" class="pos" name="occupation[]" /> </div> </div> <div class="row"> <div class="col-lg-4"> <label for="workyearcorfrom">From</label><br /> <input type="month" class="comfrom"  name="workyearfrom[]" placeholder="YYYY-MM" /> </div> <div class="col-lg-4"> <label for="workyearto">To</label><br /> <input type="month"  class="comto"  name="workyearto[]" placeholder="YYYY-MM" /> </div> </div> <div class="row"> <div class="col-lg-12"> <label for="workcomment">Key Responsibilities</label><br /> <textarea rowspan="3" class="editor comach" name="workcomment[]" ></textarea> </div> </div> <div class="row justify-content-end"> <div class="col-lg-4"> <div class="addbtnbx morework"><i class="fa-solid fa-circle-plus" id="addbtn"></i></div> <div class="delbtnbx deletework"><i class="fa-solid fa-circle-minus"></i></div> </div> </div> </div>');
                 mce();
 			});
 			$(document).on('click','.deletework', function(){
