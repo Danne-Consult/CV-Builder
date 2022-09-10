@@ -273,10 +273,10 @@ $(".submit").click(function(){
 var modal = document.getElementById("myModal");
 var btn = document.getElementById("myBtn");
 var span = document.getElementsByClassName("close")[0];
-var clbx = document.getElementById("clbx");
+var resumebx = document.getElementById("resumebx");
 
 btn.onclick = function() {
-    modal.innerHTML = clbx.innerHTML;
+    modal.innerHTML = resumebx.innerHTML;
     modal.style.display = "block";
 }
 
@@ -287,16 +287,6 @@ window.onclick = function(event) {
   if (event.target == modal) {
     modal.style.display = "none";
   }
-}
-
-function gettemp(e){
-  const clbx = document.getElementById("clbx");
-  const tempname = e.getAttribute("rec");
-  const url ="manage/cover_views/"+tempname+".php";
-  
-  fetch(url)
-  .then(response=> response.text())
-  .then(text=> clbx.innerHTML = text);
 }
 
   
