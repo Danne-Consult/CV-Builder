@@ -13,6 +13,8 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/fontawesome/css/all.css">
+    <link rel="stylesheet" href="assets/css/slick-theme.css">
+    <link rel="stylesheet" href="assets/css/slick.css">
     <link rel="stylesheet" href="assets/css/style.css">
     <script src="assets/js/jquery.min.js"></script>
 </head>
@@ -422,6 +424,35 @@
             </div>
         </article>
     </div>
+    <div class="container12 tempbx">
+        <div class="moretpl">More Templates</div>
+        <article class="hidebx" id="hidebx">
+            <div class="slidex row">
+                <?php
+                if(!$rwres["cvtemp"]==""){
+                    $sql="SELECT * FROM ".$prefix."resume_templates";
+                    $result= $db->conn->query($sql);
+                    $tempbx="";
+                    $temptype="";
+                    while($rws = $result->fetch_array()){
+                        if($rws['type']=="free"){
+                            $temptype = "<i>Free</i>";
+                        }else{
+                            $temptype = "<b>Cost:</b> Kes.".$rws['tempcost'];
+                        }
+
+                        $tempbx = "<div class='col-lg-3'>";
+                        $tempbx .= "<div class='tempimg' style='background:url(manage/cover-views/".$rws['tempimg'].") no-repeat center; background-size:cover'></div>";
+                        $tempbx .= "<div class='cont aligncenter'><h5 class='aligncenter'>".$rws['tempname']."</h5><p>".$temptype."</p><p><a class='small-round-btn' href='cv.php?cvtpl=".$rws['id']."'>Use Template</a></p></div>";
+                        $tempbx .= "</div>";
+
+                        echo $tempbx;
+                    }
+                } 
+                ?>
+            </div>
+        </article>
+    </div>
 
     <div id="myModal" class="modal">
         <span class="close">&times;</span>
@@ -430,6 +461,7 @@
     
     <?php include "includes/footer.inc"; ?>
     <script src="manage/assets/js/tinymce/tinymce.min.js" referrerpolicy="origin"></script>
+    <script src="assets/js/slick.js" referrerpolicy="origin"></script>
     <script>
         
         $(document).ready(function() {
@@ -493,7 +525,31 @@
                 $(".section").removeClass("secshow");
                 $("#"+section).addClass("secshow");
              });
-            
+
+
+             $('.slidex').slick({
+                dots: false,
+                infinite: true,
+                speed: 300,
+                slidesToShow: 4,
+                slidesToScroll: 4,
+                responsive: [
+                    {
+                    breakpoint: 480,
+                    settings: {
+                        slidesToShow: 1,
+                        slidesToScroll: 1
+                    }
+                    }
+                ]
+                });
+
+            $(".moretpl").click(function(){
+                var hiddentpls = $("#hidebx");
+                hiddentpls.toggle(function(){
+                    hiddentpls.removeClass("hidebx");
+                });
+            })            
         });
     </script>
     <script src="assets/js/cv.js" referrerpolicy="origin"></script>

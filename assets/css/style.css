@@ -294,7 +294,7 @@ header nav .lastnav a:hover{background-color: var(--light-orange); color:var(---
 
 .minheight76{min-height:76vh}
 
-.workbx{min-height:90vh;}
+.workbx{min-height:90vh; margin-bottom: 3em;}
 .workbx .sidebar{background-color:var(--white); border-radius:20px; box-shadow: #f1f1f1 3px 3px 13px 3px;}
 .workbx .sidebar .sidenav{padding: 22px 11px; text-align: center; min-height: 5em; font-size: 11px; }
 .workbx .sidebar .sidenav a{text-decoration: none;}
@@ -312,8 +312,11 @@ header nav .lastnav a:hover{background-color: var(--light-orange); color:var(---
 
 .scrollwork::-webkit-scrollbar { display: none;}
 
-.cvresized{ position: absolute; background-color: var(--white);  border-radius: 20px;  box-shadow: #f1f1f1 3px 3px 13px 3px;  transform: scale(0.4);  transform-origin: 0 0;  height: fit-content;  float: left;  overflow: scroll;}
+.cvresized{ position: absolute; background-color: var(--white);  border-radius: 20px;  box-shadow: #f1f1f1 3px 3px 13px 3px;  transform: scale(0.4);  transform-origin: 0 0;  height: fit-content;  float: left;  overflow: scroll;  transition: all 0.3s ease-in-out; }
 .cvresized::-webkit-scrollbar { display: none;}
+.cvresized:hover{cursor: pointer;}
+.cvresized:before{position:absolute; content:""; width:100%; height:100%; left:0px; top:0px;  transition: all 0.3s ease-in-out;}
+.cvresized:hover:before{background-color:rgba(204, 204, 204, 0.142);}
 
 .collcont { display: none; }
 
@@ -361,11 +364,18 @@ header nav .lastnav a:hover{background-color: var(--light-orange); color:var(---
 .paginationbx .pagelink{padding: 10px 15px; background-color: #ededed; margin-right: 5px;}
 .paginationbx .active{font-weight:700;}
 
+.tempbx{background-color: #efefef; position: relative; padding-top: 2em;}
+.tempbx .moretpl{position: absolute; z-index: 10; top: -3em; left: 7em; background-color: #efefef; padding: 14px 20px; border-top-left-radius: 5px; border-top-right-radius: 5px; cursor: pointer; font-weight:700; color:var(--navyblue);}
+.tempbx article{transition: all 0.3s ease-in-out;}
+.tempbx article.hidebx{height: 0px; overflow: hidden;}
+.tempbx .col-lg-3{position: relative; padding: 20px;}
+.tempbx .col-lg-3 .cont{ position:absolute; bottom: 3em; width:100%; left:0px;}
+
 
 .modal {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
+    z-index: 15; /* Sit on top */
     padding-top: 100px; /* Location of the box */
     left: 0;
     top: 0;
@@ -408,7 +418,7 @@ header nav .lastnav a:hover{background-color: var(--light-orange); color:var(---
 .contactForm input, .contactForm textarea, .contactForm select{ margin-bottom:20px; padding: 10px; width: 100%;}
 .contactForm input[type="checkbox"]{width: 20px !important;}
 .contactForm input:focus, .contactForm textarea:focus, .contactForm input:hover, .contactForm textarea:hover{background:#f2f2f2;}
-.contactForm .submit{background-color: var(--orange);  padding: 15px 34px;  color: var(--white);  text-decoration: none;  border-radius: 200px;transition: all 0.3s ease-in-out; text-transform: uppercase; font-size:1rem; font-weight:400; border:none; width: auto;}
+.contactForm .submit{background-color: var(--orange);  padding: 15px 34px;  color: var(--white);  text-decoration: none;  border-radius: 200px; transition: all 0.3s ease-in-out; text-transform: uppercase; font-size:1rem; font-weight:400; border:none; width: auto;}
 
 .contactForm .submit:hover, .contactForm .submit:focus{background-color:var(--light-orange); color:var(--black);}
 

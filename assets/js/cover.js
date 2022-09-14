@@ -119,6 +119,10 @@ btn.onclick = function() {
     modal.innerHTML = clbx.innerHTML;
     modal.style.display = "block";
 }
+clbx.onclick = function() {
+  modal.innerHTML = clbx.innerHTML;
+  modal.style.display = "block";
+}
 
 span.onclick = function() {
   modal.style.display = "none";

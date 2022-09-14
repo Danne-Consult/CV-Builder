@@ -279,6 +279,10 @@ btn.onclick = function() {
     modal.innerHTML = resumebx.innerHTML;
     modal.style.display = "block";
 }
+resumebx.onclick = function(){
+  modal.innerHTML = resumebx.innerHTML;
+    modal.style.display = "block";
+}
 
 span.onclick = function() {
   modal.style.display = "none";
