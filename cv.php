@@ -417,6 +417,7 @@
                    </div>
                 </div>
                 <div class="col-lg-5">
+                    <a title="Download" id="downloadrec" class="rounded-white-btn floataboveright"><i class="fa-solid fa-download"></i></a>
                     <div class="cvresized" id="resumebx">
                         <?php echo $rwresume['tempcode']; ?>
                     </div>
@@ -460,8 +461,10 @@
     </div>
     
     <?php include "includes/footer.inc"; ?>
+
     <script src="manage/assets/js/tinymce/tinymce.min.js" referrerpolicy="origin"></script>
     <script src="assets/js/slick.js" referrerpolicy="origin"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js" referrerpolicy="origin"></script>
     <script>
         
         $(document).ready(function() {
@@ -549,7 +552,25 @@
                 hiddentpls.toggle(function(){
                     hiddentpls.removeClass("hidebx");
                 });
-            })            
+            })    
+            
+            
+            $("#downloadrec").click(function(){
+            var reccont = document.getElementById("myresume");
+            topdf(reccont);
+            })
+            function topdf(reccont) {
+                // Generate the PDF
+
+                html2pdf().from(reccont).set({
+                margin: [10, 5, 20, 5],
+                filename: 'myresume.pdf',
+                //image: { type: 'jpg', quality: 1 },
+                html2canvas:  { scale:2.5, letterRendering: true, width: 1080, height: 1920},
+                jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
+                pageBreak: { mode: 'css', after:'.break-page'}
+                }).save();
+            }
         });
     </script>
     <script src="assets/js/cv.js" referrerpolicy="origin"></script>

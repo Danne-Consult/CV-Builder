@@ -200,7 +200,8 @@
                         </form>
                     </div>
                 </div>
-                <div class="col-lg-5">
+                <div class="col-lg-5 position-relative">
+                    <a title="Download" id="downloadrec" class="rounded-white-btn floataboveright"><i class="fa-solid fa-download"></i></a>
                     <div class="cvresized" id="clbx">
                         <?php echo $rws['tempcode']; ?>
                     </div>
@@ -248,6 +249,7 @@
     <?php include "includes/footer.inc"; ?>
     <script src="manage/assets/js/tinymce/tinymce.min.js" referrerpolicy="origin"></script>
     <script src="assets/js/slick.js" referrerpolicy="origin"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js" referrerpolicy="origin"></script>
     <script>
         
         $(document).ready(function() {
@@ -294,6 +296,23 @@
                     hiddentpls.removeClass("hidebx");
                 });
             })   
+
+            $("#downloadrec").click(function(){
+            var reccont = document.getElementById("mycover");
+            topdf(reccont);
+            })
+            function topdf(reccont) {
+                // Generate the PDF
+
+                html2pdf().from(reccont).set({
+                margin: [5, 5, 15, 5],
+                filename: 'mycover.pdf',
+                //image: { type: 'jpg', quality: 1 },
+                html2canvas:  { scale:2.5, letterRendering: true, width: 1080, height: 1920},
+                jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
+                pageBreak: { mode: 'css', after:'.break-page'}
+                }).save();
+            }
         });
     </script>
     <script src="assets/js/cover.js" referrerpolicy="origin"></script>

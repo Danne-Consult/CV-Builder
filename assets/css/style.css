@@ -206,6 +206,9 @@ tr:hover{background-color:#F9F7F7;}
 
 .small-btn{font-size:12px; float:right;}
 
+.floataboveright{position: absolute; z-index: 1; padding: 12px 16px; right: 11em; top: -1em;}
+.position-relative {position:relative;}
+
 .arrow{width:27px;}
 
 .clearfix{clear:both;}
@@ -312,7 +315,7 @@ header nav .lastnav a:hover{background-color: var(--light-orange); color:var(---
 
 .scrollwork::-webkit-scrollbar { display: none;}
 
-.cvresized{ position: absolute; background-color: var(--white);  border-radius: 20px;  box-shadow: #f1f1f1 3px 3px 13px 3px;  transform: scale(0.4);  transform-origin: 0 0;  height: fit-content;  float: left;  overflow: scroll;  transition: all 0.3s ease-in-out; }
+.cvresized{ position: absolute; background-color: var(--white);  border-radius: 20px;  box-shadow: #f1f1f1 3px 3px 13px 3px;  transform: scale(0.4);  transform-origin: 0 0;  max-height: 108em;  float: left;  overflow: scroll;  transition: all 0.3s ease-in-out; }
 .cvresized::-webkit-scrollbar { display: none;}
 .cvresized:hover{cursor: pointer;}
 .cvresized:before{position:absolute; content:""; width:100%; height:100%; left:0px; top:0px;  transition: all 0.3s ease-in-out;}
