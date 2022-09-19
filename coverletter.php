@@ -201,7 +201,7 @@
                     </div>
                 </div>
                 <div class="col-lg-5 position-relative">
-                    <a title="Download" id="downloadrec" class="rounded-white-btn floataboveright"><i class="fa-solid fa-download"></i></a>
+                    <a href="controller/checktemp.php?tplid=<?php echo $coverid; ?>&temptype=coverletter" title="Download" id="downloadrec" class="rounded-white-btn floataboveright"><i class="fa-solid fa-download"></i></a>
                     <div class="cvresized" id="clbx">
                         <?php echo $rws['tempcode']; ?>
                     </div>
@@ -305,12 +305,11 @@
                 // Generate the PDF
 
                 html2pdf().from(reccont).set({
-                margin: [5, 5, 15, 5],
+                margin: [5, 2, 15, 5],
                 filename: 'mycover.pdf',
-                //image: { type: 'jpg', quality: 1 },
-                html2canvas:  { scale:2.5, letterRendering: true, width: 1080, height: 1920},
+                html2canvas:  { scale:2.5, letterRendering: true, width: 1080},
                 jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
-                pageBreak: { mode: 'css', after:'.break-page'}
+                //pagebreak: { mode: ['css']}
                 }).save();
             }
         });

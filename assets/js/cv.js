@@ -293,4 +293,45 @@ window.onclick = function(event) {
   }
 }
 
+
+function getUrlParameter(sParam) {
+  var sPageURL = window.location.search.substring(1),
+  sURLVariables = sPageURL.split('&'),
+  sParameterName,
+  i;
+
+  for (i = 0; i < sURLVariables.length; i++) {
+      sParameterName = sURLVariables[i].split('=');
+
+      if (sParameterName[0] === sParam) {
+          return sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]);
+      }
+  }
+  return false;
+};
+
+  var download = getUrlParameter('d');
+
+  if(download==1){
+    $('#downnow').delay(1000).fadeIn("slow");
+    $('#downloadrec').hide();
+    $('#downnow').click(function(){
+
+      var namex= $('#cfname').html();
+      var element = $('#myresume').html();
+      var opt = {
+        margin:       [5, 0, 20, 0],
+        filename:     namex+' Resume.pdf',
+        //image:        { type: 'jpeg', quality: 1 },
+        pagebreak: { mode: ['avoid-all']},
+        html2canvas:  { scale: 3, letterrendering: true, scrollY: 0,  width: 1080, height: 1920},
+        jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' }
+      };
+
+      html2pdf().set(opt).from(element).save();
+    });
+  } 
+
+
+
   

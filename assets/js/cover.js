@@ -58,7 +58,7 @@ window.addEventListener('load', function(){
   if(tel.value==""){ctel.style.display="none";}else{ctel.style.display="block"; ctel.innerHTML=tel.value};
   if(address.value==""){caddressbx.style.display="none";}else{caddressbx.style.display="block"; caddress.innerHTML=address.value};
   if(postalcode.value==""){cpostalcode.style.display="none";}else{cpostalcode.style.display="block"; cpostalcode.innerHTML="-"+postalcode.value};
-  if(city.value==""){ccity.style.display="none";}else{ccity.style.display="block"; ccity.innerHTML=",&nbsp;"+city.value};
+  if(city.value==""){ccity.style.display="none";}else{ccity.style.display="block"; ccity.innerHTML=" "+city.value};
   if(country.value==""){ccountry.style.display="none";}else{ccountry.style.display="block"; ccountry.innerHTML=",&nbsp;"+country.value};
   if(website.value==""){cwebsite.style.display="none";}else{cwebsite.style.display="block"; cwebsite.innerHTML= "<i class='fa-solid fa-earth-africa'></i> "+website.value;};
   if(website.value==""){cwebsite.style.display="none";}else{cwebsite.style.display="block"; cwebsite.innerHTML= "<i class='fa-solid fa-earth-africa'></i> "+website.value;};
@@ -82,8 +82,8 @@ email.addEventListener('keyup', function(){if(email.value==""){cemail.style.disp
 tel.addEventListener('keyup', function(){if(tel.value==""){ctel.style.display="none";}else{ctel.style.display="block"; ctel.innerHTML=tel.value}});
 address.addEventListener('keyup', function(){if(address.value==""){caddressbx.style.display="none";}else{caddressbx.style.display="block"; caddress.innerHTML=address.value}});
 postalcode.addEventListener('keyup', function(){if(postalcode.value==""){cpostalcode.style.display="none";}else{cpostalcode.style.display="block"; cpostalcode.innerHTML="-"+postalcode.value}});
-city.addEventListener('keyup', function(){if(city.value==""){ccity.style.display="none";}else{ccity.style.display="block"; ccity.innerHTML=",&nbsp;"+city.value}});
-country.addEventListener('keyup', function(){if(country.value==""){ccountry.style.display="none";}else{ccountry.style.display="block"; ccountry.innerHTML=",&nbsp;,"+country.value}});
+city.addEventListener('keyup', function(){if(city.value==""){ccity.style.display="none";}else{ccity.style.display="block"; ccity.innerHTML=" "+city.value}});
+country.addEventListener('keyup', function(){if(country.value==""){ccountry.style.display="none";}else{ccountry.style.display="block"; ccountry.innerHTML=" ,"+country.value}});
 website.addEventListener('change', function(){if(website.value==""){cwebsite.style.display="none";}else{cwebsite.style.display="block"; cwebsite.innerHTML= "<i class='fa-solid fa-earth-africa'></i> "+website.value;}});
 facebook.addEventListener('change', function(){if(facebook.value==""){cfacebook.style.display="none";}else{cfacebook.style.display="block";cfacebook.innerHTML= "<i class='fa-brands fa-facebook'></i> "+facebook.value}});
 twitter.addEventListener('change', function(){if(twitter.value==""){ctwitter.style.display="none";}else{ctwitter.style.display="block";ctwitter.innerHTML= "<i class='fa-brands fa-twitter'></i> "+twitter.value}});

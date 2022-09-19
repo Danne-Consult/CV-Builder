@@ -206,7 +206,7 @@ tr:hover{background-color:#F9F7F7;}
 
 .small-btn{font-size:12px; float:right;}
 
-.floataboveright{position: absolute; z-index: 1; padding: 12px 16px; right: 11em; top: -1em;}
+.floataboveright{position: absolute; z-index: 1; padding: 12px 16px; right: auto; top: -1em;}
 .position-relative {position:relative;}
 
 .arrow{width:27px;}

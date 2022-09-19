@@ -1,47 +1,23 @@
-<?php 
+<?php
 
-if(isset($_GET['rec'])){
- if($_GET['rec']!==""){
+    require 'vendor/autoload.php';
 
-    session_start();
-    $rec = $_GET['rec'];
-    include "manage/_db/dbconf.php";
-
-    if($rec == "coverletter"){
-        $db = new DBconnect;
-        $prefix = $db->prefix;
-        $user=$_SESSION['userid'];
-        $sqlx="SELECT * FROM ".$prefix."user_coverletter a LEFT JOIN ".$prefix."coverletter_templates b ON a.covertemp = b.id WHERE userid='$user'";
-        $resultx= $db->conn->query($sqlx);
-        $rwsx = $resultx->fetch_array();
-
-        if($rwsx['temptype']=="free"){
-            
-        }
-        if($rwsx['temptype']=="paid"){
-            
-        }
+    use Dompdf\Dompdf;
+    
+    $htmlx = $_GET['html'];
 
 
-    }
-    if($rec == "resume"){
-        
-    }
+    $dompdf = new Dompdf();
+    $dompdf->loadHtml($htmlx);
 
- }else{
-    header("location:javascript://history.go(-1)");
- }
+    //(Optional) Setup the paper size and orientation
+    $dompdf->setPaper('A4', 'portrait');
 
-}else{
-    header("location:javascript://history.go(-1)");
-}
+    // Render the HTML as PDF
+    $dompdf->render();
 
+    // Output the generated PDF to Browser
+    $dompdf->stream();
 
-function invoiceuser($usercode, $tempid, $tempcost){
-
-}
-function downloaddoc($doccode){
-
-}
-
+    echo "Download was successful";
 ?>
