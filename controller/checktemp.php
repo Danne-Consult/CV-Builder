@@ -76,7 +76,7 @@ if(isset($_GET['tplid']) && isset($_GET['temptype']) ){
     }
 
 
-    updatedbtemplate($userid, $tpltype, $tplid);
+    updatedbtemplate($userid, $tplid, $tpltype);
 
     if($trws1>0){
 
