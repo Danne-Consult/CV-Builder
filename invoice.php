@@ -19,7 +19,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Invoice $invoiceid : Realtime CVs</title>
+    <title>Invoice <?php echo $invoiceid; ?> : Realtime CVs</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -55,14 +55,38 @@
                         </tr>
                     </table>
 
-                    <h3>How to pay</h3>
-                    <h4>Using MPESA</h4>
-                    <p>Go to the M-pesa Menu<br />
-                    Select Pay Bill<br />
-                    Enter Business No: <b>4096713</b><br />
-                    Enter Account No: <b><?php echo $invoiceid; ?></b><br />
-                    Enter the Amount: <b><?php echo $rws1['tplcost']; ?></b><br />
-                    Enter your M-Pesa PIN then send</p>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <h3>How to pay</h3>
+                            <h4>Using MPESA</h4>
+                            <p>Go to the M-pesa Menu<br />
+                            Select Pay Bill<br />
+                            Enter Business No: <b>4096713</b><br />
+                            Enter Account No: <b><?php echo $invoiceid; ?></b><br />
+                            Enter the Amount: <b><?php echo $rws1['tplcost']; ?></b><br />
+                            Enter your M-Pesa PIN then send</p>
+
+                            <h4>Confirmation</h4>
+                            <p>Enter the MPESA Unique ID to complete the transaction</p>
+                            <form class="contactForm" action="controller/mpesacheckout.php" method="POST">
+                                <input name="invoiceno" type="hidden" value="<?php echo $invoiceid; ?>" />
+                                <input name="amount" type="hidden" value="<?php echo $rws1['tplcost']; ?>" />
+                                <input type="text" name="mpesacode" maxlength="10" placeholder="eg. QIM2...">
+                                <input type="submit" class="submit" name="submitcode" value="Confirm" />
+                            </form>
+                        </div>
+                        <div class="col-lg-6">
+                        <h3>Instant Payment</h3>
+                            <form class="contactForm" action="controller/mpesacheckout.php" method="POST">
+                                <label>Enter the phone number making the payment:</label><br />
+                                <input name="invoicenox" type="hidden" value="<?php echo $invoiceid; ?>" />
+                                <input name="amountx" type="hidden" value="<?php echo $rws1['tplcost']; ?>" />
+                                <input name="tpltype" type="hidden" value="<?php echo $rws1['tpltype']; ?>" />
+                                <input type="text" name="phonenumer" maxlength="12" placeholder="eg. 254722...">
+                                <input type="submit" class="submit" name="submitnumber" value="Confirm" />
+                            </form>
+                        </div>
+                    </div>
                 </div>
             </div>
         </article>
