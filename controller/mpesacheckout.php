@@ -39,11 +39,15 @@ $password = base64_encode($Business_Code . $Passkey . $Time_Stamp);
         $invoiceno = $_POST['invoicenox'];
         $tpltype = $_POST['tpltype'];
 
-        $curl_Tranfer2 = curl_init();
-        curl_setopt($curl_Tranfer2, CURLOPT_URL, $OnlinePayment);
-        curl_setopt($curl_Tranfer2, CURLOPT_HTTPHEADER, array('Content-Type:application/json', 'Authorization:Bearer ' . $token));
+        $ch = curl_init('https://sandbox.safaricom.co.ke/mpesa/stkpush/v1/processrequest');
+        curl_setopt($ch, CURLOPT_HTTPHEADER, [
+            'Authorization: Bearer NSXodaeu5EPqsAdTPxo04gfo0BzF',
+            'Content-Type: application/json'
+        ]);
 
-        $curl_Tranfer2_post_data = [
+        curl_setopt($ch, CURLOPT_POST, 1);
+
+        curl_setopt($ch, CURLOPT_POSTFIELDS, [
             'BusinessShortCode' => $Business_Code,
             'Password' => $password,
             'Timestamp' =>$Time_Stamp,
@@ -54,20 +58,16 @@ $password = base64_encode($Business_Code . $Passkey . $Time_Stamp);
             'PhoneNumber' => $phone_number,
             'CallBackURL' => $CallBackURL,
             'AccountReference' => $invoiceno,
-            'TransactionDesc' => $tpltype,
-        ];
+            'TransactionDesc' => $tpltype
+        ]);
 
-        $data2_string = json_encode($curl_Tranfer2_post_data);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        $response     = curl_exec($ch);
+        curl_close($ch);
 
-        curl_setopt($curl_Tranfer2, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($curl_Tranfer2, CURLOPT_POST, true);
-        curl_setopt($curl_Tranfer2, CURLOPT_POSTFIELDS, $data2_string);
-        curl_setopt($curl_Tranfer2, CURLOPT_HEADER, false);
-        curl_setopt($curl_Tranfer2, CURLOPT_SSL_VERIFYPEER, 0);
-        curl_setopt($curl_Tranfer2, CURLOPT_SSL_VERIFYHOST, 0);
-        $curl_Tranfer2_response = json_decode(curl_exec($curl_Tranfer2));
+       // echo $response;
+        echo json_encode($response, JSON_PRETTY_PRINT);
 
-        echo json_encode($curl_Tranfer2_response, JSON_PRETTY_PRINT);
     }
 
 ?>
