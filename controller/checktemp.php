@@ -101,10 +101,18 @@ if(isset($_GET['tplid']) && isset($_GET['temptype']) ){
                 //check if template is paid, allow to download if days is < 10
                 
                 $mpesadate = new DateTime($rws1['mpesadate']);
+                $currdatetime = new DateTime($currdatetime);
+                
                 $difference = $currdatetime->diff($mpesadate);
 
                 if($difference<=10){
-                    header('location:../download.php?fid='.$invoiceid);
+
+                    if($tpltype=="resume"){
+                        header('location:../cv.php?fid='.$invoiceid.'&cvtpl='.$tplid.'&d=1');
+                    }
+                    if($tpltype=="coverletter"){
+                        header('location:../coverletter.php?fid='.$invoiceid.'&cvtpl='.$tplid.'&d=1');
+                    }
 
                 }else{
                     createinvoice($userid, $tpltype, $tplid);     

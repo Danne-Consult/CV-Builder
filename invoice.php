@@ -56,7 +56,7 @@
                     </table>
 
                     <div class="row">
-                        <div class="col-lg-6">
+                        <!--<div class="col-lg-6">
                             <h3>How to pay</h3>
                             <h4>Using MPESA</h4>
                             <p>Go to the M-pesa Menu<br />
@@ -74,18 +74,39 @@
                                 <input type="text" name="mpesacode" maxlength="10" placeholder="eg. QIM2...">
                                 <input type="submit" class="submit" name="submitcode" value="Confirm" />
                             </form>
-                        </div>
+                        </div>-->
+
+
+                        <?php 
+                        if(isset($_GET['checkout'])){
+                            if(isset($_GET['success'])){
+                                echo "<div class='success-green'>". $_GET['success'] ."</div>";
+                                if($rws1['tpltype']=="coverletter"){
+                                echo "<a class='rounded-white-btn' href='coverletter.php?fid=".$invoiceid."&cvtpl=".$rws1["templateid"]."&d=1'>Proceed to download</a>";
+                                }
+                                if($rws1['tpltype']=="resume"){
+                                    echo "<a class='rounded-white-btn' href='cv.php?fid=".$invoiceid."&cvtpl=".$rws1["templateid"]."&d=1'>Proceed to download</a>";
+                                }
+                            }
+                        }else{
+                            if(isset($_GET['error'])){
+                                echo "<div class='error-red'>". $_GET['error'] ."</div>";
+                            }
+                        ?>
                         <div class="col-lg-6">
                         <h3>Instant Payment</h3>
+                            <img src="assets/images/mpesa_logo.png"  style="width: 142px;" alt="Mpesa">
                             <form class="contactForm" action="controller/mpesacheckout.php" method="POST">
                                 <label>Enter the phone number making the payment:</label><br />
                                 <input name="invoicenox" type="hidden" value="<?php echo $invoiceid; ?>" />
                                 <input name="amountx" type="hidden" value="<?php echo $rws1['tplcost']; ?>" />
                                 <input name="tpltype" type="hidden" value="<?php echo $rws1['tpltype']; ?>" />
                                 <input type="text" name="phonenumer" maxlength="12" placeholder="eg. 254722...">
-                                <input type="submit" class="submit" name="submitnumber" value="Confirm" />
+                                <input type="submit" class="submit" name="submitnumber" value="Pay Invoice" />
                             </form>
                         </div>
+
+                        <?php } ?>
                     </div>
                 </div>
             </div>

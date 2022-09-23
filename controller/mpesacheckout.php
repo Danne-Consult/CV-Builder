@@ -1,6 +1,7 @@
 <?php 
 
 header("Content-Type:application/json");
+date_default_timezone_set("Africa/Nairobi");
 
 /*Call function with these configurations*/
 $consumer_key = '3c3QceNnq2bXIm3vy466MdAxnAbR6cQP';
@@ -39,15 +40,23 @@ $password = base64_encode($Business_Code . $Passkey . $Time_Stamp);
         $invoiceno = $_POST['invoicenox'];
         $tpltype = $_POST['tpltype'];
 
-        $ch = curl_init('https://sandbox.safaricom.co.ke/mpesa/stkpush/v1/processrequest');
-        curl_setopt($ch, CURLOPT_HTTPHEADER, [
-            'Authorization: Bearer NSXodaeu5EPqsAdTPxo04gfo0BzF',
-            'Content-Type: application/json'
-        ]);
 
-        curl_setopt($ch, CURLOPT_POST, 1);
+        $curl_Tranfer = curl_init();
+        curl_setopt($curl_Tranfer, CURLOPT_URL, $Token_URL);
+        $credentials = base64_encode($consumer_key . ':' . $consumer_secret);
+        curl_setopt($curl_Tranfer, CURLOPT_HTTPHEADER, array('Authorization: Basic ' . $credentials));
+        curl_setopt($curl_Tranfer, CURLOPT_HEADER, false);
+        curl_setopt($curl_Tranfer, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($curl_Tranfer, CURLOPT_SSL_VERIFYPEER, false);
+        $curl_Tranfer_response = curl_exec($curl_Tranfer);
 
-        curl_setopt($ch, CURLOPT_POSTFIELDS, [
+        $token = json_decode($curl_Tranfer_response)->access_token;
+
+        $curl_Tranfer2 = curl_init();
+        curl_setopt($curl_Tranfer2, CURLOPT_URL, $OnlinePayment);
+        curl_setopt($curl_Tranfer2, CURLOPT_HTTPHEADER, array('Content-Type:application/json', 'Authorization:Bearer ' . $token));
+
+        $curl_Tranfer2_post_data = [
             'BusinessShortCode' => $Business_Code,
             'Password' => $password,
             'Timestamp' =>$Time_Stamp,
@@ -55,18 +64,30 @@ $password = base64_encode($Business_Code . $Passkey . $Time_Stamp);
             'Amount' => $itemamount,
             'PartyA' => $phonenumber,
             'PartyB' => $Business_Code,
-            'PhoneNumber' => $phone_number,
+            'PhoneNumber' => $phonenumber,
             'CallBackURL' => $CallBackURL,
             'AccountReference' => $invoiceno,
             'TransactionDesc' => $tpltype
-        ]);
+        ];
 
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-        $response     = curl_exec($ch);
-        curl_close($ch);
+        $data2_string = json_encode($curl_Tranfer2_post_data);
 
-       // echo $response;
-        echo json_encode($response, JSON_PRETTY_PRINT);
+        curl_setopt($curl_Tranfer2, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($curl_Tranfer2, CURLOPT_POST, true);
+        curl_setopt($curl_Tranfer2, CURLOPT_POSTFIELDS, $data2_string);
+        curl_setopt($curl_Tranfer2, CURLOPT_HEADER, false);
+        curl_setopt($curl_Tranfer2, CURLOPT_SSL_VERIFYPEER, 0);
+        curl_setopt($curl_Tranfer2, CURLOPT_SSL_VERIFYHOST, 0);
+        $curl_Tranfer2_response = json_decode(curl_exec($curl_Tranfer2));
+
+        $result = json_decode($curl_Tranfer2_response); 
+    
+        $verified = $result->{'ResponseCode'};
+        if($verified === "0"){
+            header("location:../invoice.php?invoiceid=".$invoiceno."checkout=1&success=Payment was successful");
+        }else{
+            header("location:../invoice.php?invoiceid=".$invoiceno."&error=Payment was not successful");
+        }
 
     }
 
