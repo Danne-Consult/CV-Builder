@@ -94,7 +94,7 @@
                         ?>
                         <div class="col-lg-6">
                         <h3>Instant Payment</h3>
-                            <img src="assets/images/mpesa_logo.png"  style="width: 142px;" alt="Mpesa">
+                            <img src="assets/images/mpesa_logo.png"  style="width: 142px; mix-blend-mode: darken;" alt="Mpesa">
                             <form class="contactForm" action="controller/mpesacheckout.php" method="POST">
                                 <label>Enter the phone number making the payment:</label><br />
                                 <input name="invoicenox" type="hidden" value="<?php echo $invoiceid; ?>" />
