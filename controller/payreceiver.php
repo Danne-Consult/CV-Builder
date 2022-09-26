@@ -19,7 +19,7 @@ $today = date("l jS F Y h:i:s A");
 
 $rec = $today.' - '. $resultcode.', '.$checkoutrequestID.', '.$transid.', '.$transamount.', '.$balance.', '.$transtime.', '.$phoneno.'\n';
 
-file_put_contents('transaction_log', $res, FILE_APPEND);
+file_put_contents('transaction_log', $rec, FILE_APPEND);
 file_put_contents('log', $content, FILE_APPEND);
 
 include "../manage/_db/dbconf.php";

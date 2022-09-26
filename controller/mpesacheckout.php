@@ -89,7 +89,7 @@ $password = base64_encode($Business_Code . $Passkey . $Time_Stamp);
             $db = new DBconnect;
             $prefix = $db->prefix;
 
-            $sql = "UPDATE ".$prefix."invoices requestid='$requestid' WHERE invoiceno = '$invoiceno'";
+            $sql = "UPDATE ".$prefix."invoices SET requestid='$requestid' WHERE invoiceno = '$invoiceno'";
             $db->conn->query($sql);
 
            header("location:../invoice.php?invoiceid=".$invoiceno."&r=".$requestid."&c=1");
