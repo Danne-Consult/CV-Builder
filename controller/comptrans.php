@@ -8,7 +8,8 @@
         include "../manage/_db/dbconf.php";
         $db = new DBconnect;
         $prefix = $db->prefix;
-        $sql = "SELECT * FROM ".$prefix."invoices WHERE tel='$t'";
+
+        $sql = "SELECT * FROM ".$prefix."invoices WHERE tel='$tel'";
         $result = $db->conn->query($sql);
         $trws = mysqli_num_rows($result);
         $rws = $result->fetch_array();
