@@ -106,7 +106,8 @@
 
                             <?php 
                             if(isset($_GET['c'])){
-                                echo "<a class='rounded-white-btn' href='controller/comptrans.php?invoiceid=".$invoiceid."&t=".$_get['t']."'>Complete the transaction</a>";
+                                $telx = $_GET['t'];
+                                echo "<a class='rounded-white-btn' href='controller/comptrans.php?invoiceid=".$invoiceid."&t=".$telx."'>Complete the transaction</a>";
                             }
                             ?>
                             <p></p>
