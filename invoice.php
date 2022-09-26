@@ -79,20 +79,16 @@
 
                         <?php 
 
-                        if(isset($_GET['success'])){
-                            echo "<div class='success-green'>". $_GET['success'] ."</div>";
-                            if($rws1['tpltype']=="coverletter"){
-                            echo "<a class='rounded-white-btn' href='coverletter.php?fid=".$invoiceid."&cvtpl=".$rws1["templateid"]."&d=1'>Proceed to download</a>";
-                            }
-                            if($rws1['tpltype']=="resume"){
-                                echo "<a class='rounded-white-btn' href='cv.php?fid=".$invoiceid."&cvtpl=".$rws1["templateid"]."&d=1'>Proceed to download</a>";
-                            }
-                        }
+                        
                         if(isset($_GET['error'])){
                              echo "<div class='error-red'>". $_GET['error'] ."</div>";
-                            }
+                        }
+                        
                         ?>
                         <div class="col-lg-6">
+                        <?php 
+                            if(!isset($_GET['success'])){
+                        ?>
                         <h3>Instant Payment</h3>
                             <img src="assets/images/mpesa_logo.png"  style="width: 142px; mix-blend-mode: darken;" alt="Mpesa">
                             <form class="contactForm" action="controller/mpesacheckout.php" method="POST">
@@ -103,13 +99,27 @@
                                 <input type="text" name="phonenumer" maxlength="12" placeholder="eg. 254722...">
                                 <input type="submit" class="submit" name="submitnumber" value="Pay Invoice" />
                             </form>
+                        <?php } ?>
 
                             <?php 
                             if(isset($_GET['c'])){
                                 $requestid = $_GET['r'];
                                 echo "<a class='rounded-white-btn' href='controller/comptrans.php?invoiceid=".$invoiceid."&r=".$requestid."'>Complete the transaction</a>";
                             }
+                            
+
+                            if(isset($_GET['success'])){
+                                echo "<div class='success-green'>". $_GET['success'] ."</div>";
+                                if($rws1['tpltype']=="coverletter"){
+                                echo "<a class='rounded-white-btn' href='coverletter.php?fid=".$invoiceid."&cvtpl=".$rws1["templateid"]."&d=1'>Proceed to download</a>";
+                                }
+                                if($rws1['tpltype']=="resume"){
+                                    echo "<a class='rounded-white-btn' href='cv.php?fid=".$invoiceid."&cvtpl=".$rws1["templateid"]."&d=1'>Proceed to download</a>";
+                                }
+                            }
                             ?>
+
+                            
                             <p></p>
                         </div>                
                     </div>
