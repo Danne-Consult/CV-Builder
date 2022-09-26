@@ -80,15 +80,13 @@ $password = base64_encode($Business_Code . $Passkey . $Time_Stamp);
         curl_setopt($curl_Tranfer2, CURLOPT_SSL_VERIFYHOST, 0);
         $curl_Tranfer2_response = json_decode(curl_exec($curl_Tranfer2));
 
-        $result = json_decode($curl_Tranfer2_response); 
-    
-        echo $result
-        //$verified = $result->{'ResponseCode'};
-        //if($verified == "0"){
-           //header("location:../invoice.php?invoiceid=".$invoiceno."&c=1");
-        //}else{
-           // header("location:../invoice.php?invoiceid=".$invoiceno."&error=there was an error with the transaction, please try again.");
-       // }
+        $result = $curl_Tranfer2_response->ResponseCode; 
+        
+        if($result === "0"){
+           header("location:../invoice.php?invoiceid=".$invoiceno."&c=1");
+        }else{
+           header("location:../invoice.php?invoiceid=".$invoiceno."&error=there was an error with the transaction, please try again.");
+       }
 
     }
 
