@@ -84,9 +84,9 @@ $password = base64_encode($Business_Code . $Passkey . $Time_Stamp);
     
         $verified = $result->{'ResponseCode'};
         if($verified === "0"){
-            header("location:../invoice.php?invoiceid=".$invoiceno."checkout=1&success=Payment was successful");
+            header("location:../invoice.php?invoiceid=".$invoiceno."&c=1");
         }else{
-            header("location:../invoice.php?invoiceid=".$invoiceno."&error=Payment was not successful");
+            header("location:../invoice.php?invoiceid=".$invoiceno."&error=there was an error with the transaction, please try again.");
         }
 
     }

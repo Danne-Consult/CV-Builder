@@ -78,19 +78,18 @@
 
 
                         <?php 
-                        if(isset($_GET['checkout'])){
-                            if(isset($_GET['success'])){
-                                echo "<div class='success-green'>". $_GET['success'] ."</div>";
-                                if($rws1['tpltype']=="coverletter"){
-                                echo "<a class='rounded-white-btn' href='coverletter.php?fid=".$invoiceid."&cvtpl=".$rws1["templateid"]."&d=1'>Proceed to download</a>";
-                                }
-                                if($rws1['tpltype']=="resume"){
-                                    echo "<a class='rounded-white-btn' href='cv.php?fid=".$invoiceid."&cvtpl=".$rws1["templateid"]."&d=1'>Proceed to download</a>";
-                                }
+
+                        if(isset($_GET['success'])){
+                            echo "<div class='success-green'>". $_GET['success'] ."</div>";
+                            if($rws1['tpltype']=="coverletter"){
+                            echo "<a class='rounded-white-btn' href='coverletter.php?fid=".$invoiceid."&cvtpl=".$rws1["templateid"]."&d=1'>Proceed to download</a>";
                             }
-                        }else{
-                            if(isset($_GET['error'])){
-                                echo "<div class='error-red'>". $_GET['error'] ."</div>";
+                            if($rws1['tpltype']=="resume"){
+                                echo "<a class='rounded-white-btn' href='cv.php?fid=".$invoiceid."&cvtpl=".$rws1["templateid"]."&d=1'>Proceed to download</a>";
+                            }
+                        }
+                        if(isset($_GET['error'])){
+                             echo "<div class='error-red'>". $_GET['error'] ."</div>";
                             }
                         ?>
                         <div class="col-lg-6">
@@ -104,9 +103,14 @@
                                 <input type="text" name="phonenumer" maxlength="12" placeholder="eg. 254722...">
                                 <input type="submit" class="submit" name="submitnumber" value="Pay Invoice" />
                             </form>
-                        </div>
 
-                        <?php } ?>
+                            <?php 
+                            if(isset($_GET['c'])){
+                                echo "<a class='rounded-white-btn' href='controller/comptrans.php?invoiceid=".$invoiceid."'>Complete the transaction</a>";
+                            }
+                            ?>
+                            <p></p>
+                        </div>                
                     </div>
                 </div>
             </div>
