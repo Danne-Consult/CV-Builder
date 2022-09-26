@@ -11,7 +11,7 @@ $Passkey = 'bfb279f9aa9bdbcf158e97dd71a467cd2e0c893059b10f78e6b72ada1ed2c919';
 $Type_of_Transaction = 'CustomerPayBillOnline';
 $Token_URL = 'https://sandbox.safaricom.co.ke/oauth/v1/generate?grant_type=client_credentials';
 $OnlinePayment = 'https://sandbox.safaricom.co.ke/mpesa/stkpush/v1/processrequest';
-$CallBackURL = 'https://daneconsult.com/client/cv-builder/controller/payreceiver.php';
+$CallBackURL = 'https://danneconsult.com/client/cv-builder/controller/payreceiver.php';
 $Time_Stamp = date("Ymdhis");
 $password = base64_encode($Business_Code . $Passkey . $Time_Stamp);
 
@@ -81,6 +81,7 @@ $password = base64_encode($Business_Code . $Passkey . $Time_Stamp);
         $curl_Tranfer2_response = json_decode(curl_exec($curl_Tranfer2));
 
         $result = $curl_Tranfer2_response->ResponseCode; 
+        $requestid = $curl_Tranfer2_response->CheckoutRequestID;
         
         if($result === "0"){
 
@@ -88,10 +89,10 @@ $password = base64_encode($Business_Code . $Passkey . $Time_Stamp);
             $db = new DBconnect;
             $prefix = $db->prefix;
 
-            $sql = "UPDATE ".$prefix."invoices SET tel = '$phonenumber' WHERE invoiceno = '$invoiceno'";
+            $sql = "UPDATE ".$prefix."invoices requestid='$requestid' WHERE invoiceno = '$invoiceno'";
             $db->conn->query($sql);
 
-           header("location:../invoice.php?invoiceid=".$invoiceno."t=".$phonenumber."&c=1");
+           header("location:../invoice.php?invoiceid=".$invoiceno."&r=".$requestid."&c=1");
         }else{
            header("location:../invoice.php?invoiceid=".$invoiceno."&error=there was an error with the transaction, please try again.");
        }

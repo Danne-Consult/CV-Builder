@@ -4,8 +4,8 @@ date_default_timezone_set("Africa/Nairobi");
 header("Content-Type:application/json");
 
 $content = file_get_contents('php://input');
-$res = json_decode($content);
 
+$res = json_decode($content);
 
 $resultcode = $res->Body->stkCallback->ResultCode;
 $checkoutrequestID = $res->Body->stkCallback->CheckoutRequestID;
@@ -17,7 +17,7 @@ $phoneno = $res->Body->stkCallback->CallbackMetadata->Item[4]->Value;
 
 $today = date("l jS F Y h:i:s A");
 
-$rec = $today.' - '. $resultcode.' '.$checkoutrequestID.' '.$transamount.' '.$balance.' '.$transtime.' '.$phoneno.'\n';
+$rec = $today.' - '. $resultcode.', '.$checkoutrequestID.', '.$transid.', '.$transamount.', '.$balance.', '.$transtime.', '.$phoneno.'\n';
 
 file_put_contents('transaction_log', $res, FILE_APPEND);
 file_put_contents('log', $content, FILE_APPEND);
@@ -27,26 +27,24 @@ $db = new DBconnect;
 $prefix = $db->prefix;
 $userid= $_SESSION['userid'];
 
-$sql1 = "SELECT * FROM ".$prefix."invoices WHERE tel = '$phoneno'";
-$result1 = $db->conn->query($sql1);
-$trws1 = mysqli_num_rows($result1);
-$rws1 = $result1->fetch_array();
 
-function diff($val1,$val2){
-   $diffval =  $val - $val2;
-    return $diffval;
-}
+$sqlmpesa="INSERT INTO ".$prefix."mpesatansactions (mpesareceipt, date, phone, amount, requestid) VALUES('$transid','$transtime','$phoneno','$transamount', '$checkoutrequestID')" ;
+$db->conn->query($sqlmpesa);
 
-if($trws1!==0){
+$sqlrequest="SELECT * FROM ".$prefix."invoices WHERE requestid='$checkoutrequestID'";
+$rrequest = $db->conn->query($sqlrequest);
+$rtrows = mysqli_num_rows($rrequest);
+$rrws = $rrequest->fetch_array();
 
+if($rrws!==0){
     
     if($balance !==""){
-        $sql3 = "UPDATE ".$prefix."invoices SET mpesacode='$transid', mpesadate='$transtime', mpesaamount='$transamount', paybalance='$balance' WHERE invoiceno = '$invoiceno'";
+        $sql3 = "UPDATE ".$prefix."invoices SET paybalance='$balance' WHERE requestid='$checkoutrequestID'";
         $db->conn->query($sql3);
         header("location:../invoice.php?invoiceid=".$invoiceno."&error=Payment was less than the invoiced amount by Kes. ".$balance);
 
     }else{
-        $sql2 = "UPDATE ".$prefix."invoices SET mpesacode='$transid', mpesadate='$transtime', mpesaamount='$transamount',tel='$transtel', paystatus='Paid', paybalance='0' WHERE invoiceno = '$invoiceno'";
+        $sql2 = "UPDATE ".$prefix."invoices paystatus='Paid', paybalance='0' WHERE requestid='$checkoutrequestID'";
         $db->conn->query($sql2);
 
     header("location:../invoice.php?invoiceid=".$invoiceno."&success=Payment was successful");
