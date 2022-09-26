@@ -83,7 +83,15 @@ $password = base64_encode($Business_Code . $Passkey . $Time_Stamp);
         $result = $curl_Tranfer2_response->ResponseCode; 
         
         if($result === "0"){
-           header("location:../invoice.php?invoiceid=".$invoiceno."&c=1");
+
+            include "../manage/_db/dbconf.php";
+            $db = new DBconnect;
+            $prefix = $db->prefix;
+
+            $eql = "UPDATE ".$prefix."invoices SET tel = '$phonenumber' WHERE invoiceno = '$invoiceno '";
+            $db->conn->query($sql);
+
+           header("location:../invoice.php?invoiceid=".$invoiceno."t=".$phonenumber."&c=1");
         }else{
            header("location:../invoice.php?invoiceid=".$invoiceno."&error=there was an error with the transaction, please try again.");
        }
