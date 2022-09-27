@@ -11,7 +11,7 @@ if(isset($_GET['tplid']) && isset($_GET['temptype']) ){
     date_default_timezone_set("Africa/Nairobi");
 	$currdatetime = date("y-m-d h:i:s");
 
-    $sql1="SELECT * FROM ".$prefix."invoices WHERE userid='$userid' AND templateid='$tplid'";
+    $sql1="SELECT * FROM ".$prefix."invoices a LEFT JOIN ".$prefix."mpesatrans b ON a.requestid=b.requestid WHERE a. userid='$userid' AND a.templateid='$tplid'";
     $result1 = $db->conn->query($sql1);
     $trws1 = mysqli_num_rows($result1);
     $rws1 = $result1->fetch_array();
@@ -100,7 +100,7 @@ if(isset($_GET['tplid']) && isset($_GET['temptype']) ){
             if($rws1['paystatus']=="Paid"){
                 //check if template is paid, allow to download if days is < 10
                 
-                $mpesadate = new DateTime($rws1['mpesadate']);
+                $mpesadate = new DateTime($rws1['date']);
                 $currdatetime = new DateTime($currdatetime);
                 
                 $difference = $currdatetime->diff($mpesadate);
