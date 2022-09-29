@@ -17,13 +17,15 @@
 
         $balance = $rws['paybalance'];
         $tpl=$rws['tpltype'];
-        echo $trws;
+       
         if($trws==1){
-            if($rws['paystatus']=="Paid"){
+            if($rws['paystatus'] == "Paid"){
                 header("location:../invoice.php?invoiceid=".$invoiceno."&success=Transaction was successful&tpltype=".$tpl);
+            }else{
+                header("location:../invoice.php?invoiceid=".$invoiceno."&error=The transaction was not complete");
             }
         }else{
-            header("location:../invoice.php?invoiceid=".$invoiceno."error=There was an error retrieving the invoice");
+            header("location:../invoice.php?invoiceid=".$invoiceno."&error=No invoice was attached to the payment");
         }
 
     }
