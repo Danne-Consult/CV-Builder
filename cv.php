@@ -429,7 +429,7 @@
     </div>
     <div class="container12 tempbx">
         <div class="moretpl">More Templates</div>
-        <article class="hidebx" id="hidebx">
+        <article class="" id="">
             <div class="slidex row">
                 <?php
                 if(!$rwres["cvtemp"]==""){
@@ -559,6 +559,8 @@
             
         });
     </script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/easy-pie-chart/2.1.6/jquery.easypiechart.min.js"></script>
     <script src="assets/js/cv.js" referrerpolicy="origin"></script>
 
 </body>

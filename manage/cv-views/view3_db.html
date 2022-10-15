@@ -1,0 +1,153 @@
+<div id="myresume">
+    <div class="cvpage">
+        
+        <style>
+            /*-- Default CV --*/
+            @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;700&display=swap');
+            :root{
+                --white: #fff;
+                --black: #171717;
+                --gray: #85888C;
+                --offwhite:#e0e0e0;
+                --orange: #faa31d;
+                --navyblue:#114356;
+                --navyblur-light:#256179;
+                --light-orange: #f9ba5d;
+                --success-green:#e1ecd4;
+                --error-red:#ecd4d4;
+                --shade:#fff0da;
+                --brown:#744e20;
+        
+            }
+
+            .cvpage{ width: 1058px; min-height: 1496.3143px; background-color: #fff; color:var(--black); padding: 4em 5em 4em 4em;  margin: 0px auto; font-family: 'Ubuntu', sans-serif; font-weight: 400;}
+            .cvpage h1, .cvpage h2, .cvpage h4{font-weight:700; font-family: 'Ubuntu', sans-serif;}
+            .cvpage h1{margin-bottom: 5px; font-size: 61px; color:var(--navyblue)}
+            .cvpage h2{color:var(--navyblue)}
+            .cvpage h4{color:var(--navyblue)}
+            .cvpage h5{font-weight: 700; color: var(--orange);}
+            .cvpage h5 span{color:var(--gray); font-size: 17px;}
+            .cvpage p{font-weight:300;}
+            .cvpage hr{ opacity: 1; background-color: var(--gray); height: 0.1px; float:left; width:100%; margin: 29px 0px;}
+            .cvpage .thintext{font-size:14.5px; padding: 3em 20px; background-color: #fafafa;}
+            .cvpage .thintext .bio{line-height: 2.5;}
+            
+            .cvpage .socials{ font-size: 20px; width: 100%; float: left; display: flex; justify-content: center; margin-bottom: 30px;}
+            .cvpage .socials a{padding:0px .5em; color:var(--navyblue);}
+            #socin, #socfb, #soctw{float:left; width:auto; }
+            
+            .cvpage .namebx{padding: 2em; text-align: center;}
+            .cvpage .mainbar{padding:30px 20px;}
+            .cvpage .shade { background-color: #f8f9fa; padding: 30px 30px;}
+                
+            .cvpage .shade div{float:left; width:100%;}
+            .cvpage .skillset{width:100%;}
+            .cvpage .skillset .skillbx{width: 100%; float: left; margin: 19px 0px;}
+            .cvpage .skillset .skillbx .skilldesc{width: 42%; float: left;}
+            .skillset.box {
+            width: 100%;
+            }
+
+            .skillset .box p{
+                display: block;
+                text-align: left;
+                color: var(--navyblue);
+                margin-top: 37px;
+                margin-left: 16px;
+                float: left;
+            }
+
+            .skillset .box .chart {
+                position: relative;
+                width: 36%;
+                height: 100%;
+                text-align: center;
+                font-size: 27px;
+                line-height: 97px;
+                height: 121px;
+                color: var(--navyblue);
+            }
+
+            .skillset .box canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            width: 100%;
+            }
+
+
+            .cvpage .fullcont{ padding-left: 30px;}
+            .cvpage .fullcont h5{font-weight: 700; font-size: 17px;}
+            .cvpage .fullcont h5 span{color: var(--gray); }
+            .cvpage .refbx{margin-bottom:30px;}
+        </style>
+        
+        <div class="row">
+            <div class="col-lg-7 mainbar">
+                <div id="caboutme"></div>
+                <hr>
+                <span class="break-page"></span>
+                <div id="cinterests"></div>
+                <hr>
+                <span class="break-page"></span>
+                <div id="ceducation"></div>
+                <hr>
+                <span class="break-page"></span>
+                <div id="cwork"></div>
+                <hr>
+                <span class="break-page"></span>
+                <div id="caccredits"></div>
+                <hr>
+                <span class="break-page"></span>
+                <div class="row" id="crefs"></div>
+            </div>
+            <div class="col-lg-5 shade">
+
+                <div class="namebx">
+                    <h1 id="cfname"></h1>
+                    <h2><span id="ctitle"></span></h2>
+                </div>
+
+                <div class="socials" id="csocials">
+                    <div id="socfb"></div>
+                    <div id="soctw"></div>
+                    <div id="socin"></div>
+                </div><br>
+
+                <h4>Bio</h4>
+                <p class="bio"> 
+                    Gender: <span id="cgender"></span><br>
+                    Date of Birth: <span id="cdob"></span><br>
+                    Email: <span id="cemail"></span><br>
+                    Mobile: <span id="cmobile"></span><br>
+                    Nationality: <span id="cnationality"></span><br>
+                    Postal Address: <span id="cpostaladdress"></span><br>
+                </p>
+                <hr>
+                <div id="clang"></div>
+                <hr>
+                <div class="skillset" id="cskillset">
+                    <div class="clearfix"></div>
+                </div> 
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/easy-pie-chart/2.1.6/jquery.easypiechart.min.js"></script>
+<script>
+    $(function() {
+        $('.chart').easyPieChart({
+            size: 100,
+            barColor: "#114356",
+            scaleLength: 0,
+            lineWidth: 10,
+            trackColor: "#fff",
+            lineCap: "circle",
+            animate: 1000,
+        });
+    });
+
+</script>
+

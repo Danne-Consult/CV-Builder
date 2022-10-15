@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+</head>
+<body>
+    
+
+    <div class="cvpage">
+        
+        <style>
+            /*-- Default CV --*/
+            @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;700&display=swap');
+            :root{
+                --white: #fff;
+                --black: #171717;
+                --gray: #85888C;
+                --offwhite:#e0e0e0;
+                --orange: #faa31d;
+                --navyblue:#114356;
+                --navyblur-light:#256179;
+                --light-orange: #f9ba5d;
+                --success-green:#e1ecd4;
+                --error-red:#ecd4d4;
+                --shade:#fff0da;
+                --brown:#744e20;
+        
+            }
+
+            
+            
+            .cvpage{ width: 1058px; min-height: 1496.3143px; background-color: #fff; color:var(--black); padding: 4em 5em 4em 4em;  margin: 0px auto; font-family: 'Ubuntu', sans-serif; font-weight: 400;}
+            .cvpage h1, .cvpage h2, .cvpage h4{font-weight:700;}
+            .cvpage h1{margin-bottom: 5px; font-size: 61px; color:var(--navyblue)}
+            .cvpage h2{color:var(--navyblue)}
+            .cvpage h4{color:var(--navyblue)}
+            .cvpage h5{font-weight: 700; color: var(--orange);}
+            .cvpage h5 span{color:var(--gray); font-size: 17px;}
+            .cvpage p{font-weight:300;}
+            .cvpage hr{ opacity: 1; background-color: var(--gray); height: 0.1px; float:left; width:100%; margin: 29px 0px;}
+            .cvpage .thintext{font-size:14.5px; padding: 3em 20px; background-color: #fafafa;}
+            .cvpage .thintext .bio{line-height: 2.5;}
+            
+            .cvpage .socials{ font-size: 20px; width: 100%; float: left; display: flex; justify-content: center; margin-bottom: 30px;}
+            .cvpage .socials a{padding:0px .5em; color:var(--navyblue);}
+            #socin, #socfb, #soctw{float:left; width:auto; }
+            
+            .cvpage .namebx{padding: 2em; text-align: center;}
+            .cvpage .mainbar{padding:30px 20px;}
+            .cvpage .shade { background-color: #f8f9fa; padding: 30px 30px;}
+                
+            .cvpage .shade div{float:left; width:100%;}
+            .cvpage .skillset{width:100%;}
+            .cvpage .skillset .skillbx{width: 100%; float: left; margin: 19px 0px;}
+            .cvpage .skillset .skillbx .skilldesc{width: 42%; float: left;}
+            /*.cvpage .skillset .skillbx .progbar{width: 150px; height: 150px; background-color: var(--offwhite); float: left; border-radius: 50%; margin-top: 6px;}
+            .cvpage .skillset .skillbx .progbar .range{width: 100%; height: 11px; background-color: var(--navyblue); border-radius: 200px;}*/
+
+            .skillset.box {
+            width: 100%;
+            }
+
+            .skillset .box p{
+                display: block;
+                text-align: left;
+                color: var(--navyblue);
+                margin-top: 37px;
+                margin-left: 16px;
+                float: left;
+            }
+
+            .skillset .box .chart {
+                position: relative;
+                width: 36%;
+                height: 100%;
+                text-align: center;
+                font-size: 27px;
+                line-height: 97px;
+                height: 121px;
+                color: var(--navyblue);
+            }
+
+            .skillset .box canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            width: 100%;
+            }
+
+
+            .cvpage .fullcont{ padding-left: 30px;}
+            .cvpage .fullcont h5{font-weight: 700; font-size: 17px;}
+            .cvpage .fullcont h5 span{color: var(--gray); }
+            .cvpage .refbx{margin-bottom:30px;}
+        </style>
+        
+        <div class="row">
+            <div class="col-lg-7 mainbar">
+                <div id="caboutme">
+                    <h4>About Me</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sit amet tincidunt dolor, et gravida purus.
+                        Phasellus tincidunt mauris in consectetur mattis. Nulla sagittis rutrum odio, eget pharetra dolor mollis ut.
+                        Integer eleifend elementum consectetur. Cras eget eleifend dui, vitae malesuada augue.</p>
+                </div>
+                <hr>
+                <span class="break-page"></span>
+                <div id="cinterests">
+                    <h4>Interests</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sit amet tincidunt dolor, et gravida purus.
+                        Phasellus tincidunt mauris in consectetur mattis. Nulla sagittis rutrum odio, eget pharetra dolor mollis ut.
+                        Integer eleifend elementum consectetur. Cras eget eleifend dui, vitae malesuada augue.</p>
+                </div>
+                <hr>
+                <span class="break-page"></span>
+                <div id="ceducation">
+                    <h4>Education Background</h4>
+                    <div class="edubx">
+                        <h5>Secondary<br><span>Greatheight High School : 2001-2004</span></h5>
+                        <p></p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sit amet tincidunt dolor, et gravida
+                            purus. Phasellus tincidunt mauris in consectetur mattis.&nbsp;</p>
+                        <p></p>
+                    </div>
+                    <div class="edubx">
+                        <h5>Bachelors<br><span>Institution of Education : 2005-2008</span></h5>
+                        <p></p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sit amet tincidunt dolor, et gravida
+                            purus. Phasellus tincidunt mauris in consectetur mattis. Nulla sagittis rutrum odio, eget pharetra dolor
+                            mollis ut. Integer eleifend elementum consectetur. Cras eget eleifend dui, vitae malesuada augue.</p>
+                        <p></p>
+                    </div>
+                </div>
+                <hr>
+                <span class="break-page"></span>
+                <div id="cwork">
+                    <h4>Work Experience</h4>
+                    <div class="edubx">
+                        <h5>Dundee High School<br><span>Teacher : 2008-08 to 2014-06 </span></h5>
+                        <p></p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sit amet tincidunt dolor, et gravida
+                            purus. Phasellus tincidunt mauris in consectetur mattis. Nulla sagittis rutrum odio, eget pharetra dolor
+                            mollis ut. Integer eleifend elementum consectetur. Cras eget eleifend dui, vitae malesuada augue.</p>
+                        <p></p>
+                    </div>
+                    <div class="edubx">
+                        <h5>Greenland Institute<br><span>Teacher/counselor : 2016-01 to 2022-09 </span></h5>
+                        <p></p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sit amet tincidunt dolor, et gravida
+                            purus. Phasellus tincidunt mauris in consectetur mattis. Nulla sagittis rutrum odio, eget pharetra dolor
+                            mollis ut. Integer eleifend elementum consectetur. Cras eget eleifend dui, vitae malesuada augue.</p>
+                        <p></p>
+                    </div>
+                </div>
+                <hr>
+                <span class="break-page"></span>
+                <div id="caccredits">
+                    <h4>Other Accreditations/Personal Achievements</h4>
+                    <p>Phasellus tincidunt mauris in consectetur mattis. Nulla sagittis rutrum odio, eget pharetra dolor mollis ut.
+                        Integer eleifend elementum consectetur. Cras eget eleifend dui, vitae malesuada augue.</p>
+                </div>
+                <hr>
+                <span class="break-page"></span>
+                <div class="row" id="crefs">
+                    <h4>References</h4>
+                    <div class="col-lg-12 refbx">James John<br>AOrganization<br>Director<br><i class="fas fa-at"></i>
+                        james@email.com<br><i class="fas fa-phone"></i> 1234567890</div>
+                    <div class="col-lg-12 refbx">Thomas Person<br>Companyx<br>Director<br><i class="fas fa-at"></i>
+                        thomas@email.com<br><i class="fas fa-phone"></i> 1234567890</div>
+                </div>
+            </div>
+            <div class="col-lg-5 shade">
+
+                <div class="namebx">
+                    <h1 id="cfname">Jane Mary</h1>
+                    <h2><span id="ctitle">Teacher</span></h2>
+                </div>
+
+                <div class="socials" id="csocials">
+                    <div id="socfb"><a href="https://facebook.com" target="_new"><i class="fa-brands fa-facebook"></i></a>&nbsp;</div>
+                    <div id="soctw"><a href="http://davepeterjr" target="_new"><i class="fa-brands fa-twitter"></i></a>&nbsp;</div>
+                    <div id="socin"><a href="http://davepeterjr" target="_new"><i class="fa-brands fa-linkedin"></i></a>&nbsp;</div>
+                </div><br>
+
+                <h4>Bio</h4>
+                <p class="bio"> 
+                    Gender: <span id="cgender">Male</span><br>
+                    Date of Birth: <span id="cdob">1986-01-27</span><br>
+                    Email: <span id="cemail">email@email.com</span><br>
+                    Mobile: <span id="cmobile">+254721806514</span><br>
+                    Nationality: <span id="cnationality">Kenyan</span><br>
+                    Postal Address: <span id="cpostaladdress">22701-00100</span><br>
+                </p>
+                <hr>
+
+                <div id="clang"><h4>Languages</h4>Kiswahili, English</div>
+
+                <hr>
+
+                <div class="skillset" id="cskillset">
+                    <h4>Skills</h4>
+                    <div class="container">
+                        <div class="box progbar">
+                          <div class="chart range" data-percent="73" data-scale-color="#ffb400">73%</div>
+                          <p class="skilldesc">Html</p>
+                        </div>
+                        <div class="box progbar">
+                          <div class="chart range" data-percent="90" data-scale-color="#ffb400">90%</div>
+                          <p class="skilldesc">Css</p>
+                        </div>
+                        <div class="box progbar">
+                          <div class="chart range" data-percent="85" data-scale-color="#ffb400">85%</div>
+                          <p class="skilldesc">Javascript</p>
+                        </div>
+                        <div class="box progbar">
+                          <div class="chart range" data-percent="95" data-scale-color="#ffb400">95%</div>
+                          <p class="skilldesc">Photoshop</p>
+                        </div>
+                      </div>                      
+                </div>
+                
+                
+            </div>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/easy-pie-chart/2.1.6/jquery.easypiechart.min.js"></script>
+    <script>
+        $(function() {
+            $('.chart').easyPieChart({
+                size: 100,
+                barColor: "#114356",
+                scaleLength: 0,
+                lineWidth: 10,
+                trackColor: "#fff",
+                lineCap: "circle",
+                animate: 1000,
+            });
+        });
+
+    </script>
+</body>
+</html>
+

@@ -55,6 +55,8 @@ const caboutme = document.getElementById("caboutme");
 
 
 const cskillset = document.getElementById("cskillset");
+const cskillsetcircle = document.getElementById("cskillsetcircle");
+
 const cinterests = document.getElementById("cinterests");
 const ceducation = document.getElementById("ceducation");
 const cwork = document.getElementById("cwork");
@@ -115,12 +117,28 @@ window.addEventListener('load', function(){
     }
   }
 
+
   if(skillname[0].value !==""){
-    cskillset.innerHTML = "<h4>Skills</h4>";
-    for(var i = 0; i < skillname.length; i++){
-      cskillset.innerHTML += '<div class="skillbx"><div class="skilldesc">'+ skillname[i].value +'</div><div class="progbar"><div class="range" style="width:'+ skillrange[i].value +'%;"></div></div></div> <br />';
+    if(cskillset !== null){
+      cskillset.innerHTML = "<h4>Skills</h4>";
+      for(var i = 0; i < skillname.length; i++){
+
+        cskillset.innerHTML += '<div class="skillbx"><div class="skilldesc">'+ skillname[i].value +'</div><div class="progbar"><div class="range" style="width:'+ skillrange[i].value +'%;"></div></div></div> <br />';
+      }
     }
+
+    if(cskillsetcircle !== null){
+      cskillsetcircle.innerHTML = "<h4>Skills</h4>";
+      for(var s = 0; s < skillname.length; s++){
+
+        cskillsetcircle.innerHTML +='<div class="box progbar"><div class="chart range" data-percent="'+ skillrange[s].value +'" data-scale-color="#ffb400">'+ skillrange[s].value +'%</div><p class="skilldesc">'+ skillname[s].value +'</p></div>';
+      }
+
+      getchart();
+    }
+  
   }
+
 
   if(refname[0].value !==""){
     crefs.innerHTML ="<h4>References</h4>";
@@ -204,18 +222,43 @@ $("#worksub").click(function(){
   });
 
 $("#skillsub").click(function(){
-if(skillname[0].value !=""){
-  cskillset.innerHTML="";
-  cskillset.innerHTML="<h4>Skills</h4>";
-    for(var q = 0; q < skillrange.length; q++){
+  if(cskillset !== null){
+    if(skillname[0].value !=""){
+      cskillset.innerHTML = "";
+      cskillset.innerHTML="<h4>Skills</h4>";
 
-        cskillset.innerHTML +='<div class="skillbx"><div class="skilldesc">'+ skillname[q].value +'</div><div class="progbar"><div class="range" style="width:'+ skillrange[q].value +'%;"></div></div></div><br />';
 
-    }
-  }else{
-    cskillset.innerHTML="";
+        for(var w = 0; w < skillrange.length; w++){
+
+          cskillset.innerHTML +='<div class="skillbx"><div class="skilldesc">'+ skillname[w].value +'</div><div class="progbar"><div class="range" style="width:'+ skillrange[w].value +'%;"></div></div></div><br />';
+
+        }
+      }else{
+        cskillset.innerHTML = "";
+      }
   }
 });
+
+
+$("#skillsub").click(function(){
+  if(cskillsetcircle !== null){
+    if(skillname[0].value !=""){
+
+      cskillsetcircle.innerHTML = "";
+      cskillsetcircle.innerHTML = "<h4>Skills</h4>";
+    
+        for(var e = 0; e < skillrange.length; e++){
+
+          cskillsetcircle.innerHTML +='<div class="box progbar"><div class="chart range" data-percent="'+ skillrange[e].value +'" data-scale-color="#ffb400">'+ skillrange[e].value +'%</div><p class="skilldesc">'+ skillname[e].value +'</p></div>';
+          
+          getchart();
+    
+        }
+      }else{
+        cskillsetcircle.innerHTML = "";
+      }
+    }
+  });
 
   linkedin.addEventListener('keyup', function(){
     if(linkedin.value!==""){
@@ -278,10 +321,13 @@ var resumebx = document.getElementById("resumebx");
 btn.onclick = function() {
     modal.innerHTML = resumebx.innerHTML;
     modal.style.display = "block";
+    getchart();
+    
 }
 resumebx.onclick = function(){
   modal.innerHTML = resumebx.innerHTML;
     modal.style.display = "block";
+    getchart();
 }
 
 span.onclick = function() {
@@ -331,6 +377,19 @@ function getUrlParameter(sParam) {
       html2pdf().set(opt).from(element).save();
     });
   } 
+ 
+
+  function getchart(){
+    $('.chart').easyPieChart({
+        size: 100,
+        barColor: "#114356",
+        scaleLength: 0,
+        lineWidth: 10,
+        trackColor: "#fff",
+        lineCap: "circle",
+        animate: 1000,
+    });
+  };
 
 
 
