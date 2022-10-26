@@ -112,16 +112,20 @@ coverbody.addEventListener('keyup', function(){cbody.innerHTML = coverbody.value
 
 var modal = document.getElementById("myModal");
 var btn = document.getElementById("myBtn");
+var modalcontent = document.getElementById("modal-content");
 var span = document.getElementsByClassName("close")[0];
 var clbx = document.getElementById("clbx");
 
 btn.onclick = function() {
-    modal.innerHTML = clbx.innerHTML;
+    modalcontent.innerHTML = clbx.innerHTML;
     modal.style.display = "block";
+    getchart();
+    
 }
-clbx.onclick = function() {
-  modal.innerHTML = clbx.innerHTML;
-  modal.style.display = "block";
+clbx.onclick = function(){
+    modalcontent.innerHTML = clbx.innerHTML;
+    modal.style.display = "block";
+    getchart();
 }
 
 span.onclick = function() {

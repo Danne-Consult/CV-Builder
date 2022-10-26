@@ -315,17 +315,18 @@ $(".submit").click(function(){
 
 var modal = document.getElementById("myModal");
 var btn = document.getElementById("myBtn");
+var modalcontent = document.getElementById("modal-content");
 var span = document.getElementsByClassName("close")[0];
 var resumebx = document.getElementById("resumebx");
 
 btn.onclick = function() {
-    modal.innerHTML = resumebx.innerHTML;
+    modalcontent.innerHTML = resumebx.innerHTML;
     modal.style.display = "block";
     getchart();
     
 }
 resumebx.onclick = function(){
-  modal.innerHTML = resumebx.innerHTML;
+    modalcontent.innerHTML = resumebx.innerHTML;
     modal.style.display = "block";
     getchart();
 }

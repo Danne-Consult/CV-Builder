@@ -45,11 +45,16 @@
         </div>
     </div>
 
-    <div class="container12">
+    <div class="container12 showcase">
         <article>
             <div class="row justify-content-center">
-                <div class="col-lg-10 aligncenter">
-                    
+                <div class="col-lg-4 cont reveal">
+
+                <p>Quickly create and download your resume and coverletter directly from our platform that offers you real time, user friendly, 24/7 access and ATS compliant cover page/ curriculum vitae builder to enable you to apply for that needed job conveniently.</p>
+                
+                </div>
+                <div class="col-lg-6 aligncenter reveal">
+                    <img class="cvbximg" src="assets/images/cvsblock.png" />
                 </div>
             </div>
         </article>
@@ -133,7 +138,25 @@
             $('.flexslider').flexslider({
                 animation: "fade"
             });
+
+            
         });
+
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 150;
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add("active");
+                } else {
+                    reveals[i].classList.remove("active");
+                }
+            }
+        }
+
+	    window.addEventListener("scroll", reveal);
     </script>   
 </body>
 </html>

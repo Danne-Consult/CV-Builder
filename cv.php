@@ -445,7 +445,7 @@
                         }
 
                         $tempbx = "<div class='col-lg-3'>";
-                        $tempbx .= "<div class='tempimg' style='background:url(manage/cover-views/".$rws['tempimg'].") no-repeat center; background-size:cover'></div>";
+                        $tempbx .= "<div class='tempimg' style='background:url(manage/cv-views/".$rws['tempimg'].") no-repeat center; background-size:cover'></div>";
                         $tempbx .= "<div class='cont aligncenter'><h5 class='aligncenter'>".$rws['tempname']."</h5><p>".$temptype."</p><p><a class='small-round-btn' href='cv.php?cvtpl=".$rws['id']."'>Use Template</a></p></div>";
                         $tempbx .= "</div>";
 
@@ -459,7 +459,7 @@
 
     <div id="myModal" class="modal">
         <span class="close">&times;</span>
-        <div class="modal-content"></div>
+        <div id="modal-content"></div>
     </div>
     
     <?php include "includes/footer.inc"; ?>
