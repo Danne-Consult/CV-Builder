@@ -1,3 +1,13 @@
+<?php 
+    if(isset($_COOKIE['cvdata'])) {
+        $cvid = $_COOKIE['cvdata'];
+        unset($_COOKIE['cvdata']);
+        setcookie('cvdata', null, -1,); 
+        
+        header('location:cv.php?cvtpl='.$cvid); 
+    }
+?>
+
 <?php include "controller/sessioncheck.php"; ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -80,6 +90,5 @@
     </div>
     
     <?php include "includes/footer.inc"; ?>
-    
 </body>
 </html>
