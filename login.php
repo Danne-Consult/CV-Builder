@@ -35,6 +35,7 @@
                         }
                     ?>
                     <form action="controller/login.php" method="POST" class="contactForm">
+                        <input type="hidden" name="location" value="<?php if(isset($_GET['location'])){ echo htmlspecialchars($_GET['location']);} ?>">
                         <label for="username">Email:</label><br />
                         <input type="email" name="username" id="username" required /><br />
                         <label for="password">Password:</label><br />

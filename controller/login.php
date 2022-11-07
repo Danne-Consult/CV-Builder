@@ -39,7 +39,14 @@
                 if(!$_SESSION['userid'] == ""){
                     $sqlx= "UPDATE ".$prefix."users SET lastlogin='$currdatetime' WHERE email='$user'";
                     $db->conn->query($sqlx);
-                    header("location:../home.php");  	  
+                    if($_POST['location'] !="") {
+                       $redirect = $_POST['location'];
+                       $url = urlencode($redirect);
+                       header("Location:". $redirect);
+                    }else{
+                        header("location:../home.php");
+                    }
+                      	  
                 }else{
                     header("location: ../login.php?error=Unable to login");
                     exit();

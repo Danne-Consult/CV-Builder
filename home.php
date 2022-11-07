@@ -1,13 +1,3 @@
-<?php 
-    if(isset($_COOKIE['cvdata'])) {
-        $cvid = $_COOKIE['cvdata'];
-        unset($_COOKIE['cvdata']);
-        setcookie('cvdata', null, -1,); 
-        
-        header('location:cv.php?cvtpl='.$cvid); 
-    }
-?>
-
 <?php include "controller/sessioncheck.php"; ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -22,6 +12,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/slick-theme.css">
+    <link rel="stylesheet" href="assets/css/slick.css">
     <link rel="stylesheet" href="assets/css/fontawesome/css/all.css">
     <link rel="stylesheet" href="assets/css/style.css">
     <script src="assets/js/jquery.min.js"></script>
@@ -74,6 +66,8 @@
         }
         
     ?>
+
+
     <div class="container12 dash">
         <article>
             <div class="row justify-content-center">
@@ -88,7 +82,56 @@
             </div>
         </article>
     </div>
+
+    <div class="container12 tempbx">
+        <article>
+            <h2 class="aligncenter">featured Templates</h2>
+            <div class="slidex row">
+                <?php
+                    $sql3="SELECT * FROM ".$prefix."resume_templates";
+                    $result3= $db->conn->query($sql3);
+                    $tempbx="";
+                    $temptype="";
+                    while($rws3 = $result3->fetch_array()){
+                        if($rws3['type']=="free"){
+                            $temptype = "<i>Free</i>";
+                        }else{
+                            $temptype = "<b>Cost:</b> Kes.".$rws3['tempcost'];
+                        }
+
+                        $tempbx = "<div class='col-lg-3'>";
+                        $tempbx .= "<div class='tempimg' style='background:url(manage/cv-views/".$rws3['tempimg'].") no-repeat center; background-size:cover'></div>";
+                        $tempbx .= "<div class='cont aligncenter'><h5 class='aligncenter'>".$rws3['tempname']."</h5><p>".$temptype."</p><p><a class='small-round-btn' href='cv.php?cvtpl=".$rws3['id']."'>Use Template</a></p></div>";
+                        $tempbx .= "</div>";
+
+                        echo $tempbx;
+                    }
+                ?>
+            </div>
+        </article>
+    </div>
     
     <?php include "includes/footer.inc"; ?>
+    <script src="assets/js/slick.js"></script>
+    <script>
+        $('.slidex').slick({
+            autoplay: true,
+            autoplaySpeed: 2000,
+            dots: false,
+            infinite: true,
+            speed: 300,
+            slidesToShow: 4,
+            slidesToScroll: 1,
+            responsive: [
+                {
+                breakpoint: 480,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                    }
+                }
+            ]
+        });
+    </script>
 </body>
 </html>

@@ -170,11 +170,7 @@
                 animation: "fade"
             });
 
-            $('a.cvtpllink').click(function(e){
-               var datax = $(e.target).attr('data');
-               document.cookie = "cvdata = ; expires=Thu, 01 Jan 1970 00:00:00 UTC;";
-               document.cookie = "cvdata = "+datax;
-            });
+            
         });
         function reveal() {
             var reveals = document.querySelectorAll(".reveal");
@@ -193,6 +189,8 @@
 	    window.addEventListener("scroll", reveal);
 
         $('.slidex').slick({
+                autoplay: true,
+                autoplaySpeed: 2000,
                 dots: false,
                 infinite: true,
                 speed: 300,
