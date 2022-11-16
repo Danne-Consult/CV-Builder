@@ -44,7 +44,36 @@
             </ul>
         </div>
     </div>
+    <div class="container12 tempbx">
+        <article>
+        <h2 class="aligncenter">featured Templates</h2>
+            <div class="slidex row">
+                <?php
+                    include "manage/_db/dbconf.php";
+                    $db = new DBconnect;
+                    $prefix = $db->prefix;
+                    $sql="SELECT * FROM ".$prefix."resume_templates";
+                    $result= $db->conn->query($sql);
+                    $tempbx="";
+                    $temptype="";
+                    while($rws = $result->fetch_array()){
+                        /*if($rws['type']=="free"){
+                            $temptype = "<i>Free</i>";
+                        }else{
+                            $temptype = "<b>Cost:</b> Kes.".$rws['tempcost'];
+                        }*/
 
+                        $tempbx = "<div class='col-lg-3'>";
+                        $tempbx .= "<div class='tempimg' style='background:url(manage/cv-views/".$rws['tempimg'].") no-repeat center; background-size:cover'></div>";
+                        $tempbx .= "<div class='cont aligncenter'><h5 class='aligncenter'>".$rws['tempname']."</h5><p>".$temptype."</p><p><a class='small-round-btn cvtpllink' data='".$rws['id']."' href='cv.php?cvtpl=".$rws['id']."'>Use Template</a></p></div>";
+                        $tempbx .= "</div>";
+
+                        echo $tempbx;
+                    }
+                ?>
+            </div>
+        </article>
+    </div>
     <div class="container12 showcase">
         <article>
             <div class="row justify-content-center">
@@ -88,36 +117,7 @@
         </article>
     </div>
 
-    <div class="container12 tempbx">
-        <article>
-        <h2 class="aligncenter">featured Templates</h2>
-            <div class="slidex row">
-                <?php
-                    include "manage/_db/dbconf.php";
-                    $db = new DBconnect;
-                    $prefix = $db->prefix;
-                    $sql="SELECT * FROM ".$prefix."resume_templates";
-                    $result= $db->conn->query($sql);
-                    $tempbx="";
-                    $temptype="";
-                    while($rws = $result->fetch_array()){
-                        /*if($rws['type']=="free"){
-                            $temptype = "<i>Free</i>";
-                        }else{
-                            $temptype = "<b>Cost:</b> Kes.".$rws['tempcost'];
-                        }*/
-
-                        $tempbx = "<div class='col-lg-3'>";
-                        $tempbx .= "<div class='tempimg' style='background:url(manage/cv-views/".$rws['tempimg'].") no-repeat center; background-size:cover'></div>";
-                        $tempbx .= "<div class='cont aligncenter'><h5 class='aligncenter'>".$rws['tempname']."</h5><p>".$temptype."</p><p><a class='small-round-btn cvtpllink' data='".$rws['id']."' href='cv.php?cvtpl=".$rws['id']."'>Use Template</a></p></div>";
-                        $tempbx .= "</div>";
-
-                        echo $tempbx;
-                    }
-                ?>
-            </div>
-        </article>
-    </div>
+    
     <div class="container12 whyus" style="background:url(assets/images/img4.jpg) no-repeat fixed center; background-size:cover;">
         <h2 class="aligncenter">Why Choose Realtime CV</h2>
         <article>
@@ -193,9 +193,9 @@
                 autoplaySpeed: 2000,
                 dots: false,
                 infinite: true,
-                speed: 300,
+                speed: 1000,
                 slidesToShow: 4,
-                slidesToScroll: 4,
+                slidesToScroll: 1,
                 responsive: [
                     {
                     breakpoint: 480,

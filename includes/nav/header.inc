@@ -8,7 +8,7 @@
                 <ul>
                     <li class="fitstnav"><a href="about.php">About</a></li>
                     <li><a href="#">Documentation</a></li>
-                    <li><a href="#">pricing</a></li>
+                    <li><a href="Pricing.php">pricing</a></li>
                     <li class="lastnav"><a href="login.php">Signin/Register</a></li>
                 </ul>
             </nav>

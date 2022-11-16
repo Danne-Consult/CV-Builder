@@ -243,13 +243,13 @@ header nav .lastnav a:hover{background-color: var(--light-orange); color:var(---
 
 .inner header{background-color:var(--navyblue); color:var(--white);     margin-bottom: 2em; }
 
-.banner{position:relative; margin-bottom:3em; height:100vh;}
-.banner .bannerimg{height:100vh; width:100%; position:relative;} 
+.banner{position:relative; height:70vh; }
+.banner .bannerimg{height:70vh; width:100%; position:relative;} 
 .banner .bannerimg::before{content:""; height:100%; width:100%; position:absolute; background:url(../images/dots.png) repeat;} 
-.banner .caption{ position: absolute; bottom: 5em;  color: var(--white);  left: 4em;  width: 41%;  font-size: 23px; font-weight: 300;}
+.banner .caption{ position: absolute; bottom: 2em;  color: var(--white);  left: 4em;  width: 41%;  font-size: 23px; font-weight: 300;}
 .banner .caption h1{color:var(--white)}
 
-.inner .banner{margin-top: -34px; height: 300px;}
+.inner .banner{margin-top: -34px; height: 300px; margin-bottom:3em;}
 .inner .banner .bannerimg { height: 100%; width: 100%; position: relative;}
 .inner .banner .caption h2{color:var(--white)}
 .inner .banner .caption { position: absolute;  bottom: 2em;  color: var(--white);  left: 4em;  width: 41%;  font-size: 23px;  font-weight: 300;}
@@ -275,7 +275,7 @@ header nav .lastnav a:hover{background-color: var(--light-orange); color:var(---
 .whyus .cont{ color:var(--white); position:relative;}
 
 .showcase .cont{font-size: 22px; display: flex; align-items: center;}
-.showcase .cvbximg{width: 90%; margin-top: -8em;  position: relative;}
+.showcase .cvbximg{width: 77%; margin-top: 0em; position: relative;}
 
 .reveal.active {
     transform: translateY(0);
