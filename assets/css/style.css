@@ -439,6 +439,22 @@ header nav .lastnav a:hover{background-color: var(--light-orange); color:var(---
     cursor: pointer;
   }
 
+.whybar p{font-size:19px; margin-bottom:3em;}
+
+.planboxes{margin-bottom:3em;}
+.planboxes .planbx{padding: 2em; border-radius: 20px; color:#fff; box-shadow: #b2b2b2 0px 5px 15px;}
+.planboxes .planbx h3{color:#fff;}
+.planboxes .planbx span{font-weight:700;}
+.planboxes .cost{width: 160px; height: 160px;  border-radius: 15em; display: flex; align-items: center; justify-content: center; margin: 1em auto 1em auto; font-weight: 700; font-size: 30px; padding: 20px; line-height: 1; box-shadow: #2727276e 0px 3px 14px; color:var(--navyblue)}
+.planboxes .blue{background-color: #3a6c87;}
+.planboxes .green{background-color: #395c35;}
+.planboxes .gold{background-color: #7f7e28;}
+
+.planboxes .blue .cost{ background-color: #dcf3ff;}
+.planboxes .green .cost{ background-color: #b6efc4;}
+.planboxes .gold .cost{ background-color: #fff78e;}
+
+
 .contactForm{ margin: 0px auto 3em auto;}
 .contactForm input, .contactForm textarea, .contactForm select{ border-radius: 12px; border: #ddd 1px solid; background-color: #f2f2f2;}
 .contactForm p{ margin-bottom:0px;}

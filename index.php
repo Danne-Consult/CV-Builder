@@ -1,3 +1,8 @@
+<?php
+    include "manage/_db/dbconf.php";
+    $db = new DBconnect;
+    $prefix = $db->prefix;
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -44,28 +49,27 @@
             </ul>
         </div>
     </div>
+    <!--<div class="container12">
+        <article>
+        <h2 class="aligncenter">Quickly create and download your resume and coverletter directly from our platform that offers you real time, user friendly, 24/7 access and ATS compliant cover page/ curriculum vitae builder to enable you to apply for that needed job conveniently.</h2>
+        </article>
+    </div>-->
+
     <div class="container12 tempbx">
         <article>
-        <h2 class="aligncenter">featured Templates</h2>
+        <h2 class="aligncenter">CV/Resume Templates</h2>
             <div class="slidex row">
-                <?php
-                    include "manage/_db/dbconf.php";
-                    $db = new DBconnect;
-                    $prefix = $db->prefix;
+               <?php
                     $sql="SELECT * FROM ".$prefix."resume_templates";
                     $result= $db->conn->query($sql);
                     $tempbx="";
-                    $temptype="";
+                    
                     while($rws = $result->fetch_array()){
-                        /*if($rws['type']=="free"){
-                            $temptype = "<i>Free</i>";
-                        }else{
-                            $temptype = "<b>Cost:</b> Kes.".$rws['tempcost'];
-                        }*/
+                        
 
                         $tempbx = "<div class='col-lg-3'>";
                         $tempbx .= "<div class='tempimg' style='background:url(manage/cv-views/".$rws['tempimg'].") no-repeat center; background-size:cover'></div>";
-                        $tempbx .= "<div class='cont aligncenter'><h5 class='aligncenter'>".$rws['tempname']."</h5><p>".$temptype."</p><p><a class='small-round-btn cvtpllink' data='".$rws['id']."' href='cv.php?cvtpl=".$rws['id']."'>Use Template</a></p></div>";
+                        $tempbx .= "<div class='cont aligncenter'><h5 class='aligncenter'>".$rws['tempname']."</h5><p><a class='small-round-btn cvtpllink' data='".$rws['id']."' href='cv.php?cvtpl=".$rws['id']."'>Use Template</a></p></div>";
                         $tempbx .= "</div>";
 
                         echo $tempbx;
@@ -74,20 +78,28 @@
             </div>
         </article>
     </div>
-    <div class="container12 showcase">
+    <div class="container12 tempbx">
         <article>
-            <div class="row justify-content-center">
-                <div class="col-lg-4 cont reveal">
+        <h2 class="aligncenter">Coverletter Templates</h2>
+            <div class="slidex row">
+                <?php
+                    $sql1="SELECT * FROM ".$prefix."coverletter_templates";
+                    $result1= $db->conn->query($sql1);
+                    $tempbx1="";
+                    while($rws1 = $result1->fetch_array()){
 
-                <p>Quickly create and download your resume and coverletter directly from our platform that offers you real time, user friendly, 24/7 access and ATS compliant cover page/ curriculum vitae builder to enable you to apply for that needed job conveniently.</p>
-                
-                </div>
-                <div class="col-lg-6 aligncenter reveal">
-                    <img class="cvbximg" src="assets/images/cvsblock.png" />
-                </div>
+                        $tempbx1 = "<div class='col-lg-3'>";
+                        $tempbx1 .= "<div class='tempimg' style='background:url(manage/cover-views/".$rws1['tempimg'].") no-repeat center; background-size:cover'></div>";
+                        $tempbx1 .= "<div class='cont aligncenter'><h5 class='aligncenter'>".$rws1['tempname']."</h5><p><a class='small-round-btn' href='coverletter.php?clt=".$rws1['id']."'>Use Template</a></p></div>";
+                        $tempbx1 .= "</div>";
+
+                        echo $tempbx1;
+                    }
+                ?>
             </div>
         </article>
     </div>
+    
     <div class="container12 howto">
         <article>
             <h2 class="aligncenter">How Create Your Personalized Resume</h2>

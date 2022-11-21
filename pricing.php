@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pricing : Realtime CVs</title>
+    <title>Price Plans: Realtime CVs</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,16 +20,55 @@
 </head>
 <body class="inner">
     <?php include "includes/nav/header.inc"; ?>
-
-    <div class="container12 about">
+    <div class="container12 whybar">
+    <h2 class="aligncenter">Payment Plans</h2>
         <article>
-            <h2 class="aligncenter">Pricing</h2>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                <p class="aligncenter">Quickly create and download your resume and coverletter directly from our platform that offers you real time, user friendly, 24/7 access and ATS compliant cover page/ curriculum vitae builder to enable you to apply for that needed job conveniently.</p>
+                </div>
+            </div>  
+        </article>
+    </div>
+    <div class="container12 planboxes">
+        <article>
            <div class="row justify-content-center">
             <div class="col-lg-10">
                 <div class="row justify-content-center">
-                    <div class="col-lg-4"></div>
-                    <div class="col-lg-4"></div>
-                    <div class="col-lg-4"></div>
+                    <div class="col-lg-4">
+                        <div class="planbx blue aligncenter">
+                            <h3>Basic Plan</h3>
+                            <p><span>One week access starter plan</span></p>
+                            <div class="cost">Kes. 1,500</div>
+                            <p>Number of downloads<br /><span>1 CV/Resume</span><br /><span>1 coverletter</span></p>
+                            <p>Unlimited Access<br /><span>Yes</span></p>
+                            <p>Share link for your CV/resume</p><br />
+                            <p><a href="" class="rounded-white-btn">Select Plan</a></p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="planbx green aligncenter">
+                            <h3>Pro Plan</h3>
+                            <p><span>3 Month Access Plan</span></p>
+                            <div class="cost">Kes. 2,000</div>
+                            
+                            <p>Number of downloads<br /><span>3 CV/Resume</span><br /><span>3 coverletter</span></p>
+                            <p>Unlimited Access<br /><span>Yes</span></p>
+                            <p>Share link for your CV/resume</p><br />
+                            <p><a href="" class="rounded-white-btn">Select Plan</a></p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="planbx gold aligncenter">
+                            <h3>Premium Plan</h3>
+                            <p><span>6 Month Access Plan</span></p>
+                            <div class="cost">Kes. 3,500</div>
+                            <p>Number of downloads<br /><span>Unlimited CV/Resume</span><br /><span>Unlimited coverletter</span></p>
+                            <p>Unlimited Access<br /><span>Yes</span></p>
+                            <p>Share link for your CV/resume</p><br />
+                            <p><a href="" class="rounded-white-btn">Select Plan</a></p>
+                        </div>
+                    </div>
                 </div>
             </div>
            </div>
