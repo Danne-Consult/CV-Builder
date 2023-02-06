@@ -442,10 +442,11 @@ header nav .lastnav a:hover{background-color: var(--light-orange); color:var(---
 .whybar p{font-size:19px; margin-bottom:3em;}
 
 .planboxes{margin-bottom:3em;}
-.planboxes .planbx{padding: 2em; border-radius: 20px; color:#fff; box-shadow: #b2b2b2 0px 5px 15px;}
+.planboxes .planbx{padding: 2em; min-height: 100%; border-radius: 20px; color:#fff; box-shadow: #b2b2b2 0px 5px 15px;}
 .planboxes .planbx h3{color:#fff;}
 .planboxes .planbx span{font-weight:700;}
 .planboxes .cost{width: 160px; height: 160px;  border-radius: 15em; display: flex; align-items: center; justify-content: center; margin: 1em auto 1em auto; font-weight: 700; font-size: 30px; padding: 20px; line-height: 1; box-shadow: #2727276e 0px 3px 14px; color:var(--navyblue)}
+.planboxes .lightblue{background-color:#6595a8}
 .planboxes .blue{background-color: #3a6c87;}
 .planboxes .green{background-color: #395c35;}
 .planboxes .gold{background-color: #7f7e28;}

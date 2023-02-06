@@ -217,7 +217,7 @@
         <article class="" id="hidebx">
             <div class="slidex row">
                 <?php
-                if(!$rwsx["covertemp"]==""){
+                
                     $sql="SELECT * FROM ".$prefix."coverletter_templates";
                     $result= $db->conn->query($sql);
                     $tempbx="";
@@ -245,7 +245,7 @@
 
                         echo $tempbx;
                     }
-                } 
+            
                 ?>
             </div>
         </article>

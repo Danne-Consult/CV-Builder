@@ -432,7 +432,7 @@
         <article class="" id="">
             <div class="slidex row">
                 <?php
-                if(!$rwres["cvtemp"]==""){
+               
                     $sql="SELECT * FROM ".$prefix."resume_templates";
                     $result= $db->conn->query($sql);
                     $tempbx="";
@@ -451,7 +451,7 @@
 
                         echo $tempbx;
                     }
-                } 
+                
                 ?>
             </div>
         </article>

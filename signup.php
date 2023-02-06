@@ -1,3 +1,4 @@
+<?php include "manage/_db/dbconf.php"; ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

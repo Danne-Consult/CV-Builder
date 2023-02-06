@@ -50,17 +50,36 @@
                             <th>Cost</th>
                         </tr>
                         <tr>
-                            <td><?php if($rws1['tpltype']!==""){
-                                echo $rws1['tpltype']; 
-                            }
-                            if($rws1['paytype']!==""){}echo "<span style='text-transform: capitalize;'>". $rws1['paytype']." Plan</span>"; ?></td>
+                            <td><?php echo $rws1['tpltype']; ?></td>
                             <td><b><?php echo $rws1['tplcost']; ?></b></td>
                         </tr>
                     </table>
 
                     <div class="row">
+                        <!--<div class="col-lg-6">
+                            <h3>How to pay</h3>
+                            <h4>Using MPESA</h4>
+                            <p>Go to the M-pesa Menu<br />
+                            Select Pay Bill<br />
+                            Enter Business No: <b>4096713</b><br />
+                            Enter Account No: <b><?php echo $invoiceid; ?></b><br />
+                            Enter the Amount: <b><?php echo $rws1['tplcost']; ?></b><br />
+                            Enter your M-Pesa PIN then send</p>
+
+                            <h4>Confirmation</h4>
+                            <p>Enter the MPESA Unique ID to complete the transaction</p>
+                            <form class="contactForm" action="controller/mpesacheckout.php" method="POST">
+                                <input name="invoiceno" type="hidden" value="<?php echo $invoiceid; ?>" />
+                                <input name="amount" type="hidden" value="<?php echo $rws1['tplcost']; ?>" />
+                                <input type="text" name="mpesacode" maxlength="10" placeholder="eg. QIM2...">
+                                <input type="submit" class="submit" name="submitcode" value="Confirm" />
+                            </form>
+                        </div>-->
+
+
                         <?php 
 
+                        
                         if(isset($_GET['error'])){
                              echo "<div class='error-red'>". $_GET['error'] ."</div>";
                         }
@@ -71,15 +90,14 @@
                             if(!isset($_GET['success'])){
                         ?>
                         <h3>Instant Payment</h3>
-                           <br />
-                            <form class="contactForm" action="controller/pesapalcheckout.php" method="POST">
-                                <input name="email" type="hidden" value="<?php echo $rws1['email']; ?>" />
+                            <img src="assets/images/mpesa_logo.png"  style="width: 142px; mix-blend-mode: darken;" alt="Mpesa">
+                            <form class="contactForm" action="controller/mpesacheckout.php" method="POST">
+                                <label>Enter the phone number making the payment:</label><br />
                                 <input name="invoicenox" type="hidden" value="<?php echo $invoiceid; ?>" />
                                 <input name="amountx" type="hidden" value="<?php echo $rws1['tplcost']; ?>" />
                                 <input name="tpltype" type="hidden" value="<?php echo $rws1['tpltype']; ?>" />
-                                <input name="period" type="hidden" value="<?php echo $rws1['period']; ?>" />
-                                <input name="paytype" type="hidden" value="<?php echo $rws1['paytype']; ?>" />
-                                <input type="submit" class="submit" name="submitnumber" value="Pay Invoice" /> 
+                                <input type="text" name="phonenumer" maxlength="12" placeholder="eg. 254722...">
+                                <input type="submit" class="submit" name="submitnumber" value="Pay Invoice" />
                             </form>
                         <?php } ?>
 
@@ -101,14 +119,10 @@
                             }
                             ?>
 
+                            
+                            <p></p>
                         </div>                
                     </div>
-
-                   <div class="row">
-                    <div class="col-lg-12 aligncenter">
-                        <img style="width: 343px;" src="assets/images/pesapal.webp" />
-                    </div>
-                   </div>
                 </div>
             </div>
         </article>

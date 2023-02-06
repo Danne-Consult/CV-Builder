@@ -27,33 +27,10 @@
         <article>
             <h3>Dashboard</h3>
             <div class="row">
-                <div class="col-lg-12">
-                    <h4>Recent Users</h4>
-                    <table id="sorttable">
-                        <thead>
-                            <tr>
-                                <th>User's Names</th>
-                                <th>E-mail</th>
-                                <th>Joined On</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php
-                            $sql="SELECT * FROM ".$prefix."users LIMIT 10";
-                            $result= $db->conn->query($sql);
-                            $tempbx="";
-                            $temptype="";
-                            while($rws = $result->fetch_array()){
-                                $m = "<td>".$rws['fname']."&nbsp;".$rws['fname']."</td>";
-                                $m .= "<td>".$rws['email']."</td>";
-                                $m .= "<td> ".$rws['createdon']."</td>";
-
-                                echo $m;
-                            }
-                            ?>
-                        </tbody>
-                    </table>
-                    <p><a class="rounded-white-btn" href="allusers.php">See All Users</a></p>
+                <div class="col-lg-8">
+                    <?php
+                    include "components/lists/fewusers.php";
+                    ?>
                 </div>
             </div>
         </article>
@@ -66,11 +43,14 @@
     <div class="container12">
         <article>
             <div class="row">
+                
                 <div class="col-md-6">
-                    <h4>Latest Transactions</h4>
+                <?php
+                    include "components/lists/payments.php";
+                ?>
                 </div>
                 <div class="col-md-6">
-                    <h4>Mpesa Transactions</h4>
+                    <h4>Latest Transactions</h4>
                 </div>
             </div>
         </article>

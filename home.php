@@ -110,6 +110,34 @@
             </div>
         </article>
     </div>
+
+    <div class="container12 tempbx">
+        <article>
+            <h2 class="aligncenter">featured Cover Letter Templates</h2>
+            <div class="slidex row">
+                <?php
+                    $sql4="SELECT * FROM ".$prefix."coverletter_templates";
+                    $result4= $db->conn->query($sql3);
+                    $tempbx="";
+                    $temptype="";
+                    while($rws4 = $result4->fetch_array()){
+                        if($rws4['type']=="free"){
+                            $temptype = "<i>Free</i>";
+                        }else{
+                            $temptype = "<b>Cost:</b> Kes.".$rws4['tempcost'];
+                        }
+
+                        $tempbx = "<div class='col-lg-3'>";
+                        $tempbx .= "<div class='tempimg' style='background:url(manage/cv-views/".$rws4['tempimg'].") no-repeat center; background-size:cover'></div>";
+                        $tempbx .= "<div class='cont aligncenter'><h5 class='aligncenter'>".$rws4['tempname']."</h5><p>".$temptype."</p><p><a class='small-round-btn' href='cv.php?cvtpl=".$rws4['id']."'>Use Template</a></p></div>";
+                        $tempbx .= "</div>";
+
+                        echo $tempbx;
+                    }
+                ?>
+            </div>
+        </article>
+    </div>
     
     <?php include "includes/footer.inc"; ?>
     <script src="assets/js/slick.js"></script>

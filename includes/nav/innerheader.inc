@@ -9,6 +9,7 @@
                     <li class="fitstnav"><a href="javascript:void(0)"><?php echo  "Hello " . $_SESSION['fname']."!"; ?></a></li>
                     <li><a href="home.php">Home</a></li>
                     <li><a href="profile.php">My profile</a></li>
+                    <li><a href="pricing.php">Pricing</a></li>
                     <li><a href="controller/logout.php">Logout</a></li>
                 </ul>
             </nav>
