@@ -418,7 +418,7 @@ header nav .lastnav a:hover{background-color: var(--light-orange); color:var(---
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 15; /* Sit on top */
-    padding-top: 100px; /* Location of the box */
+    padding-top: 0; /* Location of the box */
     left: 0;
     top: 0;
     width: 100%; /* Full width */
@@ -438,9 +438,12 @@ header nav .lastnav a:hover{background-color: var(--light-orange); color:var(---
     border: 1px solid #888;
     width: 80%;
   }
-  #modal-content{
-    padding-left: 10em;
+  #modal-content #myresume,  #modal-content #myover{
+    width:210mm;
+    height:297mm;
   }
+
+  .cover{width: 210mm;}
 
   
   /* The Close Button */
@@ -449,8 +452,8 @@ header nav .lastnav a:hover{background-color: var(--light-orange); color:var(---
     font-size: 28px;
     font-weight: bold;
     position: absolute;
-    right: 11.2em;
-    top: 3.9em;
+    right: 11.6em;
+    top: 3.3em;
     z-index: 46;
     background-color: var(--orange);
     padding: 2px 15px;
