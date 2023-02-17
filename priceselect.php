@@ -1,8 +1,5 @@
-<?php 
-session_start();
-include "manage/_db/dbconf.php"; 
-?>
-
+<?php include "controller/sessioncheck.php"; ?>
+<?php include "manage/_db/dbconf.php"; ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,20 +21,13 @@ include "manage/_db/dbconf.php";
     <script src="assets/js/jquery.min.js"></script>
 </head>
 <body class="inner">
-    
-    <?php 
-    if(!isset($_SESSION['userid'])){
-        include "includes/nav/header.inc";
-    }else{
-         include "includes/nav/innerheader.inc";
-    }
-    ?>
+    <?php include "includes/nav/innerheader.inc"; ?>
     <div class="container12 whybar">
     <h2 class="aligncenter">Payment Plans</h2>
         <article>
             <div class="row justify-content-center">
                 <div class="col-lg-8">
-                <p class="aligncenter">Quickly create and download your resume and coverletter directly from our platform that offers you real time, user friendly, 24/7 access and ATS compliant cover page/ curriculum vitae builder to enable you to apply for that needed job conveniently.</p>
+                <p class="aligncenter">Select your favored plan and proceed to pay.</p>
                 </div>
             </div>  
         </article>
@@ -52,9 +42,37 @@ include "manage/_db/dbconf.php";
                             <h3>One-Time Pay</h3>
                             <p><span>On need basis</span></p>
                             
+                            <?php 
+                            $tplid= $_GET['tplid'];
+                            $tpltype= $_GET['temptype'];
+
+                            if($tpltype=="resume"){
+                                $db = new DBconnect;
+                                $prefix = $db->prefix;
+                                
+                                $sql1 = "SELECT * FROM ".$prefix."resume_templates WHERE id = $tplid";
+                                $result1= $db->conn->query($sql1);
+                                $rws = $result1->fetch_array();
+
+                                echo "<div class='cost'>Kes. ". $rws['tempcost']."</div>";
+                            }
+                            if($tpltype=="coverletter"){
+                                $db = new DBconnect;
+                                $prefix = $db->prefix;
+                                
+                                $sql2 = "SELECT * FROM ".$prefix."coverletter_templates WHERE id = $tplid";
+                                $result2= $db->conn->query($sql2);
+                                $rws2 = $result2->fetch_array();
+
+                                echo "<div class='cost'>Kes. ". $rws2['tempcost']."</div>";
+                            }
+                            ?>
+
                             <p>Number of downloads<br /><span>1 CV/Resume/Coverletter</span></p>
                             <p>Unlimited Access<br /><span>No</span></p>
                             <p>Share link for your CV/resume&nbsp;<i class="fa-solid fa-check"></i></p><br />
+
+                            <p><a href="controller/checktemp.php?tplid=<?php echo $tplid; ?>&temptype=<?php echo $tpltype; ?>" class="rounded-white-btn">Pay Now</a></p>
                             
                         </div>
                     </div>

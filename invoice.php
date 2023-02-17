@@ -28,6 +28,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/fontawesome/css/all.css">
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/print.css" media="print">
     <script src="assets/js/jquery.min.js"></script>
 </head>
 <body class="inner">
@@ -50,10 +51,13 @@
                             <th>Cost</th>
                         </tr>
                         <tr>
-                            <td><?php if($rws1['tpltype']!==""){
-                                echo $rws1['tpltype']; 
+                            <td><?php 
+                            if($rws1['tpltype']!==""){
+                                echo "<span style='text-transform: capitalize;'>".$rws1['tpltype'] ." </span>"; 
+                                                           
                             }
-                            if($rws1['paytype']!==""){}echo "<span style='text-transform: capitalize;'>". $rws1['paytype']." Plan</span>"; ?></td>
+                            if($rws1['paytype']!==""){
+                                echo "<span style='text-transform: capitalize;'>". $rws1['paytype']." Plan</span>";} ?></td>
                             <td><b><?php echo $rws1['tplcost']; ?></b></td>
                         </tr>
                     </table>

@@ -117,8 +117,8 @@
             <div class="slidex row">
                 <?php
                     $sql4="SELECT * FROM ".$prefix."coverletter_templates";
-                    $result4= $db->conn->query($sql3);
-                    $tempbx="";
+                    $result4= $db->conn->query($sql4);
+                    $tempbx1="";
                     $temptype="";
                     while($rws4 = $result4->fetch_array()){
                         if($rws4['type']=="free"){
@@ -127,12 +127,12 @@
                             $temptype = "<b>Cost:</b> Kes.".$rws4['tempcost'];
                         }
 
-                        $tempbx = "<div class='col-lg-3'>";
-                        $tempbx .= "<div class='tempimg' style='background:url(manage/cv-views/".$rws4['tempimg'].") no-repeat center; background-size:cover'></div>";
-                        $tempbx .= "<div class='cont aligncenter'><h5 class='aligncenter'>".$rws4['tempname']."</h5><p>".$temptype."</p><p><a class='small-round-btn' href='cv.php?cvtpl=".$rws4['id']."'>Use Template</a></p></div>";
-                        $tempbx .= "</div>";
+                        $tempbx1 = "<div class='col-lg-3'>";
+                        $tempbx1 .= "<div class='tempimg' style='background:url(manage/cover-views/".$rws4['tempimg'].") no-repeat center; background-size:cover'></div>";
+                        $tempbx1 .= "<div class='cont aligncenter'><h5 class='aligncenter'>".$rws4['tempname']."</h5><p>".$temptype."</p><p><a class='small-round-btn' href='cv.php?cvtpl=".$rws4['id']."'>Use Template</a></p></div>";
+                        $tempbx1 .= "</div>";
 
-                        echo $tempbx;
+                        echo $tempbx1;
                     }
                 ?>
             </div>

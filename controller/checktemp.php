@@ -65,7 +65,7 @@ if(isset($_GET['tplid']) && isset($_GET['temptype']) ){
 
         $invoiceno = generateRandomString(6);
         
-        $sql3="INSERT INTO ".$prefix."invoices (userid, templateid, tpltype, tplcost, invoiceno, invoicedate, paystatus) VALUES('$userid','$tplid','$tpltype','$tempcost','$invoiceno','$currdatetime','0')";
+        $sql3="INSERT INTO ".$prefix."invoices (userid, templateid, tpltype, tplcost, invoiceno, invoicedate, paystatus, paytype) VALUES('$userid','$tplid','$tpltype','$tempcost','$invoiceno','$currdatetime','0', 'One time')";
         $db->conn->query($sql3);
 
         $sql5 = "SELECT * FROM ".$prefix."invoices WHERE id = LAST_INSERT_ID()";

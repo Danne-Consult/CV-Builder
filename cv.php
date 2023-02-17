@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="assets/css/slick-theme.css">
     <link rel="stylesheet" href="assets/css/slick.css">
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/print.css" media="print">
     <script src="assets/js/jquery.min.js"></script>
 </head>
 <body class="inner">
@@ -110,11 +111,11 @@
                                 </div>
                                 <div class="col-lg-6">
                                     <label for="lname">Tel/Mobile</label><br />
-                                    <input type="tel" name="mobileno" id="tel" placeholder="eg. +25407..." value="<?php if(!$rwres['phone']==""){echo $rwres['phone'];} ?>" required />
+                                    <input type="tel" name="mobileno" id="tel" placeholder="eg. +25407..." value="<?php if(!$rwres['phone']==""){echo $rwres['phone'];} ?>" />
                                 </div>
                                 <div class="col-lg-6">
                                     <label for="address">Address</label><br />
-                                    <input type="text" name="address" id="address" value="<?php if(!$rwres['address']==""){echo $rwres['address'];} ?>" required  />
+                                    <input type="text" name="address" id="address" value="<?php if(!$rwres['address']==""){echo $rwres['address'];} ?>"  />
                                 </div>
                                 <div class="col-lg-4">
                                     <label for="postalcode">Postal Code</label><br />
@@ -417,7 +418,7 @@
                    </div>
                 </div>
                 <div class="col-lg-5" style="position:relative;">
-                    <a href="controller/checktemp.php?tplid=<?php echo $cvtpl; ?>&temptype=resume" title="Download" id="downloadrec" class="rounded-white-btn floataboveright"><i class="fa-solid fa-download"></i></a>
+                    <a href="priceselect.php?tplid=<?php echo $cvtpl; ?>&temptype=resume" title="Download" id="downloadrec" class="rounded-white-btn floataboveright"><i class="fa-solid fa-download"></i></a>
                     <div class="cvresized" id="resumebx">
                         <?php echo $rwresume['tempcode']; ?>
                     </div>
@@ -461,6 +462,10 @@
         <span class="close">&times;</span>
         <div id="modal-content"></div>
     </div>
+
+
+
+    <div id="testpage"></div>
     
     <?php include "includes/footer.inc"; ?>
 
@@ -529,6 +534,9 @@
                 var section = $(this).attr("data-next-prev");
                 $(".section").removeClass("secshow");
                 $("#"+section).addClass("secshow");
+                $('html,body').animate({
+                scrollTop: $('body').offset().top},
+                'slow');
              });
 
 

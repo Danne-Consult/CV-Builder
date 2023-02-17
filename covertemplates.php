@@ -41,9 +41,9 @@
                         }
 
                         $tempbx = "<div class='col-lg-3'>";
-                        $tempbx .= "<div class='tempimg' style='background:url(manage/cover-views/".$rws['tempimg'].") no-repeat center; background-size:cover'></div>";
+                        $tempbx .= "<div class='tempimg' style='background:url(manage/cover-views/".$rws['tempimg'].") no-repeat center; background-size:cover'>";
                         $tempbx .= "<div class='cont aligncenter'><h5 class='aligncenter'>".$rws['tempname']."</h5><p>".$temptype."</p><p><a class='small-round-btn' href='coverletter.php?clt=".$rws['id']."'>Use Template</a></p></div>";
-                        $tempbx .= "</div>";
+                        $tempbx .= "</div></div>";
 
                         echo $tempbx;
                     }

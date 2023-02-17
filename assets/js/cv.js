@@ -310,6 +310,37 @@ $(".submit").click(function(){
       }
     }
   });
+
+var max_pages = 100;
+var page_count = 0;
+var currentPage = 1;
+
+function snipMe() {
+  page_count++;
+  if (page_count > max_pages) {
+    return;
+  }
+  var element = this;
+  var long = element.scrollHeight - Math.ceil(element.clientHeight);
+  var children = Array.from(element.children);
+  var removed = [];
+  while (long > 0 && children.length > 0) {
+    var child = children.pop();
+    child.remove();
+    removed.unshift(child);
+    long = element.scrollHeight - Math.ceil(element.clientHeight);
+  }
+  if (removed.length > 0) {
+    var a4 = document.createElement('div');
+    a4.classList.add('A4');
+    removed.forEach(function(child) {
+      a4.appendChild(child);
+    });
+    element.after(a4);
+    snipMe.call(a4);
+  }
+  
+}
   
 
 
@@ -321,14 +352,28 @@ var resumebx = document.getElementById("resumebx");
 
 btn.onclick = function() {
     modalcontent.innerHTML = resumebx.innerHTML;
-    modal.style.display = "block";
+    modal.style.display = "flex";
     getchart();
+
+    document.addEventListener('DOMContentLoaded', function() {
+      var a4Elements = document.querySelectorAll('.cvpage');
+      a4Elements.forEach(function(element) {
+        snipMe.call(element);
+      });
+    });
     
 }
 resumebx.onclick = function(){
     modalcontent.innerHTML = resumebx.innerHTML;
-    modal.style.display = "block";
+    modal.style.display = "flex";
     getchart();
+
+    document.addEventListener('DOMContentLoaded', function() {
+      var a4Elements = document.querySelectorAll('.cvpage');
+      a4Elements.forEach(function(element) {
+        snipMe.call(element);
+      });
+    });
 }
 
 span.onclick = function() {
@@ -392,6 +437,9 @@ function getUrlParameter(sParam) {
     });
   };
 
-
-
-  
+  document.addEventListener('DOMContentLoaded', function() {
+    var a4Elements = document.querySelectorAll('.cvpage');
+    a4Elements.forEach(function(element) {
+      snipMe.call(element);
+    });
+  });
