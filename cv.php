@@ -423,7 +423,7 @@
                         <?php echo $rwresume['tempcode']; ?>
                     </div>
 
-                    <p style="position: absolute;top: 21em;left: 7em;z-index: 10;"><button id="downnow" class="rounded-white-btn" style="display:none">Download Now</button></p>
+                    <p style="position: absolute;top: 21em; text-align: center; width: 89%;"><button id="downnow" class="rounded-white-btn" style="display:none">Download Now</button></p>
                 </div>
             </div>
         </article>
@@ -471,7 +471,7 @@
 
     <script src="manage/assets/js/tinymce/tinymce.min.js" referrerpolicy="origin"></script>
     <script src="assets/js/slick.js" referrerpolicy="origin"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    
     <script>
         
         $(document).ready(function() {
@@ -569,7 +569,7 @@
     </script>
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/easy-pie-chart/2.1.6/jquery.easypiechart.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="assets/js/cv.js" referrerpolicy="origin"></script>
-
 </body>
 </html>

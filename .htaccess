@@ -1,3 +1,9 @@
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(([A-Za-z0-9\-]+/)*[A-Za-z0-9\-]+)?$ $1.php
+RewriteRule ^([^/.]+)$ $1.php [L]
+
 AddDefaultCharset utf-8
 
 # BEGIN Expire headers  
@@ -23,3 +29,5 @@ AddDefaultCharset utf-8
 #redirect http to https
 #RewriteCond %{HTTP:SSL} !=1 [NC]
 #RewriteRule ^(.*) https://%{SERVER_NAME}/$1 [L,R=301]
+
+ErrorDocument 404 /404

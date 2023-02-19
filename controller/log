@@ -1,0 +1,22 @@
+{
+    "payment_method": "Visa",
+    "amount": 100,
+    "created_date": "2022-04-30T07:41:09.763",
+    "confirmation_code": "6513008693186320103009",
+    "payment_status_description": "Failed",
+    "description": "Unable to Authorize Transaction.Kindly contact your bank for assistance",
+    "message": "Request processed successfully",
+    "payment_account": "476173**0010",
+    "call_back_url": "https://test.com/?OrderTrackingId=7e6b62d9-883e-440f-a63e-e1105bbfadc3&OrderMerchantReference=1515111111",
+    "status_code": 2,
+    "merchant_reference": "1515111111",
+    "payment_status_code": "",
+    "currency": "KES",
+    "error": {
+        "error_type": null,
+        "code": null,
+        "message": null,
+        "call_back_url": null
+    },
+    "status": "200"
+}

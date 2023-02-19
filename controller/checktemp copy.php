@@ -9,41 +9,7 @@ if(isset($_GET['tplid']) && isset($_GET['temptype']) ){
     $tplid = $_GET['tplid'];
     $tpltype = $_GET['temptype'];
     date_default_timezone_set("Africa/Nairobi");
-    
-    function checksubscription($userid, $tplid){
-        $db = new DBconnect;
-        $prefix = $db->prefix;
-        
-        $currdatetime = date("y-m-d h:i:s");
-
-        $sql0="SELECT * FROM ".$prefix."user_subscription WHERE userid='$userid'";
-        $result0 = $db->conn->query($sql0);
-        $trws0 = mysqli_num_rows($result0);
-        $rws0 = $result0->fetch_array();
-
-        if($trws0!==0){
-            $expirydate = $rws0['expirydate'];
-            if($currdatetime < $expirydate){
-                //if current date is less than expiry, proceed to download
-
-                if($tpltype=="resume"){
-                    header('location:../cv.php?cvtpl='.$tplid.'&d=1');
-                }
-                if($tpltype=="coverletter"){
-                    header('location:../coverletter.php?vtpl='.$tplid.'&d=1');
-                }
-
-            }else{
-                //$deleterec = "DELETE FROM ".$prefix."usersubscription WHERE userid='$userid'";
-                //$db->conn->query($deleterec);
-                header('location:../priceselect.php');
-            }
-        }else{
-            //no record found, do something.
-            header('location:../priceselect.php');
-        }
-    }
-
+	$currdatetime = date("y-m-d h:i:s");
 
     $sql1="SELECT * FROM ".$prefix."invoices a LEFT JOIN ".$prefix."mpesatrans b ON a.requestid=b.requestid WHERE a. userid='$userid' AND a.templateid='$tplid'";
     $result1 = $db->conn->query($sql1);
@@ -109,7 +75,7 @@ if(isset($_GET['tplid']) && isset($_GET['temptype']) ){
         header('location:../invoice.php?invoiceid='.$invoiceid);
     }
 
-    checksubscription($userid, $tplid);
+
     updatedbtemplate($userid, $tplid, $tpltype);
 
     if($trws1>0){

@@ -335,30 +335,30 @@ header nav .lastnav a:hover{background-color: var(--light-orange); color:var(---
 
 .scrollwork::-webkit-scrollbar { display: none;}
 
-.cvresized{ position: absolute; background-color: var(--white);  border-radius: 20px;  box-shadow: #f1f1f1 3px 3px 13px 3px; transform-origin: 0 0;  max-height: 108em;  float: left;  overflow: scroll;  transition: all 0.3s ease-in-out; 
-    width: 21cm;
-    height: 29.7cm;
+.cvresized{ 
+    position: absolute;
+    background-color: var(--white);
+    border-radius: 20px;
+    box-shadow: #f1f1f1 3px 3px 13px 3px;
+    transform-origin: 0 0;
+    float: left;
+    overflow: scroll;
+    overflow-x: hidden;
+    transition: all 0.3s ease-in-out;
+    min-height: 1349px;
+    max-height:1496.3143px;
     display: block;
-    margin:  0 auto 0 auto;
+    margin: 0 auto 0 auto;
     box-sizing: border-box;
     font-size: 12pt;
-    scale:.59;}
-.cvresized::-webkit-scrollbar { display: none;}
+    scale: 0.49;
+}
+.cvresized::-webkit-scrollbar { display: block;}
 .cvresized:hover{cursor: pointer;}
 .cvresized:before{position:absolute; content:""; width:100%; height:100%; left:0px; top:0px;  transition: all 0.3s ease-in-out;}
 .cvresized:hover:before{background-color:rgba(204, 204, 204, 0.142);}
 
-.cvpage {
-    width: 1058px;
-    min-height: 1496.3143px;
-    background-color: #fff;
-    color: var(--black);
-    padding: 4em 5em 4em 4em;
-    font-weight: 400;
-    scale: 0.78;
-    margin-top: -14em !important;
-    margin-left: -8em !important;
-}
+
 
 .collcont { display: none; }
 
@@ -438,9 +438,8 @@ header nav .lastnav a:hover{background-color: var(--light-orange); color:var(---
     border: 1px solid #888;
     width: 80%;
   }
-  #modal-content #myresume,  #modal-content #myover{
-    width:210mm;
-    height:297mm;
+  #modal-content #myresume,  #modal-content #mycover{
+    margin-left: 6em;
   }
 
   .cover{width: 210mm;}
@@ -452,8 +451,8 @@ header nav .lastnav a:hover{background-color: var(--light-orange); color:var(---
     font-size: 28px;
     font-weight: bold;
     position: absolute;
-    right: 11.6em;
-    top: 3.3em;
+    right: 5.6em;
+    top: 1.3em;
     z-index: 46;
     background-color: var(--orange);
     padding: 2px 15px;
@@ -526,6 +525,10 @@ footer .social li a{border-radius: 200px; padding: 8px 8px; color: #fff;}
 
 footer .copy{font-size: 12px; font-weight: 400; padding: 13px 0px 13px 0px;  margin-top: 0; }
 
+.body404{background-size:cover !important; height:100vh;}
+.body404 .cont{padding: 2em; margin-top: 16rem;}
+.body404 .logo{width:300px; margin-bottom: 3em;}
+.body404 .logo img{width:100%}
 
 @media handheld and (max-width: 480px), screen and (max-device-width: 480px), screen and (max-width: 767px)  {
 .bodycont{width:100%; margin:0px auto;}

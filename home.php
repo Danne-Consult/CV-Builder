@@ -24,6 +24,11 @@
         <article>
             <div class="row justify-content-center">
                 <div class="col-md-10">
+                    <?php 
+                        if(isset($_GET['error'])){
+                            echo "<div class='error-red'>". $_GET['error'] ."</div>";
+                        }
+                    ?>
                     <div class="cap">
                         <h1>Showcase your skills and talents</h1>
                         <p>Create, update, format and align cover letters and curriculum vitae to new opportunities</p>

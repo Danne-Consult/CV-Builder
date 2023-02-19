@@ -311,6 +311,18 @@ $(".submit").click(function(){
     }
   });
 
+  function getchart(){
+    $('.chart').easyPieChart({
+        size: 100,
+        barColor: "#114356",
+        scaleLength: 0,
+        lineWidth: 10,
+        trackColor: "#fff",
+        lineCap: "circle",
+        animate: 1000,
+    });
+  };
+
 var max_pages = 100;
 var page_count = 0;
 var currentPage = 1;
@@ -412,30 +424,19 @@ function getUrlParameter(sParam) {
       var namex= $('#cfname').html();
       var element = $('#myresume').html();
       var opt = {
-        margin:       [5, 0, 20, 0],
+        margin:       [10, 0, 20, 0],
         filename:     namex+' Resume.pdf',
         //image:        { type: 'jpeg', quality: 1 },
-        pagebreak: { mode: ['avoid-all']},
-        html2canvas:  { scale: 3, letterrendering: true, scrollY: 0,  width: 1080, height: 1920},
+        pagebreak: { mode: ['legacy']},
+        html2canvas:  { scale: 3, letterrendering: true, scrollY: 0,  width: 1080},
         jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' }
       };
-
       html2pdf().set(opt).from(element).save();
     });
   } 
  
 
-  function getchart(){
-    $('.chart').easyPieChart({
-        size: 100,
-        barColor: "#114356",
-        scaleLength: 0,
-        lineWidth: 10,
-        trackColor: "#fff",
-        lineCap: "circle",
-        animate: 1000,
-    });
-  };
+  
 
   document.addEventListener('DOMContentLoaded', function() {
     var a4Elements = document.querySelectorAll('.cvpage');

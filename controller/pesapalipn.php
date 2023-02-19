@@ -1,4 +1,5 @@
 <?php 
+session_start();
 include "../manage/_db/dbconf.php";
 date_default_timezone_set("Africa/Nairobi");
 header("Content-Type:application/json");
@@ -7,11 +8,12 @@ $content = file_get_contents('php://input');
 file_put_contents('log', $content, FILE_APPEND);
 
 $res = json_decode($content);
+$userrec = $_SESSION['userid'];
 
 
 $paymentmethod = $res->payment_method;
 $amount = $res->amount;
-$created_date = $res->created_date;
+$created_date  = $res->created_date;
 $confirmation_code = $res->confirmation_code;
 $status = $res->payment_status_description;
 $description = $res->description;
@@ -28,6 +30,8 @@ $prefix = $db->prefix;
 $sqlcheckinvoice = "SELECT * FROM ".$prefix."invoices WHERE invoiceno='$invoiceid'";
 $rrequest = $db->conn->query($sqlcheckinvoice);
 $rtrows = mysqli_num_rows($rrequest);
+$rws1 = $rrequest->fetch_array();
+$subtype = $rws1['paytype'];
 
 if($rtrows!==0){
     
@@ -35,10 +39,18 @@ if($rtrows!==0){
     $db->conn->query($sqlpesapal);
 
     if($status!=="COMPLETED"){
+        if($rws1['paytype']==basic || $rws1['paytype']==pro || $rws1['paytype']==premium){
+            $datereg  =date_create($created_date);
+            date_add($datereg,date_interval_create_from_date_string($rws1['period']." weeks"));
+            $enddate =  date_format($datereg,"Y-m-d H:i:s");
+        }
     
-        $sqlupdateinvoice  = "UPDATE ".$prefix."invoices SET paystatus='Paid' WHERE invoiceno='$invoiceid'";
+        $sqlupdateinvoice  = "UPDATE ".$prefix."invoices SET paystatus='Paid', paidon='$created_date' WHERE invoiceno='$invoiceid'";
         $db->conn->query($sqlupdateinvoice);
-        
+       
+        $subscription = "INSERT INTO ".$prefix."user_subscription (userid, subtype, startdate, expirydate) VALUES ('$userrec','$subtype','$created_date','$enddate')";
+        $db->conn->query($subscription);
+
         header("location:../invoice.php?invoiceid=".$invoiceno."&success=Payment was successful");
 
     }else{

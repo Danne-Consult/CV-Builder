@@ -207,7 +207,7 @@
                         <?php echo $rws['tempcode']; ?>
                     </div>
                     
-                    <p style="position: absolute;top: 21em;left: 7em;z-index: 10;"><button id="downnow" class="rounded-white-btn" style="display:none">Download Now</button></p>
+                    <p style="position: absolute;top: 21em; text-align: center; width: 89%;"><button id="downnow" class="rounded-white-btn" style="display:none">Download Now</button></p>
                 </div>
             </div>
         </article>

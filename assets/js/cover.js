@@ -119,13 +119,11 @@ var clbx = document.getElementById("clbx");
 btn.onclick = function() {
     modalcontent.innerHTML = clbx.innerHTML;
     modal.style.display = "block";
-    getchart();
     
 }
 clbx.onclick = function(){
     modalcontent.innerHTML = clbx.innerHTML;
     modal.style.display = "block";
-    getchart();
 }
 
 span.onclick = function() {
@@ -170,18 +168,19 @@ function getUrlParameter(sParam) {
     $('#downnow').delay(1000).fadeIn("slow");
     $('#downloadrec').hide();
     $('#downnow').click(function(){
-
+      
       var namex= $('#cfname').html();
       var element = $('#mycover').html();
       var opt = {
-        margin:       [0, 0, 20, 0],
+        margin:       [10, 0, 20, 0],
         filename:     fname.value +' coverletter.pdf',
         //image:        { type: 'jpeg', quality: 1 },
-        pagebreak: { mode: ['css']},
+        enableLinks: true,
+        pagebreak: { mode: ['legacy']},
         html2canvas:  { scale: 3, letterrendering: true, scrollY: 0,  width: 1080},
         jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' }
       };
-
+      
       html2pdf().set(opt).from(element).save();
     });
   } 
