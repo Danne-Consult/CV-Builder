@@ -20,6 +20,7 @@
 	}
 
     $randstring = generateRandomString(6);
+    
     function createinvoice($userid, $pestype, $presperiod, $invoiceid, $prescost){
         $db = new DBconnect;
         $prefix = $db->prefix;
@@ -28,7 +29,6 @@
         $sql1="INSERT INTO ".$prefix."invoices (userid, tplcost, invoiceno, invoicedate,period, paystatus, paytype) VALUES('$userid','$prescost','$invoiceid','$currdatetime','$presperiod','0', '$pestype')";
         $db->conn->query($sql1);
 
-        echo $sql1;
         $sql2 = "SELECT * FROM ".$prefix."invoices WHERE id = LAST_INSERT_ID()";
         $result2 = $db->conn->query($sql2);
         $rws2 = $result2->fetch_array();
