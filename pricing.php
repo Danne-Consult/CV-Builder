@@ -1,6 +1,9 @@
 <?php 
 session_start();
 include "manage/_db/dbconf.php"; 
+$db = new DBconnect;
+$prefix = $db->prefix;
+$sql1 = "SELECT * FROM ".$prefix."subscription_plan";
 ?>
 
 <!DOCTYPE html>
@@ -53,7 +56,7 @@ include "manage/_db/dbconf.php";
                             <p><span>On need basis</span></p>
                             
                             <p>Number of downloads<br /><span>1 CV/Resume/Coverletter</span></p>
-                            <p>Unlimited Access<br /><span>No</span></p>
+                            <p>One time download</p><br />
                             <p>Share link for your CV/resume&nbsp;<i class="fa-solid fa-check"></i></p><br />
                             
                         </div>

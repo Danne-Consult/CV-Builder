@@ -104,7 +104,7 @@
             $regup = $db->conn->query($sqlup);
             
             if($regup){  
-                header("location:../cv.php?cvtpl=".$cvtpl."&success=Resume updated!.");
+                header("location:../cv.php?cvtpl=".$cvtpl."&success=Resume updated!");
             }else{  
                 header("location:../cv.php?cvtpl=".$cvtpl."&error=There was an error updating your resume. Please try again later!");
             }

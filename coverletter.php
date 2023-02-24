@@ -202,7 +202,7 @@
                     </div>
                 </div>
                 <div class="col-lg-5 position-relative">
-                    <a href="controller/checktemp.php?tplid=<?php echo $coverid; ?>&temptype=coverletter" title="Download" id="downloadrec" class="rounded-white-btn floataboveright"><i class="fa-solid fa-download"></i></a>
+                    <a href="priceselect.php?tplid=<?php echo $coverid; ?>&temptype=coverletter" title="Download" id="downloadrec" class="rounded-white-btn floataboveright"><i class="fa-solid fa-download"></i></a>
                     <div class="cvresized" id="clbx">
                         <?php echo $rws['tempcode']; ?>
                     </div>
