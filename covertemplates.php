@@ -37,7 +37,7 @@
                         if($rws['type']=="free"){
                             $temptype = "<i>Free</i>";
                         }else{
-                            $temptype = "<b>Cost:</b> Kes.".$rws['tempcost'];
+                            $temptype = "";//"<b>Cost:</b> Kes.".$rws['tempcost'];
                         }
 
                         $tempbx = "<div class='col-lg-3'>";

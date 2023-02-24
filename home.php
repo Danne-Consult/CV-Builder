@@ -101,7 +101,7 @@
                         if($rws3['type']=="free"){
                             $temptype = "<i>Free</i>";
                         }else{
-                            $temptype = "<b>Cost:</b> Kes.".$rws3['tempcost'];
+                            $temptype = "";//"<b>Cost:</b> Kes.".$rws3['tempcost'];
                         }
 
                         $tempbx = "<div class='col-lg-3'>";
@@ -129,7 +129,7 @@
                         if($rws4['type']=="free"){
                             $temptype = "<i>Free</i>";
                         }else{
-                            $temptype = "<b>Cost:</b> Kes.".$rws4['tempcost'];
+                            $temptype = "";//"<b>Cost:</b> Kes.".$rws4['tempcost'];
                         }
 
                         $tempbx1 = "<div class='col-lg-3'>";
