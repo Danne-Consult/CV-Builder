@@ -48,7 +48,7 @@
                     <table>
                         <tr>
                             <th>Item</th>
-                            <th>Cost</th>
+                            <th>Cost (Kes.)</th>
                         </tr>
                         <tr>
                             <td><?php 
@@ -58,7 +58,7 @@
                             }
                             if($rws1['paytype']!==""){
                                 echo "<span style='text-transform: capitalize;'>". $rws1['paytype']." Plan</span>";} ?></td>
-                            <td><b><?php echo $rws1['tplcost']; ?></b></td>
+                            <td><b><?php echo number_format($rws1['tplcost']); ?></b></td>
                         </tr>
                     </table>
 

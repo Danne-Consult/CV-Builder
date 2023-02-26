@@ -431,30 +431,7 @@
     <div class="container12 tempbx">
         <div class="moretpl">More Templates</div>
         <article class="" id="">
-            <div class="slidex row">
-                <?php
-               
-                    $sql="SELECT * FROM ".$prefix."resume_templates";
-                    $result= $db->conn->query($sql);
-                    $tempbx="";
-                    $temptype="";
-                    while($rws = $result->fetch_array()){
-                        if($rws['type']=="free"){
-                            $temptype = "<i>Free</i>";
-                        }else{
-                            $temptype = "";//"<b>Cost:</b> Kes.".$rws['tempcost'];
-                        }
-
-                        $tempbx = "<div class='col-lg-3'>";
-                        $tempbx .= "<div class='tempimg' style='background:url(manage/cv-views/".$rws['tempimg'].") no-repeat center; background-size:cover'></div>";
-                        $tempbx .= "<div class='cont aligncenter'><h5 class='aligncenter'>".$rws['tempname']."</h5><p>".$temptype."</p><p><a class='small-round-btn' href='cv.php?cvtpl=".$rws['id']."'>Use Template</a></p></div>";
-                        $tempbx .= "</div>";
-
-                        echo $tempbx;
-                    }
-                
-                ?>
-            </div>
+        <?php  include "includes/cvtemplates_list.php"; ?>
         </article>
     </div>
 

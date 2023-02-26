@@ -1,5 +1,11 @@
 <?php include "controller/sessioncheck.php"; ?>
-<?php include "manage/_db/dbconf.php"; ?>
+<?php 
+    include "manage/_db/dbconf.php"; 
+
+    $db = new DBconnect;
+    $prefix = $db->prefix;
+    $user=$_SESSION['userid'];
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,31 +30,7 @@
         <article>
             <h3>Resume Templates</h3>
             <p>Select a template</p>
-            <div class="row">
-                <?php
-                    $db = new DBconnect;
-                    $prefix = $db->prefix;
-                    $user=$_SESSION['userid'];
-                    $sql="SELECT * FROM ".$prefix."resume_templates";
-                    $result= $db->conn->query($sql);
-                    $tempbx="";
-                    $temptype="";
-                    while($rws = $result->fetch_array()){
-                        if($rws['type']=="free"){
-                            $temptype = "<i>Free</i>";
-                        }else{
-                            $temptype = "";//"<b>Cost:</b> Kes.".$rws['tempcost'];
-                        }
-
-                        $tempbx = "<div class='col-lg-3'>";
-                        $tempbx .= "<div class='tempimg' style='background:url(manage/cv-views/".$rws['tempimg'].") no-repeat center; background-size:cover'>";
-                        $tempbx .= "<div class='cont aligncenter'><h5 class='aligncenter'>".$rws['tempname']."</h5><p>".$temptype."</p><p><a class='small-round-btn' href='cv.php?cvtpl=".$rws['id']."'>Use Template</a></p></div>";
-                        $tempbx .= "</div></div>";
-
-                        echo $tempbx;
-                    }
-                ?>
-            </div>
+            <?php  include "includes/cvtemplates_list.php"; ?>
            
         </article>
     </div>

@@ -299,6 +299,10 @@ header nav .lastnav a:hover{background-color: var(--light-orange); color:var(---
 
 .home .tempimg::before {position: absolute; content: ""; top: 0px; left: 0px; width: 100%; height: 100%; background: rgb(255,255,255);  background: linear-gradient(0deg, rgb(255 255 255 / 116%) 2%, rgba(255,255,255,0) 100%);}
 
+.tempimg .probasic{position: absolute; top: 2rem; right: -6px; color: #fff; padding: 2px 10px; border-radius: 20rem; min-width: 53px; text-align: center; font-weight: 700; font-size: 14px;}
+.tempimg .Pro{background-color:var(--orange)}
+.tempimg .Basic{background-color:var(--navyblue)}
+
 .login{background:url(../images/img5.jpg) no-repeat center; background-size:cover; position:relative; min-height:100vh;}
 .logobx{ position: absolute; top: 2em;  left: 8em; width: 220px; z-index: 5;}
 
@@ -411,7 +415,7 @@ header nav .lastnav a:hover{background-color: var(--light-orange); color:var(---
 .tempbx article{transition: all 0.3s ease-in-out;}
 .tempbx article.hidebx{height: 0px; overflow: hidden;}
 .tempbx .col-lg-3{position: relative; padding: 20px;}
-.tempbx .col-lg-3 .cont{ position:absolute; bottom: 5em; width:100%; left:0px;}
+.tempbx .col-lg-3 .cont{ position:absolute; bottom: 2em; width:100%; left:0px;}
 
 
 .modal {
@@ -469,10 +473,10 @@ header nav .lastnav a:hover{background-color: var(--light-orange); color:var(---
 .whybar p{font-size:19px; margin-bottom:3em;}
 
 .planboxes{margin-bottom:3em;}
-.planboxes .planbx{padding: 2em; min-height: 100%; border-radius: 20px; color:#fff; box-shadow: #b2b2b2 0px 5px 15px;}
+.planboxes .planbx{padding: 2em; min-height: 100%; border-radius: 20px; box-shadow: #b2b2b2 0px 5px 15px; background-color: #f6f6f6;}
 .planboxes .planbx h3{color:#fff;}
 .planboxes .planbx span{font-weight:700;}
-.planboxes .cost{width: 160px; height: 160px;  border-radius: 15em; display: flex; align-items: center; justify-content: center; margin: 1em auto 1em auto; font-weight: 700; font-size: 30px; padding: 20px; line-height: 1; box-shadow: #2727276e 0px 3px 14px; color:var(--navyblue)}
+.planboxes .cost{ width: 160px; height: 160px;  border-radius: 15em; display: flex; align-items: center; justify-content: center; margin: 1em auto 1em auto; font-weight: 700; font-size: 30px; padding: 20px; line-height: 1; box-shadow: #2727276e 0px 3px 14px; color:var(--white)}
 .planboxes .lightblue{background-color:#6595a8}
 .planboxes .blue{background-color: #3a6c87;}
 .planboxes .green{background-color: #395c35;}

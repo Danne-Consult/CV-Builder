@@ -1,9 +1,12 @@
 <?php 
-session_start();
-include "manage/_db/dbconf.php"; 
-$db = new DBconnect;
-$prefix = $db->prefix;
-$sql1 = "SELECT * FROM ".$prefix."subscription_plan";
+    session_start();
+    include "manage/_db/dbconf.php"; 
+    $db = new DBconnect;
+    $prefix = $db->prefix;
+    $sql1 = "SELECT * FROM ".$prefix."subscription_plans";
+    $result1 = $db->conn->query($sql1);
+    $trws = mysqli_num_rows($result1);
+    $rws = $result1->fetch_array();
 ?>
 
 <!DOCTYPE html>
@@ -48,53 +51,9 @@ $sql1 = "SELECT * FROM ".$prefix."subscription_plan";
     <div class="container12 planboxes">
         <article>
            <div class="row justify-content-center">
-            <div class="col-lg-10">
+            <div class="col-lg-11">
                 <div class="row justify-content-center">
-                    <div class="col-lg-3">
-                        <div class="planbx lightblue aligncenter">
-                            <h3>One-Time Pay</h3>
-                            <p><span>On need basis</span></p>
-                            
-                            <p>Number of downloads<br /><span>1 CV/Resume/Coverletter</span></p>
-                            <p>One time download</p><br />
-                            <p>Share link for your CV/resume&nbsp;<i class="fa-solid fa-check"></i></p><br />
-                            
-                        </div>
-                    </div>
-                    <div class="col-lg-3">
-                        <div class="planbx blue aligncenter">
-                            <h3>Basic <br />Plan</h3>
-                            <p><span>1 week access plan</span></p>
-                            <div class="cost">Kes. 1,500</div>
-                            <p>Number of downloads<br /><span>1 CV/Resume</span><br /><span>1 coverletter</span></p>
-                            <p>Unlimited Access<br /><span>Yes</span></p>
-                            <p>Share link for your CV/resume &nbsp;<i class="fa-solid fa-check"></i></p><br />
-                            <p><a href="controller/subscription.php?t=basic&w=1&cost=1500" class="rounded-white-btn">Select Plan</a></p>
-                        </div>
-                    </div>
-                    <div class="col-lg-3">
-                        <div class="planbx green aligncenter">
-                            <h3>Pro <br />Plan</h3>
-                            <p><span>3 Months Access Plan</span></p>
-                            <div class="cost">Kes. 2,000</div>
-                            
-                            <p>Number of downloads<br /><span>3 CV/Resume</span><br /><span>3 coverletter</span></p>
-                            <p>Unlimited Access<br /><span>Yes</span></p>
-                            <p>Share link for your CV/resume&nbsp;<i class="fa-solid fa-check"></i></p><br />
-                            <p><a href="controller/subscription.php?t=pro&w=12&cost=2000" class="rounded-white-btn">Select Plan</a></p>
-                        </div>
-                    </div>
-                    <div class="col-lg-3">
-                        <div class="planbx gold aligncenter">
-                            <h3>Premium <br />Plan</h3>
-                            <p><span>6 Months Access Plan</span></p>
-                            <div class="cost">Kes. 3,500</div>
-                            <p>Number of downloads<br /><span>Unlimited CV/Resume</span><br /><span>Unlimited coverletter</span></p>
-                            <p>Unlimited Access<br /><span>Yes</span></p>
-                            <p>Share link for your CV/resume&nbsp;<i class="fa-solid fa-check"></i></p><br />
-                            <p><a href="controller/subscription.php?t=premium&w=6&cost=3000" class="rounded-white-btn">Select Plan</a></p>
-                        </div>
-                    </div>
+                    <?php include "includes/pricing_list.php"; ?>
                 </div>
             </div>
            </div>
