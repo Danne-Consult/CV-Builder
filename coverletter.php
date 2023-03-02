@@ -22,6 +22,10 @@
     $sql="SELECT * FROM ".$prefix."coverletter_templates WHERE id='$coverid'";
     $result= $db->conn->query($sql);
     $rws = $result->fetch_array();
+
+    $sampletexts = "SELECT * FROM ".$prefix."coverletter_formats";
+    $resultst= $db->conn->query($sampletexts);
+   
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -181,6 +185,16 @@
                                     <div class="row">
                                         <div class="col-lg-12">
                                             <h4>Letter Body</h4>
+
+                                            <p>Sample Letters <i class="italic">*You can select a sample text from the list below.</i></p>
+                                            <select id="samplewords">
+                                                <option>...</option>
+                                                <?php 
+                                                    while($rwlist = $resultst->fetch_array()){
+                                                        echo "<option value='".$rwlist['id']."'>".$rwlist['desc']."</option>";
+                                                    }
+                                                ?>
+                                            </select>
                                             <textarea rowspan="3" class="editor" name="coverbody" id="coverbody" >
                                                 <?php 
                                                 if(!$rwsx['coverletter']==""){
@@ -241,7 +255,10 @@
                 height : "250",
                 add_form_submit_trigger : true,
                 plugins: 'lists advlist',
-                toolbar: 'insertfile a11ycheck undo redo | bold italic | forecolor backcolor | template codesample | alignleft aligncenter alignright alignjustify | bullist numlist | link image'
+                toolbar: 'insertfile a11ycheck undo redo | bold italic | forecolor backcolor | template codesample | alignleft aligncenter alignright alignjustify | bullist numlist | link image',
+                config:{
+                    forced_root_block_attrs : { style: 'text-align: justify;' }
+                    }
                 });   
             };
             
@@ -291,6 +308,15 @@
                 //pagebreak: { mode: ['css']}
                 }).save();
             }
+
+            $("#samplewords").change(function(){
+                $id = $(this).val();
+                $.post("controller/getsamples.php?recid="+$id, function(data, status){
+                    if(data){
+                        tinymce.get("coverbody").setContent(data);
+                    }
+                });
+            });
         });
     </script>
     <script src="assets/js/cover.js" referrerpolicy="origin"></script>

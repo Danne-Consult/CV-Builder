@@ -1,4 +1,10 @@
 <?php
+    $sql1 = "SELECT * FROM ".$prefix."subscription_plans";
+    $result1 = $db->conn->query($sql1);
+    $trws = mysqli_num_rows($result1);
+    $rws = $result1->fetch_array();
+
+
     if($trws==0){
         echo "Oh oh! No plans found";
     }else if($rws['visible']!==0){

@@ -1,13 +1,15 @@
 <?php 
     include "controller/sessioncheck.php";
+    include "controller/subcheck.php";
     include "manage/_db/dbconf.php"; 
     $db = new DBconnect;
     $prefix = $db->prefix;
-    $sql1 = "SELECT * FROM ".$prefix."subscription_plans";
-    $result1 = $db->conn->query($sql1);
-    $trws = mysqli_num_rows($result1);
-    $rws = $result1->fetch_array();
-    ?>
+    $temptype = $_GET["temptype"];
+    $tplid = $_GET["tplid"];
+    
+    
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -35,6 +37,9 @@
         <article>
             <div class="row justify-content-center">
                 <div class="col-lg-8">
+                    <?php 
+                        checkbasicpro($temptype,$tplid);
+                    ?>
                 <p class="aligncenter">Select your favored plan and proceed to pay.</p>
                 </div>
             </div>  

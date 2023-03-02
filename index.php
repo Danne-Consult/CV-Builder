@@ -49,15 +49,19 @@
             </ul>
         </div>
     </div>
-    <!--<div class="container12">
+    <div class="container12 intro">
         <article>
-        <h2 class="aligncenter">Quickly create and download your resume and coverletter directly from our platform that offers you real time, user friendly, 24/7 access and ATS compliant cover page/ curriculum vitae builder to enable you to apply for that needed job conveniently.</h2>
+        <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <h2 class="aligncenter">Resume Templates</h2>
+                    <p class="aligncenter">Creating a resume can be overwhelming, confusing, and take up a lot of your time, but don't worry, we've got you covered! Our Resume Maker is here to make the process quick, easy, and even fun! Say goodbye to stress and hello to a bright future with your awesome new resume!</p>
+                </div>
+            </div>
         </article>
-    </div>-->
+    </div>
 
     <div class="container12 tempbx">
         <article>
-        <h2 class="aligncenter">CV/Resume Templates</h2>
             <div class="slidex row">
                <?php
                     $sql="SELECT * FROM ".$prefix."resume_templates";
@@ -68,9 +72,9 @@
                         
 
                         $tempbx = "<div class='col-lg-3'>";
-                        $tempbx .= "<div class='tempimg' style='background:url(manage/cv-views/".$rws['tempimg'].") no-repeat center; background-size:cover'></div>";
-                        $tempbx .= "<div class='cont aligncenter'><h5 class='aligncenter'>".$rws['tempname']."</h5><p><a class='small-round-btn cvtpllink' data='".$rws['id']."' href='cv.php?cvtpl=".$rws['id']."'>Use Template</a></p></div>";
-                        $tempbx .= "</div>";
+                        $tempbx .= "<div class='tempimg' style='background:url(manage/cv-views/".$rws['tempimg'].") no-repeat center; background-size:cover'>";
+                        $tempbx .= "<div class='cont aligncenter'><p><a class='small-round-btn cvtpllink' data='".$rws['id']."' href='cv.php?cvtpl=".$rws['id']."'>Use This Template</a></p></div>";
+                        $tempbx .= "</div></div>";
 
                         echo $tempbx;
                     }
@@ -78,51 +82,35 @@
             </div>
         </article>
     </div>
-    <div class="container12 tempbx">
-        <article>
-        <h2 class="aligncenter">Coverletter Templates</h2>
-            <div class="slidex row">
-                <?php
-                    $sql1="SELECT * FROM ".$prefix."coverletter_templates";
-                    $result1= $db->conn->query($sql1);
-                    $tempbx1="";
-                    while($rws1 = $result1->fetch_array()){
-
-                        $tempbx1 = "<div class='col-lg-3'>";
-                        $tempbx1 .= "<div class='tempimg' style='background:url(manage/cover-views/".$rws1['tempimg'].") no-repeat center; background-size:cover'></div>";
-                        $tempbx1 .= "<div class='cont aligncenter'><h5 class='aligncenter'>".$rws1['tempname']."</h5><p><a class='small-round-btn' href='coverletter.php?clt=".$rws1['id']."'>Use Template</a></p></div>";
-                        $tempbx1 .= "</div>";
-
-                        echo $tempbx1;
-                    }
-                ?>
-            </div>
-        </article>
-    </div>
+    
     
     <div class="container12 howto">
         <article>
             <h2 class="aligncenter">How Create Your Personalized Resume</h2>
-            <div class="row">
-                <div class="col-lg-4">
-                    <div class="cont">
-                        <div class="iconbx"><i class="fa-regular fa-file"></i></div>
-                        <h4>Select a template</h4>
-                        <p>Choose from a selection of layout designs that fits your job type<p>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="cont">
-                        <div class="iconbx"><i class="fa-regular fa-pen-to-square"></i></div>
-                        <h4>Optimize Your Content</h4>
-                        <p>And adding or removing a specific section based on your needs is no problem and you get layout and content suggestions so that your resume looks perfect<p>
-                    </div>  
-                </div>
-                <div class="col-lg-4">
-                    <div class="cont">
-                        <div class="iconbx"><i class="fa fa-download"></i></div>
-                        <h4>Publish or Download your  CV</h4>
-                        <p>Once your content is finished, you can publish link or dowwnload. Your latest version is saved and you can always go back to make edits.<p>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <div class="cont">
+                                <img src="assets/images/select.svg" alt="Select a template">
+                                <h4>Select a template</h4>
+                                <p>Choose from a selection of layout designs that fits your job type<p>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="cont">
+                                <img src="assets/images/write.svg" alt="add your content">
+                                <h4>Optimize Your Content</h4>
+                                <p>You have the ability to modify and adjust your desired information as needed.<p>
+                            </div>  
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="cont">
+                                <img src="assets/images/download.svg" alt="download your resume">
+                                <h4>Publish or Download your  CV</h4>
+                                <p>Once your content is finished, you can publish link or dowwnload. Your latest version is saved and you can always go back to make edits.<p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
