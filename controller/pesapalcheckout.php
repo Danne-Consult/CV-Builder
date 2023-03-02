@@ -21,8 +21,8 @@
     $result2 = $db->conn->query($sql2);
     $rws2 = $result2->fetch_array();
     
-    $consumer_key = 'qkio1BGGYAXTu2JOfm7XSXNruoZsrqEW'; //$rws['securitykey'];
-    $consumer_secret = 'osGQ364R49cXKeOYSpaOnT++rHs=';//$rws['securitysecret'];
+    $consumer_key = $rws['securitykey']; //'qkio1BGGYAXTu2JOfm7XSXNruoZsrqEW';
+    $consumer_secret = $rws['securitysecret']; //osGQ364R49cXKeOYSpaOnT++rHs=';
     
     $first_name = $rws2['fname'];
     $last_name = $rws2['lname'];
@@ -47,7 +47,7 @@
 $curl = curl_init();
 
 curl_setopt_array($curl, array(
-  CURLOPT_URL => 'https://cybqa.pesapal.com/pesapalv3/api/Auth/RequestToken',
+  CURLOPT_URL => 'https://pay.pesapal.com/v3/api/Auth/RequestToken',
   CURLOPT_RETURNTRANSFER => true,
   CURLOPT_ENCODING => '',
   CURLOPT_MAXREDIRS => 10,
@@ -72,7 +72,7 @@ $token = json_decode($response)->token;
 $curl3 = curl_init();
 
 curl_setopt_array($curl3, array(
-  CURLOPT_URL => 'https://cybqa.pesapal.com/pesapalv3/api/Transactions/SubmitOrderRequest',
+  CURLOPT_URL => 'https://pay.pesapal.com/v3/api/Transactions/SubmitOrderRequest',
   CURLOPT_RETURNTRANSFER => true,
   CURLOPT_ENCODING => '',
   CURLOPT_MAXREDIRS => 10,
@@ -83,10 +83,10 @@ curl_setopt_array($curl3, array(
   CURLOPT_POSTFIELDS =>'{
     "id": "'.$invoiceid.'",
     "currency": "KES",
-    "amount": 2,
+    "amount": "'.$amount.'",
     "description": "'.$desc.'",
     "callback_url": "https://realtimecvs.opentalentafrica.com/controller/pesapalipn.php",
-    "notification_id": "89c89ce5-f413-4147-a070-df09d23a4cb6",
+    "notification_id": "230e7c1c-a816-445e-87e5-defe767ad147",
     "billing_address": {
         "email_address": "'.$email.'",
         "phone_number": null,

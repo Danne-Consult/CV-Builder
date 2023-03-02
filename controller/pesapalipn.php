@@ -98,9 +98,10 @@
       if($status=="Completed"){
             
          if($subtype=="basic" || $subtype=="pro" || $subtype=="premium"){
-            $datereg  =date_create($created_date);
-            date_add($datereg,date_interval_create_from_date_string($rws1['period']." weeks"));
-            $enddate =  date_format($datereg,"Y-m-d H:i:s");
+            $datereg  = date_create($created_date);
+            
+            $enddate = date('Y-m-d H:i:s', strtotime($datereg. ' + '.$rws1['period'].' weeks'));
+            
                 
             $sqlupdateinvoice  = "UPDATE ".$prefix."invoices SET paystatus='Paid', paidon='$created_date' WHERE invoiceno='$invoiceid'";
             $db->conn->query($sqlupdateinvoice);
@@ -118,7 +119,7 @@
             $db->conn->query($sqlupdateinvoice);
             header("location:../invoice.php?invoiceid=".$invoiceid."&success=Payment was successful");
             
-            $onedaydate = date_add($currdatetime,date_interval_create_from_date_string("1 day"));
+            $onedaydate = date('Y-m-d H:i:s', strtotime($datereg. ' + '.$rws1['period'].' days'));
 
             $subscription1 = "INSERT INTO ".$prefix."user_subscription (userid, subtype, startdate, expirydate) VALUES ('$userrec','$subtype','$created_date','$onedaydate')";
             $db->conn->query($subscription1);
