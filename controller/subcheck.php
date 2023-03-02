@@ -1,7 +1,7 @@
 <?php
      function checkbasicpro($temptype, $tplid){
 
-        include "../manage/_db/dbconf.php"; 
+        include_once "../manage/_db/dbconf.php"; 
         $db = new DBconnect;
         $prefix = $db->prefix;
         $userid = $_SESSION['userid'];
@@ -42,25 +42,31 @@
                     if($cvdown >= $downloadlimit){
                         //proceed to download the cv
                         header("location:cv?cvtpl=".$tplid."&error=You have reached your CV download limit!&ren=1");
+                        exit;
                     }else{
                         header("location:cv?d=1&cvtpl=".$tplid);
+                        exit;
                     }
                 }
                 if($temptype =="coverletter"){
                     if($coverdown >= $downloadlimit){
                         //proceed to download the cv
                         header("location:coverletter?clt=".$tplid."&error=You have reached your Coverletter download limit!&ren=1");
+                        exit;
                     }else{
                         header("location:coverletter?d=1&clt=".$tplid);
+                        exit;
                     }
                 }
 
                 
             }else{
                 header("location:coverletter?clt=".$tplid."&error=Your Subscription has expired!&ren=1");
+                exit;
             }
         }else{
             header("location:coverletter?clt=".$tplid."&error=You need to upgrade your subscription to download!");
+            exit;
         }
     }
 

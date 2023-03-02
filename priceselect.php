@@ -1,7 +1,7 @@
 <?php 
-    include "controller/sessioncheck.php";
-    include "controller/subcheck.php";
-    include "manage/_db/dbconf.php"; 
+    include_once "controller/sessioncheck.php";
+    include_once "controller/subcheck.php";
+    include_once "manage/_db/dbconf.php"; 
     $db = new DBconnect;
     $prefix = $db->prefix;
     $temptype = $_GET["temptype"];
@@ -31,7 +31,7 @@
     <script src="assets/js/jquery.min.js"></script>
 </head>
 <body class="inner">
-    <?php include "includes/nav/innerheader.inc"; ?>
+    <?php include_once "includes/nav/innerheader.inc"; ?>
     <div class="container12 whybar">
     <h2 class="aligncenter">Payment Plans</h2>
         <article>
@@ -50,13 +50,13 @@
            <div class="row justify-content-center">
             <div class="col-lg-11">
                 <div class="row justify-content-center">
-                    <?php include "includes/pricing_list.php"; ?>
+                    <?php include_once "includes/pricing_list.php"; ?>
                 </div>
             </div>
            </div>
         </article>
     </div>
     
-    <?php include "includes/footer.inc"; ?> 
+    <?php include_once "includes/footer.inc"; ?> 
 </body>
 </html>
