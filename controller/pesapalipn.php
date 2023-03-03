@@ -1,7 +1,7 @@
 <?php 
     session_start();
     $userrec = $_SESSION['userid'];
-    include "../manage/_db/dbconf.php";
+    include_once "../manage/_db/dbconf.php";
     date_default_timezone_set("Africa/Nairobi");
     header("Content-Type:application/json");
     $currdatetime= date("y-m-d h:i:s");

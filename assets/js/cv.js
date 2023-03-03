@@ -416,10 +416,17 @@ function getUrlParameter(sParam) {
 
   var download = getUrlParameter('d');
 
-  if(download==1){
-    $('#downnow').delay(1000).fadeIn("slow");
-    $('#downloadrec').hide();
-    $('#downnow').click(function(){
+    if(download==1){
+      $('#downnow').delay(1000).fadeIn("slow");
+      $('#downloadrec').hide();
+      $('#downnow').click(function(){
+      var coverid = $("input[name=covertpl]").val();
+
+      $.post("controller/addcounter.php?tpltype=resume&tplid="+coverid, function(data, status){
+        if(data){
+          console.log("added resume count");
+        }
+      });
 
       var namex= $('#cfname').html();
       var element = $('#myresume').html();
@@ -434,9 +441,6 @@ function getUrlParameter(sParam) {
       html2pdf().set(opt).from(element).save();
     });
   } 
- 
-
-  
 
   document.addEventListener('DOMContentLoaded', function() {
     var a4Elements = document.querySelectorAll('.cvpage');

@@ -168,19 +168,25 @@ function getUrlParameter(sParam) {
     $('#downnow').delay(1000).fadeIn("slow");
     $('#downloadrec').hide();
     $('#downnow').click(function(){
-      
-      var namex= $('#cfname').html();
-      var element = $('#mycover').html();
-      var opt = {
-        margin:       [10, 0, 20, 0],
-        filename:     fname.value +' coverletter.pdf',
-        //image:        { type: 'jpeg', quality: 1 },
-        enableLinks: true,
-        pagebreak: { mode: ['legacy']},
-        html2canvas:  { scale: 3, letterrendering: true, scrollY: 0,  width: 1080},
-        jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' }
-      };
-      
-      html2pdf().set(opt).from(element).save();
+    $.post("controller/addcounter.php?tpltype=coverletter&tplid="+coverid, function(data, status){
+      if(data){
+        console.log("added coverletter count");
+      }
     });
+
+    
+    var namex= $('#cfname').html();
+    var element = $('#mycover').html();
+    var opt = {
+      margin:       [10, 0, 20, 0],
+      filename:     fname.value +' coverletter.pdf',
+      //image:        { type: 'jpeg', quality: 1 },
+      enableLinks: true,
+      pagebreak: { mode: ['legacy']},
+      html2canvas:  { scale: 3, letterrendering: true, scrollY: 0,  width: 1080},
+      jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' }
+    };
+    
+    html2pdf().set(opt).from(element).save();
+  });
   } 
