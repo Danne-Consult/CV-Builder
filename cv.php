@@ -328,15 +328,15 @@
                             <div class="row">
                                 <div class="col-lg-4">
                                     <label for="facebook">Facebook</label><br />
-                                    <input type="url" name="facebook" id="fb" placeholder="https://...." value="<?php if(!$rwres['facebook']==""){echo $rwres['facebook'];} ?>" />
+                                    <input type="text" name="facebook" id="fb" placeholder="https://...." value="<?php if(!$rwres['facebook']==""){echo $rwres['facebook'];} ?>" />
                                 </div>
                                 <div class="col-lg-4">
                                     <label for="twitter">Twitter</label><br />
-                                    <input type="url" name="twitter" id="tw" placeholder="https://...." value="<?php if(!$rwres['twitter']==""){echo $rwres['twitter'];} ?>" />
+                                    <input type="text" name="twitter" id="tw" placeholder="https://...." value="<?php if(!$rwres['twitter']==""){echo $rwres['twitter'];} ?>" />
                                 </div>
                                 <div class="col-lg-4">
                                     <label for="linkedin">Linkedin</label><br />
-                                    <input type="url" name="linkedin" id="linkedin" placeholder="https://...." value="<?php if(!$rwres['linkedin']==""){echo $rwres['linkedin'];} ?>" />
+                                    <input type="text" name="linkedin" id="linkedin" placeholder="https://...." value="<?php if(!$rwres['linkedin']==""){echo $rwres['linkedin'];} ?>" />
                                 </div>
                             </div>
                             <br /><hr /> 
