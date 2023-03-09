@@ -2,7 +2,7 @@
 if(isset($_GET['tplid']) && isset($_GET['temptype']) ){
 
     session_start();
-    include "../manage/_db/dbconf.php";
+    include_once "../manage/_db/dbconf.php";
     $db = new DBconnect;
     $prefix = $db->prefix;
     $userid= $_SESSION['userid'];
@@ -13,6 +13,10 @@ if(isset($_GET['tplid']) && isset($_GET['temptype']) ){
     function checksubscription($userid, $tplid){
         $db = new DBconnect;
         $prefix = $db->prefix;
+
+        $userid= $_SESSION['userid'];
+        $tplid = $_GET['tplid'];
+        $tpltype = $_GET['temptype'];
         
         $currdatetime = date("y-m-d h:i:s");
 
