@@ -6,8 +6,7 @@
     $prefix = $db->prefix;
     $temptype = $_GET["temptype"];
     $tplid = $_GET["tplid"];
-    
-    
+    $tempsub = $_GET["sub"];   
 
 ?>
 <!DOCTYPE html>
@@ -38,9 +37,14 @@
             <div class="row justify-content-center">
                 <div class="col-lg-8">
                     <?php 
-                        checkbasicpro($temptype,$tplid);
+                        checkbasicpro($temptype,$tplid,$tempsub);
                     ?>
                 <p class="aligncenter">Select your favored plan and proceed to pay.</p>
+                <?php
+                        if(isset($_GET['error'])){
+                            echo "<div class='error-red'>". $_GET['error'] ."</div>";
+                        }  
+                ?>
                 </div>
             </div>  
         </article>

@@ -40,8 +40,8 @@
                 <li>
                 <div style="background:url(assets/images/img2.jpg) no-repeat center; background-size:cover;" class="bannerimg"></div>
                     <div class="caption">
-                        <h1>Get your professional CV now!</h1>
-                        <p>We know the hustle for creating professional CVs. <br />Realtime CVs is here to help!</p>
+                        <h1>Get your professional resume now!</h1>
+                        <p>We know the hustle for creating professional resume. <br />RealtimeCVs is here to help!</p>
                         <br />
                         <p><a href="signup.php" class="rounded-white-btn">Get yours!</a></p>
                     </div>
@@ -107,8 +107,8 @@
                         <div class="col-lg-4">
                             <div class="cont">
                                 <img src="assets/images/download.svg" alt="download your resume">
-                                <h4>Publish or Download your  CV</h4>
-                                <p>Once your content is finished, you can publish link or dowwnload. Your latest version is saved and you can always go back to make edits.<p>
+                                <h4>Publish or Download your resume</h4>
+                                <p>Once your content is finished, you can download your resume. Your latest version is saved and you can always go back to make edits.<p>
                             </div>
                         </div>
                     </div>

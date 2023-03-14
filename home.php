@@ -31,7 +31,7 @@
                     ?>
                     <div class="cap">
                         <h1>Showcase your skills and talents</h1>
-                        <p>Create, update, format and align cover letters and curriculum vitae to new opportunities</p>
+                        <p>Create, update, format and align resume and cover letters to new opportunities</p>
                     </div>
                     <img src="assets/images/typing-bro.png" class="introimg" alt="">
                 </div>
@@ -77,7 +77,7 @@
         <article>
             <div class="row justify-content-center">
                 <div class="col-lg-5">
-                    <h3>My CVs</h3>
+                    <h3>My Resume</h3>
                     <?php echo $resumes; ?>
                 </div>
                 <div class="col-lg-5 offset-1">
@@ -90,14 +90,14 @@
 
     <div class="container12 tempbx">
         <article>
-            <h2 class="aligncenter">featured CV Templates</h2>
+            <h2 class="aligncenter">Featured Resume Templates</h2>
             <?php  include "includes/cvtemplates_list.php"; ?>
         </article>
     </div>
 
     <div class="container12 tempbx">
         <article>
-            <h2 class="aligncenter">featured Cover Letter Templates</h2>
+            <h2 class="aligncenter">Featured Cover Letter Templates</h2>
             <?php  include "includes/covertemplates_list.php"; ?>
         </article>
     </div>

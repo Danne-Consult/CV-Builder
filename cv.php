@@ -63,6 +63,7 @@
                         $sqlres="SELECT * FROM ".$prefix."resume_templates WHERE id='$cvtpl'";
                         $resultres= $db->conn->query($sqlres);
                         $rwresume = $resultres->fetch_array();
+                
                     ?>
                    <form class="contactForm" action="controller/resumesubmit.php" method="POST">
                     <input type="hidden" value="<?php echo $cvtpl; ?>" name="cvtpl" />
@@ -417,8 +418,10 @@
 
                    </div>
                 </div>
+                
+
                 <div class="col-lg-5" style="position:relative;">
-                    <a href="priceselect.php?tplid=<?php echo $cvtpl; ?>&temptype=resume" title="Download" id="downloadrec" class="rounded-white-btn floataboveright"><i class="fa-solid fa-download"></i></a>
+                    <a href="priceselect.php?tplid=<?php echo $cvtpl; ?>&temptype=resume&sub=<?php echo $rwresume['probasic']; ?>&u=<?php echo $userid; ?>" title="Download" id="downloadrec" class="rounded-white-btn floataboveright"><i class="fa-solid fa-download"></i></a>
                     <div class="cvresized" id="resumebx">
                         <?php echo $rwresume['tempcode']; ?>
                     </div>

@@ -18,14 +18,14 @@
             }
             ?>
                     <div class="col-lg-3">
-                    <div class="planbx aligncenter" style="border-top:10px solid <?php echo $rws['bgcolor']; ?>;">
-                        <h3 style="color:<?php echo $rws['bgcolor']; ?>;"><?php echo $rws['subscription']; ?> <br />Plan</h3>
+                    <div class="planbx aligncenter" style="color:#fff; background-color:<?php echo $rws['bgcolor']; ?>;">
+                        <h3><?php echo $rws['subscription']; ?> <br />Plan</h3>
                         <p><span><?php echo $rws['weeks']; ?> week access plan</span></p>
-                        <div class="cost" style="background-color:<?php echo $rws['bgcolor']; ?>;">Kes. <?php echo number_format($rws['cost']); ?></div>
-                        <p>Number of downloads<br /><span><?php echo $rws['downlimit']; ?> unique <?php echo $protemp; ?> CVs</span><br /><span><?php echo $rws['downlimit']; ?> unique <?php echo $protemp; ?> coverletter</span></p>
+                        <div class="cost" style="color:<?php echo $rws['bgcolor']; ?>; background-color:#fff;">Kes. <?php echo number_format($rws['cost']); ?></div>
+                        <p>Number of downloads<br /><span><?php echo $rws['downlimit']; ?> unique <?php echo $protemp; ?> CVs</span><br /><span><?php echo $rws['downlimit']; ?> unique <?php echo $protemp; ?> cover letter</span></p>
                         <p>Unlimited Access<br /><span>Yes</span></p>
                         <p>Share link for your CV/resume &nbsp;<i class="fa-solid fa-check"></i></p><br />
-                        <p><a href="controller/subscription.php?t=<?php echo $rws['subscription']; ?>&w=<?php echo $rws['weeks']; ?>&cost=<?php echo $rws['cost']; ?>" class="rounded-white-btn">Select Plan</a></p>
+                        <p><a href="controller/subscription.php?t=<?php echo $rws['subscription']; ?>&w=<?php echo $rws['weeks']; ?>&cost=<?php echo $rws['cost']; ?>" class="rounded-white-btn" style="box-shadow: #19181894 1px 1px 6px;">Select Plan</a></p>
                     </div>
                 </div>
             <?php
