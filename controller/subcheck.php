@@ -50,10 +50,10 @@
         else{
             // handle invalid subscription level
             if($temptype =="resume"){
-                header("location:cv?cvtpl=".$tplid."&error=Oops! Invalid subscription level!");
+                header("location:priceselect?cvtpl=".$tplid."&error=Before you download, subscribe to a payment plan!");
                 exit;
             }elseif($temptype =="coverletter"){
-                header("location:coverletter?clt=".$tplid."&error=Oops! Invalid subscription level!");
+                header("location:priceselect?clt=".$tplid."&error=Before you download, subscribe to a payment plan!");
                 exit;
             }
         }
