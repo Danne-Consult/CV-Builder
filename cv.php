@@ -73,7 +73,7 @@
                             <div class="row">
                                 <div class="col-lg-12">
                                     <label for="fname">Full Name</label><br />
-                                    <input type="text" name="fname" id="fname" value="<?php if(!$rwres["fullnames"]==""){echo $rwres['fullnames'];}else{echo $rwres['fname']." ".$rwres['lname'];} ?>" disabled />
+                                    <input type="text" name="fname" id="fname" value="<?php if($rwres["fname"]=="" && $rwres["lname"]==""){ echo "no name added"; }else{echo $rwres['fname']." ".$rwres['lname'];} ?>" disabled />
                                 </div>
                             </div>
                             <div class="row">
@@ -108,7 +108,7 @@
                             <div class="row">
                                 <div class="col-lg-6">
                                     <label for="email">Email</label><br />
-                                    <input type="email" name="email" id="email" value="<?php if(!$rwres['resemail']==""){echo $rwres['resemail'];}else{echo $rwres['email'];} ?>" disabled />
+                                    <input type="email" name="email" id="email" value="<?php if($rwres['email']==""){echo "No email added";}else{echo $rwres['email'];} ?>" disabled />
                                 </div>
                                 <div class="col-lg-6">
                                     <label for="lname">Tel/Mobile</label><br />

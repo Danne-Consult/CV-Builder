@@ -1,9 +1,9 @@
 <?php
+        
      function checkbasicpro($temptype, $tplid, $tempsub){
-
-        include_once "../manage/_db/dbconf.php"; 
         $db = new DBconnect;
         $prefix = $db->prefix;
+        
         $userid = $_SESSION['userid'];
         $currdate = date("Y-m-d h:i:s");
 

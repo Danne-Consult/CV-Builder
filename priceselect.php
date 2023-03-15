@@ -4,9 +4,7 @@
     include_once "manage/_db/dbconf.php"; 
     $db = new DBconnect;
     $prefix = $db->prefix;
-    $temptype = $_GET["temptype"];
-    $tplid = $_GET["tplid"];
-    $tempsub = $_GET["sub"];   
+    
 
 ?>
 <!DOCTYPE html>
@@ -37,7 +35,14 @@
             <div class="row justify-content-center">
                 <div class="col-lg-8">
                     <?php 
+
+                    if(isset($_GET["temptype"]) && isset($_GET["temptype"]) && isset($_GET["sub"]) ){
+                        $temptype = $_GET["temptype"];
+                        $tplid = $_GET["tplid"];
+                        $tempsub = $_GET["sub"];
+
                         checkbasicpro($temptype,$tplid,$tempsub);
+                    }
                     ?>
                 <p class="aligncenter">Select your favored plan and proceed to pay.</p>
                 <?php
