@@ -36,12 +36,14 @@
                 <div class="col-lg-8">
                     <?php 
 
-                    if(isset($_GET["temptype"]) && isset($_GET["temptype"]) && isset($_GET["sub"]) ){
+                    if(isset($_GET["temptype"]) && isset($_GET["temptype"]) && isset($_GET["sub"]) && isset($_GET["u"]) ){
+
                         $temptype = $_GET["temptype"];
                         $tplid = $_GET["tplid"];
                         $tempsub = $_GET["sub"];
+                        $userid = $_GET["u"];
 
-                        checkbasicpro($temptype,$tplid,$tempsub);
+                        checkbasicpro($temptype,$userid,$tplid,$tempsub);
                     }
                     ?>
                 <p class="aligncenter">Select your favored plan and proceed to pay.</p>

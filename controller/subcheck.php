@@ -1,6 +1,6 @@
 <?php
         
-     function checkbasicpro($temptype, $tplid, $tempsub){
+     function checkbasicpro($temptype,$userid, $tplid, $tempsub){
         $db = new DBconnect;
         $prefix = $db->prefix;
         
