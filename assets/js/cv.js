@@ -225,7 +225,7 @@ $("#skillsub").click(function(){
   if(cskillset !== null){
     if(skillname[0].value !=""){
       cskillset.innerHTML = "";
-      cskillset.innerHTML="<h4>Skills</h4>";
+      cskillset.innerHTML="<h4>Skills</h4><div style='clear:both'></div>";
 
 
         for(var w = 0; w < skillrange.length; w++){
@@ -245,7 +245,7 @@ $("#skillsub").click(function(){
     if(skillname[0].value !=""){
 
       cskillsetcircle.innerHTML = "";
-      cskillsetcircle.innerHTML = "<h4>Skills</h4>";
+      cskillsetcircle.innerHTML = "<h4>Skills</h4><div style='clear:both'></div>";
     
         for(var e = 0; e < skillrange.length; e++){
 
@@ -353,8 +353,17 @@ function snipMe() {
   }
   
 }
-  
 
+if (document.getElementById("initials") !== null) {
+
+var name = document.getElementById("fname").value;
+var matches = name.match(/\b(\w)/g);
+var firstItem = matches[0];
+var lastItem = matches[matches.length-1];
+
+document.getElementById("initials").innerHTML = "<span>"+firstItem+"</span><hr /><span>"+lastItem+"</span>";
+  
+}
 
 var modal = document.getElementById("myModal");
 var btn = document.getElementById("myBtn");
