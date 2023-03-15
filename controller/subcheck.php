@@ -66,7 +66,7 @@
                 if($temptype =="resume"){
                     if($cvdown >= $downloadlimit){
                         //proceed to download the cv
-                        header("location:priceselect?cvtpl=".$tplid."&error=You have reached your CV download limit!&ren=1");
+                        header("location:priceselect?cvtpl=".$tplid."&error=You have reached your CV download limit! Upgrade your plan to download.&ren=1");
                         exit;
                     }else{
                         header("location:cv?d=1&cvtpl=".$tplid);
@@ -76,7 +76,7 @@
                 if($temptype =="coverletter"){
                     if($coverdown >= $downloadlimit){
                         //proceed to download the cv
-                        header("location:priceselect?clt=".$tplid."&error=You have reached your cover letter download limit!&ren=1");
+                        header("location:priceselect?clt=".$tplid."&error=You have reached your cover letter download limit! Upgrade your plan to download.&ren=1");
                         exit;
                     }else{
                         header("location:coverletter?d=1&clt=".$tplid);
@@ -88,10 +88,10 @@
             }else{
                
                 if($temptype =="resume"){
-                    header("location:priceselect?cvtpl=".$tplid."&error=Your Subscription has expired!&ren=1");
+                    header("location:priceselect?cvtpl=".$tplid."&error=Your ".$subscription_level." plan subscription has expired!&ren=1");
                     exit;
                 }elseif($temptype =="coverletter"){
-                    header("location:priceselect?clt=".$tplid."&error=Your Subscription has expired!&ren=1");
+                    header("location:priceselect?clt=".$tplid."&error=Your ".$subscription_level." plan subscription has expired!&ren=1");
                     exit;
                 }
             }
