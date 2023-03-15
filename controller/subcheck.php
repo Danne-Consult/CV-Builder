@@ -98,10 +98,10 @@
         }else{
           
             if($temptype =="resume"){
-                header("location:priceselect?cvtpl=".$tplid."&error=You need to upgrade your subscription to download your resume!");
+                header("location:priceselect?cvtpl=".$tplid."&error=You need to upgrade your subscription to download your resume! You are currently under the ".$subscription_level." plan");
                 exit;
             }elseif($temptype =="coverletter"){
-                header("location:priceselect?clt=".$tplid."&error=You need to upgrade your subscription to download your cover letter!");
+                header("location:priceselect?clt=".$tplid."&error=You need to upgrade your subscription to download your cover letter! You are currently under the ".$subscription_level." plan");
                 exit;
             }
         }
