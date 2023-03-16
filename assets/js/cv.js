@@ -97,7 +97,7 @@ window.addEventListener('load', function(){
     soctw.innerHTML = '<a href="'+tw.value+'" target="_new"><i class="fa-brands fa-twitter"></i></a>&nbsp;';
   }
   if(accredits.value!=""){
-  caccredits.innerHTML = '<h4>Other Accreditations/Personal Achievements</h4>'+accredits.value;
+  caccredits.innerHTML = '<h4>Other Accreditations/ Personal Achievements</h4>'+accredits.value;
   }
 
   if(interests.value!==""){
@@ -213,7 +213,7 @@ $("#worksub").click(function(){
     setup : function(ed) {
         ed.on("keyup", function(){
           if(tinymce.activeEditor.getContent()!==""){
-            $("#caccredits").html("<h4>Other Accreditations/Personal Achievements</h4>"+tinymce.activeEditor.getContent());
+            $("#caccredits").html("<h4>Other Accreditations/ Personal Achievements</h4>"+tinymce.activeEditor.getContent());
           }else{
             caccredits.innerHTML="";
           }
