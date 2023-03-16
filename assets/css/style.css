@@ -198,6 +198,15 @@ tr:hover{background-color:#F9F7F7;}
 	font-size:15px;
 }
 
+.body404{position: relative;}
+.body404::before {
+    content: "";
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    background: url(../images/dots.png) repeat;
+}
+
 .readmore{ font-weight:700; font-size:95%; color:inherit; text-decoration: none; }
 .rounded-white-btn{border:none; background-color: var(--orange);  padding: 15px 34px; width: auto;  color: var(--white);  text-decoration: none;  border-radius: 200px;transition: all 0.3s ease-in-out; text-transform: uppercase; font-size:1rem; font-weight:400;}
 .rounded-white-btn:hover{background-color:var(--light-orange); color:var(--black);}
