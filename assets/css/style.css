@@ -201,7 +201,7 @@ tr:hover{background-color:#F9F7F7;}
 
 
 .readmore{ font-weight:700; font-size:95%; color:inherit; text-decoration: none; }
-.rounded-white-btn{border:none; background-color: var(--orange);  padding: 15px 34px; width: auto;  color: var(--white);  text-decoration: none;  border-radius: 200px;transition: all 0.3s ease-in-out; text-transform: uppercase; font-size:1rem; font-weight:400;}
+.rounded-white-btn{border:none; background-color: var(--orange);  padding: 15px 34px; width: fit-content;  color: var(--white);  text-decoration: none;  border-radius: 200px; transition: all 0.3s ease-in-out; text-transform: uppercase; font-size:1rem; font-weight:400;}
 .rounded-white-btn:hover{background-color:var(--light-orange); color:var(--black);}
 
 .small-round-btn{border:none; background-color: var(--orange);  padding: 10px 20px; font-size:13px; color: var(--white);  text-decoration: none;  border-radius: 200px;transition: all 0.3s ease-in-out; text-transform: uppercase; font-size:1rem; font-weight:400;}
@@ -235,13 +235,71 @@ header .logo {width: 224px;  margin: 25px 0px 0px 0px; float: left;}
 header .logo img{width:100%;}
 
 header .navigation{width: 70%; float:right;}
+
+/* Menu Icon */
+.hamb{
+    cursor: pointer;
+    float: right;
+    padding: 47px 20px;
+
+}/* Style label tag */
+
+.hamb-line {
+    background: var(--white);
+    display: block;
+    height: 2px;
+    position: relative;
+    width: 24px;
+
+} /* Style span tag */
+
+.hamb-line::before,
+.hamb-line::after{
+    background: var(--white);
+    content: '';
+    display: block;
+    height: 100%;
+    position: absolute;
+    transition: all .2s ease-out;
+    width: 100%;
+}
+.hamb-line::before{
+    top: 5px;
+}
+.hamb-line::after{
+    top: -5px;
+}
+
+.side-menu {
+    display: none;
+} /* Hide checkbox */
+
+
+/* Toggle menu icon */
+.side-menu:checked ~ nav{
+    max-height: 100%;
+    display: block;
+}
+.side-menu:checked ~ .hamb .hamb-line {
+    background: transparent;
+}
+.side-menu:checked ~ .hamb .hamb-line::before {
+    transform: rotate(-45deg);
+    top:0;
+}
+.side-menu:checked ~ .hamb .hamb-line::after {
+    transform: rotate(45deg);
+    top:0;
+}
+
+
 header nav{width: max-content; padding: 0; float: right; margin: 0em auto;}
 header nav ul{list-style:none; margin: 0px auto;}
 header nav ul li{float: left;  display: inline;  margin: 20px 10px;}
 header nav ul li a{padding: 12px 17px; display:block; font-weight: 400; text-transform: uppercase; font-size: 14px; text-decoration: none; color:var(--white) }
 header nav ul li a:hover{ color: #ffd74c; transition: all 0.7s ease-in-out;}
 
-header nav .lastnav a{background-color: var(--orange); border-radius: 200px;}
+header nav .lastnav a{background-color: var(--orange); border-radius: 200px; width: fit-content;}
 header nav .lastnav a:hover{background-color: var(--light-orange); color:var(---black)}
 
 .inner header{background-color:var(--navyblue); color:var(--white);     margin-bottom: 2em; }
@@ -569,28 +627,67 @@ header .logo img{ width: 187px; margin: 1em 0px;}
 .inner header .logo img {width: 153px; margin: 1em 0px;}
 
 header .navholder {padding:0px; width:100%;}
-header .navigation{width:100%; margin:0px;}
+header .navigation{width: 16%; margin: 0px; position: absolute; right: 0px; z-index: 20;}
 header .navigation .topnav { text-align: center; width: 100%; color: #000;}
 header .navigation .topnav .firstnav{width:100%; margin: 0px;}
+
+/* Nav menu */
+
+.side-menu:checked ~ nav{
+    max-height: 100%;
+    display: block;
+    width: 101%;
+    margin-top: 6em;
+    height: 100vh;
+    margin-left: -22em;
+}
+nav{
+    display: none;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    background-color: #000000d1;
+    overflow: hidden;
+
+}
+nav ul li{ display: list-item !important;float: none !important;}
+nav ul a{
+    display: block;
+    padding: 30px;
+    color: var(--white);
+}
+nav ul a:hover{
+    background-color: var(--gray);
+}
+nav{
+    max-height: 0;
+    transition: max-height .5s ease-out;
+}
 
 header .navigation .topnav .contacts { text-align: center; margin: 0px; line-height: 2; width: 100%; margin-top: 13px;}
 header .social{float:none !important; text-align:center; margin-top:20px;}
 header .social li{margin:0px 5px; }
 header .social li a{padding-left: 0px; margin-left: 0px;}
 
-.inner header .logo { width: 300px;  margin: 2em auto 2em auto;  text-align: center;}
+.planboxes .col-lg-3{
+    margin-bottom: 3em;
+}
 
-.banner .bannercap { position: absolute; bottom: 4em; left: 3em; width: 77%; color: #fff; z-index: 2;}
+.banner .caption { position: absolute; bottom: 2em; color: var(--white); left: 3.5em; width: 75%; font-size: 18px; font-weight: 300 }
+.banner .caption h1 {font-size: 36px;}
 
+.whyus .whybx{ margin-bottom:3em;}
+.loginbx { width: 86vw; align-self: center; margin: 8em auto 2em auto;}
 
+.intro .col-lg-10{display:flex}
 
-.categoryboxes { padding: 3em 0px; }
-.inner .banner .title h3 { font-size: 24px; }
-.about { margin-top: 0; margin-bottom:3em;}
-.about .aboutbx { padding: 0em 0px;}
-.services .servimg{margin-top:30px;}
+.inner .intro .introimg {width: 100%; order: 1; float: left; height: 22em;}
+.inner .intro .cap {float: left; padding: 0em 2em; width: 100%; order: 2;}
+.inner .intro .cap h1 {font-size: 47px;}
 
-.updates {padding: 4em 0;}
+.workbx .sidebar .sidenav { width: 33.3%; float: left;}
+
+.viewbox{ min-height: 100vh;}
 
 footer .footmenu{text-align:center;}
 footer .footmenu li { display: list-item;  margin-bottom: 14px;}
@@ -602,9 +699,28 @@ footer .col-md-3{text-align: center;}
 footer .copy { margin-top: 0px; text-align:center;}
 }
 
-@media handheld and (max-width: 479px), screen and (max-device-width: 479px), screen and ( max-width: 479px)  {
+/* Responsiveness */
+@media (min-width: 768px) {
+    nav{
+        max-height: none;
+        top: 0;
+        position: relative;
+        float: right;
+        width: fit-content;
+        background-color: transparent;
+    }
+    .ul li{
+        float: left;
+    }
+    .ul a:hover{
+        background-color: transparent;
+        color: var(--gray);
 
+    }
 
+    .hamb{
+        display: none;
+    }
 }
 
 @media print {

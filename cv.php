@@ -420,7 +420,7 @@
                 </div>
                 
 
-                <div class="col-lg-5" style="position:relative;">
+                <div class="col-lg-5 viewbox" style="position:relative;">
                     <a href="priceselect.php?tplid=<?php echo $cvtpl; ?>&temptype=resume&sub=<?php echo $rwresume['probasic']; ?>&u=<?php echo $userid; ?>" title="Download" id="downloadrec" class="rounded-white-btn floataboveright"><i class="fa-solid fa-download"></i></a>
                     <div class="cvresized" id="resumebx">
                         <?php echo $rwresume['tempcode']; ?>

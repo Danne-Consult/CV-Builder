@@ -215,7 +215,7 @@
                         </form>
                     </div>
                 </div>
-                <div class="col-lg-5 position-relative">
+                <div class="col-lg-5 viewbox" style="position:relative;">
                     <a href="priceselect.php?tplid=<?php echo $coverid; ?>&temptype=coverletter&sub=<?php echo $rws['probasic'] ?>&u=<?php echo $user ?>" title="Download" id="downloadrec" class="rounded-white-btn floataboveright"><i class="fa-solid fa-download"></i></a>
                     <div class="cvresized" id="clbx">
                         <?php echo $rws['tempcode']; ?>

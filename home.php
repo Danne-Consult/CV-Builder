@@ -79,10 +79,12 @@
                 <div class="col-lg-5">
                     <h3>My Resume</h3>
                     <?php echo $resumes; ?>
+                    <br />
                 </div>
                 <div class="col-lg-5 offset-1">
                     <h3>My Cover Letters</h3>
                     <?php echo $covers; ?>
+                    <br />
                 </div>
             </div>
         </article>
