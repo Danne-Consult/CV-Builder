@@ -20,7 +20,20 @@
                     <div class="col-lg-3">
                     <div class="planbx aligncenter" style="color:#fff; background-color:<?php echo $rws['bgcolor']; ?>;">
                         <h3><?php echo $rws['subscription']; ?> <br />Plan</h3>
-                        <p><span><?php echo $rws['weeks']; ?> week access plan</span></p>
+                        <p><span>
+                            <?php
+                                if($rws['weeks']==1){
+                                    echo $rws['weeks'] . " week access plan";
+                                }
+                                else if($rws['weeks']>1){
+                                    $days = $rws['weeks'] * 7;
+                                    $months = floor($days/30);
+                                    echo $months. " months access plan";
+                                }
+                            ?>
+
+
+                        </span></p>
                         <div class="cost" style="color:<?php echo $rws['bgcolor']; ?>; background-color:#fff;">Kes. <?php echo number_format($rws['cost']); ?></div>
                         <p>Number of downloads<br /><span><?php echo $rws['downlimit']; ?> unique <?php echo $protemp; ?> CVs</span><br /><span><?php echo $rws['downlimit']; ?> unique <?php echo $protemp; ?> cover letter</span></p>
                         <p>Unlimited Access<br /><span>Yes</span></p>
