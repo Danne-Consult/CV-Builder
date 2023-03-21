@@ -34,7 +34,7 @@
                             echo "<div class='error-red'>". $_GET['error'] ."</div>";
                         }
                     ?>
-                    <form action="controller/login.php" method="POST" class="contactForm">
+                    <form action="controller/login.php" method="POST" class="contactForm loginform">
                         <input type="hidden" name="location" value="<?php if(isset($_GET['location'])){ echo htmlspecialchars($_GET['location']);} ?>">
                         <label for="username">Email:</label><br />
                         <input type="email" name="username" id="username" required /><br />

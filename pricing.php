@@ -3,10 +3,6 @@
     include "manage/_db/dbconf.php"; 
     $db = new DBconnect;
     $prefix = $db->prefix;
-    $sql1 = "SELECT * FROM ".$prefix."subscription_plans";
-    $result1 = $db->conn->query($sql1);
-    $trws = mysqli_num_rows($result1);
-    $rws = $result1->fetch_array();
 ?>
 
 <!DOCTYPE html>

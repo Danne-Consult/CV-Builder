@@ -593,6 +593,8 @@ header nav .lastnav a:hover{background-color: var(--light-orange); color:var(---
 .contactForm i{margin-left:-34px; color: var(--black);}
 .contactForm i.italic{margin:0px; color:#999; font-size:12px;}
 
+.loginform{margin-bottom:1em;}
+
 .tox .tox-edit-area__iframe { background-color: #f2f2f2 !important;}
 
 footer{ padding: 0x;  position: relative;}
@@ -692,7 +694,7 @@ header .social li a{padding-left: 0px; margin-left: 0px;}
 #modal-content #myresume{
     margin-left: 0em;
     scale: 0.37;
-    margin-top: -88vh;
+    margin-top: -95vh;
 }
 
 #modal-content #mycover {
