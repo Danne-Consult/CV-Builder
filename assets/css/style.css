@@ -689,6 +689,13 @@ header .social li a{padding-left: 0px; margin-left: 0px;}
 
 .viewbox{ min-height: 100vh;}
 
+#modal-content #myresume, #modal-content #mycover {
+    margin-left: 0em;
+    scale: 0.37;
+    margin-top: -99vh;
+}
+.close { right: 0.6em;}
+
 footer .footmenu{text-align:center;}
 footer .footmenu li { display: list-item;  margin-bottom: 14px;}
 footer .contacts{text-align:center; margin: 2em 0px;}
@@ -722,6 +729,7 @@ footer .copy { margin-top: 0px; text-align:center;}
         display: none;
     }
 }
+
 
 @media print {
     *, *::before, *::after {
