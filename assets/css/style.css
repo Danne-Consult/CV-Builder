@@ -689,10 +689,16 @@ header .social li a{padding-left: 0px; margin-left: 0px;}
 
 .viewbox{ min-height: 100vh;}
 
-#modal-content #myresume, #modal-content #mycover {
+#modal-content #myresume{
     margin-left: 0em;
     scale: 0.37;
     margin-top: -99vh;
+}
+
+#modal-content #mycover {
+    margin-left: -11em;
+    scale: 0.37;
+    margin-top: -46vh;
 }
 .close { right: 0.6em;}
 
