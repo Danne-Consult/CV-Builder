@@ -188,6 +188,7 @@
 
                                             <p>Sample Letters <i class="italic">*You can select a sample text from the list below.</i></p>
                                             <select id="samplewords">
+                                                <option value="">...</option>
                                                 <?php 
                                                     while($rwlist = $resultst->fetch_array()){
                                                         echo "<option value='".$rwlist['id']."'>".$rwlist['desc']."</option>";
