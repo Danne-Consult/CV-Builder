@@ -310,12 +310,14 @@
             }
 
             $("#samplewords").change(function(){
-                $id = $(this).val();
-                $.post("controller/getsamples.php?recid="+$id, function(data, status){
-                    if(data){
-                        tinymce.get("coverbody").setContent(data);
-                    }
-                });
+                if($(this).val()!==""){
+                    $id = $(this).val();
+                    $.post("controller/getsamples.php?recid="+$id, function(data, status){
+                        if(data){
+                            tinymce.get("coverbody").setContent(data);
+                        }
+                    });
+                }
             });
         });
     </script>
