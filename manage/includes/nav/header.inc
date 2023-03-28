@@ -8,7 +8,7 @@
                 <ul>
                     <li class="fitstnav"><a href="index.php">Admin Dashboard</a></li>
                     <li><a href="templates.php">Templates</a></li>
-                    <li><a href="invoices.php">Invoices/Payments</a></li>
+                    <li><a href="payments.php">Invoices/Payments</a></li>
                     <li><a href="controller/logout.php">Logout</a></li>
                 </ul>
             </nav>

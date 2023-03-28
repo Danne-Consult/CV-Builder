@@ -256,21 +256,15 @@ header nav .lastnav a:hover{background-color: var(--light-orange); color:var(---
 .inner .intro .cap h1{font-size: 61px;}
 .inner .intro .introimg{  width: 42%;}
 
-.about{min-height:50vh;}
-
-.howto{ padding:5em 0px;}
-.howto .cont{text-align: center; padding:20px 30px;}
-.howto .cont .iconbx{padding: 30px; background-color: var(--navyblue); color: #fff;  border-radius: 200px; width: 120px; height: 120px; margin: 21px auto 39px auto; font-size: 38px;}
-
-.whyus{padding: 3em 0px; background-color: #fdfdfd; position:relative;}
-.whyus::before{content:""; top:0px; height:100%; width:100%; position:absolute; background:url(../images/dots.png) repeat;} 
-.whyus h2{margin-bottom: 2em; color:var(--white)} 
-.whyus .whybx{ color: var(--white); padding: 6px 0px; margin:0px; display: flex; position: relative;}
-.whyus .whybx h5{color:var(--white)}
-.whyus .whyicn{width: 13%; display: flex; align-items: center; padding: 0px 16px; color: var(--white); font-size: 2rem; margin-right: 10px;}
-.whyus .whycont{padding: 6px 6px; width: 79%;}
-.whyus .whycont p{margin-bottom:0px;}
-.whyus .cont{ color:var(--white); position:relative;}
+.numusers{
+    height: 229px;
+    background-color: #dee2e6;
+    text-align: center;
+    font-size: 54px;
+    font-weight: 700;
+    color: #114356;
+    display: flow-root;
+}
 
 .dash{margin-bottom:3em;}
 .mybxs{width:100%; background-color:var(--white); border-radius:20px; box-shadow: #f1f1f1 3px 3px 13px 3px; margin-bottom:2em; padding:20px 29px;}

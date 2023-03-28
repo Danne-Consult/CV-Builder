@@ -1,6 +1,6 @@
 <div class="slidex row">
     <?php
-        $sql4="SELECT * FROM ".$prefix."coverletter_templates";
+        $sql4="SELECT * FROM ".$prefix."coverletter_templates ORDER BY FIELD(probasic, 'Basic', 'Pro', 'Premium')";
         $result4= $db->conn->query($sql4);
         $tempbx1="";
         $temptype="";

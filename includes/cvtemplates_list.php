@@ -1,6 +1,6 @@
 <div class="slidex row">
     <?php
-        $sql3="SELECT * FROM ".$prefix."resume_templates";
+        $sql3="SELECT * FROM ".$prefix."resume_templates ORDER BY FIELD(probasic, 'Basic', 'Pro', 'Premium')";
         $result3= $db->conn->query($sql3);
         $tempbx="";
         $temptype="";

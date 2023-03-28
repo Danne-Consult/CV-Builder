@@ -5,13 +5,14 @@
             <th>User's Name</th>
             <th>E-mail</th>
             <th>Joined On</th>
+            <th>Sub type</th>
             <th>Actions</th>
         </tr>
     </thead>
     <tbody>
         
         <?php
-            $sql="SELECT * FROM ".$prefix."users ORDER BY id DESC LIMIT 10";
+            $sql="SELECT * FROM ".$prefix."users a LEFT JOIN ".$prefix."user_subscription b ON a.id=b.userid ORDER BY a.id DESC LIMIT 10";
             $result= $db->conn->query($sql);
             $tempbx="";
             $temptype="";
@@ -19,6 +20,7 @@
                 $m = "<tr><td>".$rws['fname']."&nbsp;".$rws['lname']."</td>";
                 $m .= "<td>".$rws['email']."</td>";
                 $m .= "<td> ".$rws['createdon']."</td>";
+                $m .= "<td> ".$rws['subtype']."</td>";
                 $m .= "<td><a style='text-align:center; display:block' href='viewuser.php?u=".$rws['usercode']."'><i class='fa-solid fa-eye'></i></a></td>";
                 $m .= "</tr>";
 

@@ -1,18 +1,18 @@
-<h4>Mpesa Transactions</h4>
+<h4>Completed Transactions</h4>
 <table id="sorttable">
     <thead>
         <tr>
             <th>Payment Ref</th>
             <th>User's Name</th>
             <th>Paid on</th>
-            <th>Satus</th>
+            <th>Sub Type</th>
             <th>View</th>
         </tr>
     </thead>
     <tbody>
         
         <?php
-            $sql="SELECT * FROM ".$prefix."invoices a LEFT JOIN ".$prefix."USERS b ON a.userid = b.usercode WHERE a.paystatus='paid' AND a.paybalance='0' LIMIT 10";
+            $sql="SELECT * FROM ".$prefix."invoices a LEFT JOIN ".$prefix."users b ON a.userid = b.usercode WHERE a.paystatus='paid' LIMIT 10";
             $result= $db->conn->query($sql);
             $tempbx="";
             $temptype="";
@@ -20,7 +20,7 @@
                 $m = "<tr><td>".$rws['invoiceno']."</td>";
                 $m .= "<td>".$rws['fname']."&nbsp;".$rws['lname']."</td>";
                 $m .= "<td> ".$rws['paidon']."</td>";
-                $m .= "<td> ".$rws['status']."</td>";
+                $m .= "<td> ".$rws['paytype']."</td>";
                 $m .= "<td><a style='text-align:center; display:block' href='viewuser.php?u=".$rws['usercode']."'><i class='fa-solid fa-eye'></i></a></td>";
                 $m .= "</tr>";
 
@@ -30,4 +30,4 @@
         
     </tbody>
 </table>
-<p><a class="rounded-white-btn" href="allusers.php">See Transactions</a></p>
+<p><a class="rounded-white-btn" href="transactions.php">See Transactions</a></p>

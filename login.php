@@ -42,6 +42,7 @@
                         <input type="password" name="passx" id="passx" required /><i class="fa-solid fa-eye" id="togglePassword"></i><br />
                         <input type="submit" class="submit" name="loginx" value="Login" />
                     </form>
+                    <p><a href="passrecover.php">Forgot password</a></p>
                     <p><a href="signup.php">Create an account</a></p>
                 </div>
                 <?php include "includes/footer.inc"; ?>

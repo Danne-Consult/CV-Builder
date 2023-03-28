@@ -27,6 +27,11 @@
         <article>
             <h3>Dashboard</h3>
             <div class="row">
+                <div class="col-lg-4">
+                <?php
+                    include "components/lists/numusers.php";
+                    ?>
+                </div>
                 <div class="col-lg-8">
                     <?php
                     include "components/lists/fewusers.php";
