@@ -27,20 +27,9 @@
     </div>
     <div class="container12 loginflex">
             <div class="loginbx">
-                <div class="logform">
+                <div class="logform" style="min-height:300px">
                     <h3 class="aligncenter">Recover Password</h3><br />
-                    <?php
-                        if(isset($_GET['error'])){
-                            echo "<div class='error-red'>". $_GET['error'] ."</div>";
-                        }
-                    ?>
-                    <form action="controller/recoverpass.php" method="POST" class="contactForm loginform">
-                        <p>Enter the email address associated with your account to change your password</p><br />
-                        <label for="username">Email:</label><br />
-                        <input type="email" name="emailadd" id="emailadd" autocomplete="off" required placeholder="***@***" /><br />
-                        
-                        <input type="submit" class="submit" name="recoverx" value="Submit" />
-                    </form>
+                    <p>Check your email and click on the link to change your password.</p>
                 </div>
                 <?php include "includes/footer.inc"; ?>
             </div>
