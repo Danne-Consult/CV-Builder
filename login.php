@@ -33,6 +33,9 @@
                         if(isset($_GET['error'])){
                             echo "<div class='error-red'>". $_GET['error'] ."</div>";
                         }
+                        if(isset($_GET['success'])){
+                            echo "<div class='success-green'>". $_GET['success'] ."</div>";
+                        }
                     ?>
                     <form action="controller/login.php" method="POST" class="contactForm loginform">
                         <input type="hidden" name="location" value="<?php if(isset($_GET['location'])){ echo htmlspecialchars($_GET['location']);} ?>">

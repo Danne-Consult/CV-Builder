@@ -16,23 +16,23 @@ function passchange($user,$newpass,$repass){
 
         if(!$result2){
             header('location:../passreset.php?error=There was an error changing your password!');
-            exit();
+            
+            
         }else{
-            header('location:../passreset.php?success=Password changed! You will be redirected to the login page shortly');
-            exit();
+            header('location:../passreset.php?u='.$user.'&success=Password changed! You will be redirected to the login page shortly');
+            
         }
     }
-
-
 }
 
 if(isset($_POST['passchange'])){
-    
+
     $newpass = $_POST['newpass'];
     $retypepass = $_POST['retypepass'];
     $user = $_POST['userrec'];
 
     passchange($user,$newpass,$retypepass);
+
 }else{
     header('location:../profile.php');
 }
