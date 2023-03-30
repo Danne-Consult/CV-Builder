@@ -40,7 +40,7 @@ if(!isset($_GET['u'])){
                         if(isset($_GET['success'])){
                             echo "<div class='success-green'>". $_GET['success'] ."</div>";
 
-                            header( "refresh:4;url=login.php" );
+                            header( "refresh:10;url=login.php" );
                         }
                         ?>
                         <form action="controller/passreset.php" class="contactForm" method="POST">

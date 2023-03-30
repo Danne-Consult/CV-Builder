@@ -25,8 +25,7 @@
                 return sprintf(
                   "%s://%s%s",
                   isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off' ? 'https' : 'http', 
-                  $_SERVER['SERVER_NAME'],
-                  $_SERVER['REQUEST_URI']
+                  $_SERVER['SERVER_NAME'],""
                 );
               }
 
@@ -35,7 +34,7 @@
             $fname = $rws['fname'];
             $lname = $rws['fname'];
             $serverurl = url();
-            $emaillink = "<a style='padding: 15px 34px; background-color:#faa31d; color:#fff; border-radius: 200px; text-decoration:none;' href='".$serverurl."/passresset.php?u=".$userid."&res=1'>Reset Password</a>";
+            $emaillink = "<a style='padding: 15px 34px; background-color:#faa31d; color:#fff; border-radius: 200px; text-decoration:none;' href='".$serverurl."/passreset.php?u=".$userid."&res=1'>Reset Password</a>";
 
             $emailbody = "<div style='background-color:#efefef; padding:3em 0px;'><style>
                 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
@@ -45,7 +44,7 @@
             </style>
               <table class='emailtable' border='0' cellpadding='2' style='width:600px; margin:0px auto;'>
               <tr>
-                <td><img src='{$serverurl}/assets/emailbanner.jpg' style='width:100%' /></td>
+                <td><img src='{$serverurl}/assets/images/emailbanner.jpg' style='width:100%' /></td>
               </tr>
                 <tr>
                     <td>
@@ -69,15 +68,15 @@
                 //Server settings
                 $mail->SMTPDebug = SMTP::DEBUG_SERVER;                      //Enable verbose debug output
                 $mail->isSMTP();                                            //Send using SMTP
-                $mail->Host       = 'mail.danneconsult.com';                //Set the SMTP server to send through
+                $mail->Host       = 'mail.opentalentafrica.com';                //Set the SMTP server to send through
                 $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
-                $mail->Username   = 'support@danneconsult.com';             //SMTP username
-                $mail->Password   = 'secret';                               //SMTP password
+                $mail->Username   = 'support@opentalentafrica.com';             //SMTP username
+                $mail->Password   = 'Support 2023';                               //SMTP password
                 $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
                 $mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
             
                 //Recipients
-                $mail->setFrom('support@danneconsult.com', 'Mailer');
+                $mail->setFrom('support@opentalentafrica.com', 'Support - RealtimeCVs');
                 $mail->addAddress($emailadd, $fname.' '.$lname );     //Add a recipient
             
                 //Content

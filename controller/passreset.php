@@ -27,12 +27,12 @@ function passchange($user,$newpass,$repass){
 }
 
 if(isset($_POST['passchange'])){
-    $oldpass = $_POST['oldpass'];
+    
     $newpass = $_POST['newpass'];
     $retypepass = $_POST['retypepass'];
     $user = $_POST['userrec'];
 
-    passchange($user,$oldpass,$newpass,$retypepass);
+    passchange($user,$newpass,$retypepass);
 }else{
     header('location:../profile.php');
 }
