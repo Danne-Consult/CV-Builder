@@ -7,7 +7,7 @@ function passchange($user,$newpass,$repass){
 
 
     if($newpass !== $repass){
-        header('location:../passreset.php?error=New password does not match the re-typed password');
+        header('location:../passreset.php?u='.$user.'&error=New password does not match the re-typed password');
         exit();
     }else{
         $hashedpw = password_hash($newpass, PASSWORD_DEFAULT);
@@ -15,7 +15,7 @@ function passchange($user,$newpass,$repass){
         $result2 = $db->conn->query($sql2);
 
         if(!$result2){
-            header('location:../passreset.php?error=There was an error changing your password!');
+            header('location:../passreset.php?u='.$user.'&error=There was an error changing your password!');
             
             
         }else{
