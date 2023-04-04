@@ -60,10 +60,10 @@
                 }else if($rws['visible']!==0){
                     while($rws = $result1->fetch_array()){
                         
-                        if($rws['weeks']==1){
+                        if($rws['weeks']<4){
                             $weeks =  $rws['weeks'] . " week access plan";
                         }
-                        else if($rws['weeks']>1){
+                        else if($rws['weeks']>4){
                             $days = $rws['weeks'] * 7;
                             $months = floor($days/30);
                             $weeks =  $months. " months access plan";

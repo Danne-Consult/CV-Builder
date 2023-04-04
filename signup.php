@@ -57,6 +57,11 @@
                                 <input type="password" name="repassx" id="repassx" required><i class="fa-solid fa-eye" id="togglePassword1"></i>
                             </div>
                         </div>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <label for="accept"><input type="checkbox" name="accept" id="accept" required> I accept the <a  href="terms.php">Terms of service</a></label>
+                            </div>
+                        </div>
 
                         <button type="submit" class="submit" name="signupx">Create Account</button>
                     </form>
