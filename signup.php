@@ -70,7 +70,11 @@
                     <p>By creating an account, you agree to our <a href="terms.php"><b>Terms of Service</b></a>. We do not sell your personal data. To learn more about how we collect, use, share and protect it please read our <a href="privacy.php"><b>Privacy Policy</b></a></p>
                 </div>
 
-                <?php include "includes/footer.inc"; ?>
+                <footer> 
+                    <article>
+                        <div class="copy">&copy;2022 Open Talent Africa | Developed by <a heref="danneconsult.com" target="_new">Danne Consult Ltd</a></div>
+                    </article>
+                </footer> 
             </div>
     </div>
     

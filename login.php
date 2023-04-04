@@ -48,7 +48,11 @@
                     <p><a href="passrecover.php">Forgot password</a></p>
                     <p><a href="signup.php">Create an account</a></p>
                 </div>
-                <?php include "includes/footer.inc"; ?>
+                <footer> 
+                    <article>
+                        <div class="copy">&copy;2022 Open Talent Africa | Developed by <a heref="danneconsult.com" target="_new">Danne Consult Ltd</a></div>
+                    </article>
+                </footer> 
             </div>
     </div>
 
