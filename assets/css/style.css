@@ -77,7 +77,7 @@ h1, h2, h3, h4, h5, h6 {
 
 h1 {font-size: 50px;}
 h2 {font-size: 36px;}
-h3 {font-size: 32px;}
+h3 {font-size: 32px; margin-bottom: 0; padding-bottom: 0px;}
 h4 {font-size: 20px;}
 h5 {font-size: 18px;}
 h6 {font-size: 17px;}
@@ -304,26 +304,26 @@ header nav .lastnav a:hover{background-color: var(--light-orange); color:var(---
 
 .inner header{background-color:var(--navyblue); color:var(--white);     margin-bottom: 2em; }
 
-.banner{position:relative; height:70vh; }
-.banner .bannerimg{height:70vh; width:100%; position:relative;} 
+.banner{position:relative; height:60vh; }
+.banner .bannerimg{height:60vh; width:100%; position:relative;} 
 .banner .bannerimg::before{content:""; height:100%; width:100%; position:absolute; background:url(../images/dots.png) repeat;} 
 .banner .caption{ position: absolute; bottom: 2em;  color: var(--white);  left: 4em;  width: 41%;  font-size: 23px; font-weight: 300;}
-.banner .caption h1{color:var(--white)}
+.banner .caption h1{color:var(--white);  font-size: 37px;}
 
 .inner .banner{margin-top: -34px; height: 300px; margin-bottom:3em;}
 .inner .banner .bannerimg { height: 100%; width: 100%; position: relative;}
-.inner .banner .caption h2{color:var(--white)}
+.inner .banner .caption h2{color:var(--white);}
 .inner .banner .caption { position: absolute;  bottom: 2em;  color: var(--white);  left: 4em;  width: 41%;  font-size: 23px;  font-weight: 300;}
 
-.home .intro{padding:4rem 0px 1rem 0px;}
+.home .intro{padding: 2rem 0px 1rem 0px;}
 
-.inner .intro .cap{float: left;  padding: 9em 2em; width: 56%;}
-.inner .intro .cap h1{font-size: 61px;}
-.inner .intro .introimg{  width: 42%;}
+.inner .intro .cap{float: left;  padding: 3em 2em; width: 56%;}
+.inner .intro .cap h1{font-size: 37px;}
+.inner .intro .introimg{ width: 24%; margin-bottom: 2em;}
 
 .about{min-height:50vh;}
 
-.howto{ padding:5em 0px;}
+.howto{ padding:0px;}
 .howto .cont{text-align: center; padding:20px 30px;}
 .howto .cont .iconbx{background-color: var(--navyblue); color: #fff; border-radius: 200px; width: 93px; height: 93px;  margin: 21px auto 39px auto; font-size: 38px; display: grid; align-content: center;}
 
@@ -351,7 +351,7 @@ header nav .lastnav a:hover{background-color: var(--light-orange); color:var(---
     z-index: 10;
 }
 
-.dash{margin-bottom:3em;}
+.dash{margin-bottom:0em;}
 .mybxs{width:100%; background-color:var(--white); border-radius:20px; box-shadow: #f1f1f1 3px 3px 13px 3px; margin-bottom:2em; padding:20px 29px;}
 
 .tempimg{height: 21em; margin-bottom: 2rem; position: relative;}
@@ -493,7 +493,7 @@ header nav .lastnav a:hover{background-color: var(--light-orange); color:var(---
 .paginationbx .pagelink{padding: 10px 15px; background-color: #ededed; margin-right: 5px;}
 .paginationbx .active{font-weight:700;}
 
-.tempbx{position: relative; padding-top: 2em;}
+.tempbx{position: relative; padding-top: 1em;}
 .tempbx .moretpl{position: absolute; z-index: 10; top: -3em; left: 7em; padding: 14px 20px; border-top-left-radius: 5px; border-top-right-radius: 5px; cursor: pointer; font-weight:700; color:var(--navyblue);}
 .tempbx article{transition: all 0.3s ease-in-out;}
 .tempbx article.hidebx{height: 0px; overflow: hidden;}
@@ -553,17 +553,17 @@ header nav .lastnav a:hover{background-color: var(--light-orange); color:var(---
     cursor: pointer;
   }
 
-.whybar p{font-size:19px; margin-bottom:3em;}
+.whybar p{font-size:19px; margin-bottom:1em;}
 
 .planboxes{margin-bottom:3em;}
-.planboxes .planbx{padding: 2em; min-height: 100%; border-radius: 20px; box-shadow: #b2b2b2 0px 5px 15px; background-color: #f6f6f6;}
-.planboxes .planbx h3{color:#fff;}
+.planboxes .planbx{ min-height: 100%; border-radius: 20px; box-shadow: #e5e5e5 0px 5px 15px; background-color: #f6f6f6;}
+.planboxes .planbx h3{color:#fff; font-weight: 300;;}
 .planboxes .planbx span{font-weight:700;}
-.planboxes .cost{ width: 160px; height: 160px;  border-radius: 15em; display: flex; align-items: center; justify-content: center; margin: 1em auto 1em auto; font-weight: 700; font-size: 30px; padding: 20px; line-height: 1; box-shadow: #2727276e 0px 3px 14px; color:var(--white)}
-.planboxes .lightblue{background-color:#6595a8}
-.planboxes .blue{background-color: #3a6c87;}
-.planboxes .green{background-color: #395c35;}
-.planboxes .gold{background-color: #7f7e28;}
+.planboxes .cost{ font-size:30px; }
+
+.planboxes .top{padding: 2em;}
+
+.planboxes .cont{padding: 1em 2em}
 
 .planboxes .lightblue .cost{background-color:#cde1e9}
 .planboxes .blue .cost{ background-color: #dcf3ff;}

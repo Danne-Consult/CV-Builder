@@ -30,7 +30,7 @@
                 </div>
                 <div class="col-lg-6">
                    <div class="workarea">
-                    <h3>My CV</h3>
+                    <h3>My Resume/CV</h3>
                     <?php
                         if(isset($_GET['error'])){
                             echo "<div class='error-red'>". $_GET['error'] ."</div>";
@@ -99,7 +99,7 @@
                                     <input type="text" name="languages" id="lang" value="<?php if(!$rwres['languages']==""){echo $rwres['languages'];} ?>" />
                                 </div>
                             </div>
-                            <br /><hr /> 
+                            <hr /> 
                             <button type="button" class="btn btn-primary next-prev" data-next-prev="section2">Next</button>
                         </div>
 
@@ -108,7 +108,7 @@
                             <div class="row">
                                 <div class="col-lg-6">
                                     <label for="email">Email</label><br />
-                                    <input type="email" name="email" id="email" value="<?php if($rwres['email']==""){echo "No email added";}else{echo $rwres['email'];} ?>" disabled />
+                                    <input type="text" name="email" id="email" value="<?php if($rwres['email']==""){echo "No email added";}else{echo $rwres['email'];} ?>" disabled />
                                 </div>
                                 <div class="col-lg-6">
                                     <label for="lname">Tel/Mobile</label><br />
@@ -123,7 +123,7 @@
                                     <input type="number" name="postalcode" id="postcode" value="<?php if(!$rwres['postalcode']==""){echo $rwres['postalcode'];} ?>" />
                                 </div>
                             </div>
-                            <br /><hr /> 
+                            <hr /> 
                             <button type="button" class="btn btn-primary next-prev" data-next-prev="section1">Prev</button>
                             <button type="button" class="btn btn-primary next-prev" data-next-prev="section3">Next</button>
                         </div>
@@ -132,10 +132,10 @@
                             <h4>Brief About Me</h4>
                             <div class="row">
                                 <div class="col-lg-12">
-                                    <textarea name="aboutme" class="editor" id="brief" cols="30" rows="3" maxlength="500"><?php if(!$rwres['brief']==""){echo $rwres['brief'];} ?></textarea><br /><i class="italic">*Max 500 characters</i>
+                                    <textarea name="aboutme" class="editor" id="brief" rowspan="3" maxlength="500"><?php if(!$rwres['brief']==""){echo $rwres['brief'];} ?></textarea><br /><i class="italic">*Max 500 characters</i>
                                 </div>
                             </div>
-                            <br /><hr /> 
+                            <hr /> 
                             <button type="button" class="btn btn-primary next-prev" data-next-prev="section2">Prev</button>
                             <button type="button" class="btn btn-primary next-prev" data-next-prev="section4">Next</button>
                         </div>
@@ -205,7 +205,7 @@
                                 </div>
                                 <?php } ?>
                             </div> 
-                            <br /><hr /> 
+                            <hr /> 
                             <button type="button" class="btn btn-primary next-prev" data-next-prev="section3">Prev</button>
                             <button type="button" id="edusub" class="btn btn-primary next-prev" data-next-prev="section5">Next</button>
                         </div>
@@ -266,19 +266,19 @@
                                 </div>
                                 <?php } ?>
                             </div>
-                            <br /><hr /> 
+                            <hr /> 
                             <button type="button" class="btn btn-primary next-prev" data-next-prev="section4">Prev</button>
                             <button type="button" class="btn btn-primary next-prev" data-next-prev="section6" id="worksub">Next</button>
                         </div>
 
                         <div class="section" id="section6">
-                            <h4>Other Accreditations/Personal Achievements</h4>
+                            <h4>Personal Achievements</h4>
                             <div class="row">
                                 <div class="col-lg-12">
                                     <textarea name="achievements" id="accredits" class="editor" cols="30" rows="3" maxlength="200"><?php if(!$rwres['achievements']==""){echo $rwres['achievements'];} ?></textarea><br /><i class="italic">*Max 500 characters</i>
                                 </div>
                             </div>
-                            <br /><hr /> 
+                            <hr /> 
                             <button type="button" class="btn btn-primary next-prev" data-next-prev="section5">Prev</button>
                             <button type="button" class="btn btn-primary next-prev" data-next-prev="section7">Next</button>
                         </div>
@@ -318,7 +318,7 @@
                                 </div>
                             <?php } ?>
                             </div>
-                            <br /><hr /> 
+                            <hr /> 
                             <button type="button" class="btn btn-primary next-prev" data-next-prev="section6">Prev</button>
                             <button type="button" class="btn btn-primary next-prev" data-next-prev="section8" id="skillsub">Next</button>
                         </div>
@@ -340,7 +340,7 @@
                                     <input type="text" name="linkedin" id="linkedin" placeholder="https://...." value="<?php if(!$rwres['linkedin']==""){echo $rwres['linkedin'];} ?>" />
                                 </div>
                             </div>
-                            <br /><hr /> 
+                            <hr /> 
                             <button type="button" class="btn btn-primary next-prev" data-next-prev="section7">Prev</button>
                             <button type="button" class="btn btn-primary next-prev" data-next-prev="section9">Next</button>
                         </div>
@@ -408,7 +408,7 @@
                                 </div>
                             <?php } ?>
                             </div>
-                            <br /><hr /> 
+                            <hr /> 
                             <button type="button" class="btn btn-primary next-prev" data-next-prev="section9">Prev</button>
                             <input type="submit" class="submit" name="saveresume" value="Save Resume" />
                             <button type="button" class="rounded-white-btn small-btn" id="myBtn">View Resume</button>
@@ -502,7 +502,7 @@
                 tinymce.init({
                 selector: 'textarea.editor',
                 menubar: false, 
-                height : "250",
+                height : "200",
                 add_form_submit_trigger : true,
                 plugins: 'lists advlist',
                 toolbar: 'insertfile a11ycheck undo redo | bold italic | forecolor backcolor | template codesample | alignleft aligncenter alignright alignjustify | bullist numlist | link image'

@@ -52,7 +52,7 @@
     <div class="container12 intro">
         <article>
         <div class="row justify-content-center">
-                <div class="col-lg-8">
+                <div class="col-lg-10">
                     <h2 class="aligncenter">Resume Templates</h2>
                     <p class="aligncenter">Creating a resume can be overwhelming, confusing, and take up a lot of your time, but don't worry, we've got you covered! Our Resume Maker is here to make the process quick, easy, and even fun! Say goodbye to stress and hello to a bright future with your awesome new resume!</p>
                 </div>

@@ -17,28 +17,32 @@
                 $protemp = "";
             }
             ?>
-                    <div class="col-lg-3">
-                    <div class="planbx aligncenter" style="color:#fff; background-color:<?php echo $rws['bgcolor']; ?>;">
-                        <h3><?php echo $rws['subscription']; ?> <br />Plan</h3>
-                        <p><span>
-                            <?php
-                                if($rws['weeks']==1){
-                                    echo $rws['weeks'] . " week access plan";
-                                }
-                                else if($rws['weeks']>1){
-                                    $days = $rws['weeks'] * 7;
-                                    $months = floor($days/30);
-                                    echo $months. " months access plan";
-                                }
-                            ?>
+                    <div class="col-lg-4">
+                    <div class="planbx">
+                        <div class="top" style="position:relative; color:#fff; background:url(manage/assets/images/<?php echo $rws['bgimg']; ?>) center no-repeat; background-color:<?php echo $rws['bgcolor']; ?>; background-size:cover;     background-blend-mode: multiply;">
+
+                            <h3><?php echo $rws['subscription']; ?> Plan</h3>
+                            <p><span>
+                                <?php
+                                    if($rws['weeks']<=3){
+                                        echo $rws['weeks'] . " week access plan";
+                                    }
+                                    else if($rws['weeks']>4){
+                                        $days = $rws['weeks'] * 7;
+                                        $months = floor($days/30);
+                                        echo $months. " months access plan";
+                                    }
+                                ?>
 
 
-                        </span></p>
-                        <div class="cost" style="color:<?php echo $rws['bgcolor']; ?>; background-color:#fff;">Kes. <?php echo number_format($rws['cost']); ?></div>
-                        <p>Number of downloads<br /><span><?php echo $rws['downlimit']; ?> unique <?php echo $protemp; ?> CVs</span><br /><span><?php echo $rws['downlimit']; ?> unique <?php echo $protemp; ?> cover letter</span></p>
-                        <p>Unlimited Access<br /><span>Yes</span></p>
-                        <p>Share link for your CV/resume &nbsp;<i class="fa-solid fa-check"></i></p><br />
-                        <p><a href="controller/subscription.php?t=<?php echo $rws['subscription']; ?>&w=<?php echo $rws['weeks']; ?>&cost=<?php echo $rws['cost']; ?>" class="rounded-white-btn" style="box-shadow: #19181894 1px 1px 6px;">Select Plan</a></p>
+                            </span></p>
+                            <div class="cost">Kes. <?php echo number_format($rws['cost']); ?></div>
+                        </div>
+                        <div class="cont">
+                            <p><span><?php echo $rws['downlimit']; ?> unique <?php echo $protemp; ?> CVs</span><br /><span><?php echo $rws['downlimit']; ?> unique <?php echo $protemp; ?> Cover Letter</span><br />Unlimited Access: <span>Yes</span><br />Share link for your CV/resume &nbsp;<i class="fa-solid fa-check"></i></p><br />
+                            <p><a href="controller/subscription.php?t=<?php echo $rws['subscription']; ?>&w=<?php echo $rws['weeks']; ?>&cost=<?php echo $rws['cost']; ?>" class="rounded-white-btn" >Select Plan</a></p>
+                        </div>
+                        
                     </div>
                 </div>
             <?php

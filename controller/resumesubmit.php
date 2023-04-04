@@ -10,9 +10,9 @@
         $currdate= date("y-m-d h:i:s"); 
 
         $cvtpl = $db->escape_string($_POST["cvtpl"]);
-        $fullnames = $db->escape_string($_POST["fname"]);
+        //$fullnames = $db->escape_string($_POST["fname"]);
         $jtitle = $db->escape_string($_POST["jtitle"]);
-        $email = $db->escape_string($_POST["email"]);
+        //$email = $db->escape_string($_POST["email"]);
         $dob = $db->escape_string($_POST["dob"]);
         $gender = $db->escape_string($_POST["gender"]);
         $nationality = $db->escape_string($_POST["nationality"]);
@@ -52,6 +52,7 @@
         $instcontext = "";
         $workcontext = "";
         $skillcontext = "";
+        $refs="";
         
         for($i=0;$i<$numinstitute;$i++){
             if($institution[$i]!=""){
@@ -99,7 +100,7 @@
         $checknum = mysqli_num_rows($checkres);
         if($checknum == 1){
             
-            $sqlup = "UPDATE ".$prefix."user_resume SET fullnames='$fullnames', jobtitle='$jtitle', resemail='$email', dob='$dob', gender='$gender', phone='$mobile', nationality='$nationality', address='$address', postalcode='$postalcode', languages='$languages', interests='$interests', brief='$aboutme', education='$instcontext', work='$workcontext', achievements='$achievements', skills='$skillcontext', referees='$refs', facebook='$facebook', twitter='$twitter', linkedin='$linkedin', editedon='$currdate', cvtemp='$cvtpl' WHERE userid='$userid'";
+            $sqlup = "UPDATE ".$prefix."user_resume SET jobtitle='$jtitle', dob='$dob', gender='$gender', phone='$mobile', nationality='$nationality', address='$address', postalcode='$postalcode', languages='$languages', interests='$interests', brief='$aboutme', education='$instcontext', work='$workcontext', achievements='$achievements', skills='$skillcontext', referees='$refs', facebook='$facebook', twitter='$twitter', linkedin='$linkedin', editedon='$currdate', cvtemp='$cvtpl' WHERE userid='$userid'";
 
             $regup = $db->conn->query($sqlup);
             
@@ -112,7 +113,7 @@
 
         }else{
 
-            $sql = "INSERT INTO ".$prefix."user_resume (userid, fullnames, jobtitle, resemail, dob, gender, phone, nationality, address, postalcode, languages, interests, brief, education, work, achievements, skills, referees, facebook, twitter, linkedin, createdon, cvtemp) VALUES ('$userid','$fullnames','$jtitle','$email','$dob','$gender','$mobile','$nationality','$address','$postalcode','$languages','$interests','$aboutme','$instcontext','$workcontext','$achievements','$skillcontext','$refs','$facebook','$twitter','$linkedin','$currdate','$cvtpl')";
+            $sql = "INSERT INTO ".$prefix."user_resume (userid, jobtitle, dob, gender, phone, nationality, address, postalcode, languages, interests, brief, education, work, achievements, skills, referees, facebook, twitter, linkedin, createdon, cvtemp) VALUES ('$userid','$jtitle','$dob','$gender','$mobile','$nationality','$address','$postalcode','$languages','$interests','$aboutme','$instcontext','$workcontext','$achievements','$skillcontext','$refs','$facebook','$twitter','$linkedin','$currdate','$cvtpl')";
             $register = $db->conn->query($sql);
             
             if($register){  

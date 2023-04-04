@@ -88,10 +88,10 @@
             }else{
                
                 if($temptype =="resume"){
-                    header("location:priceselect?cvtpl=".$tplid."&error=Your ".$subscription_level." plan subscription has expired!&ren=1");
+                    header("location:priceselect?cvtpl=".$tplid."&error=Your ".$subscription_level." plan subscription has expired! Subscribe to a plan and proceed to download.&ren=1");
                     exit;
                 }elseif($temptype =="coverletter"){
-                    header("location:priceselect?clt=".$tplid."&error=Your ".$subscription_level." plan subscription has expired!&ren=1");
+                    header("location:priceselect?clt=".$tplid."&error=Your ".$subscription_level." plan subscription has expired! Subscribe to a plan and proceed to download.&ren=1");
                     exit;
                 }
             }

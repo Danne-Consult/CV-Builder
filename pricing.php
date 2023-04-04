@@ -38,7 +38,7 @@
     <h2 class="aligncenter">Payment Plans</h2>
         <article>
             <div class="row justify-content-center">
-                <div class="col-lg-8">
+                <div class="col-lg-10">
                 <p class="aligncenter">Quickly create and download your resume and coverletter directly from our platform that offers you real time, user friendly, 24/7 access and ATS compliant cover page/ curriculum vitae builder to enable you to apply for that needed job conveniently.</p>
                 </div>
             </div>  
