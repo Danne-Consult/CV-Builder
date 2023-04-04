@@ -572,6 +572,15 @@ header nav .lastnav a:hover{background-color: var(--light-orange); color:var(---
 
 /*.planboxes .lightblue .rounded-white-btn{background-color:#fa3b1d}
 .planboxes .lightblue .rounded-white-btn:hover{background-color:#f09183; color:#fff;}*/
+.whatsappicon {
+    position: fixed;
+    right: 2em;
+    bottom: 3em;
+    z-index: 3;
+}
+.whatsappicon img {
+    width: 55px;
+}
 
 
 .contactForm{ margin: 0px auto 3em auto;}
@@ -597,7 +606,8 @@ header nav .lastnav a:hover{background-color: var(--light-orange); color:var(---
 
 .tox .tox-edit-area__iframe { background-color: #f2f2f2 !important;}
 
-footer{ padding: 0x;  position: relative;}
+footer{ padding: 2em; position: relative;}
+footer a{text-decoration:none;}
 footer h4{color:#fff;}
 footer .footmenu{    margin-bottom: 2em;}
 footer .menubox{margin-bottom:2em;}
