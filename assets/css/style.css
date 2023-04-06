@@ -556,7 +556,7 @@ header nav .lastnav a:hover{background-color: var(--light-orange); color:var(---
 .whybar p{font-size:19px; margin-bottom:1em;}
 
 .planboxes{margin-bottom:3em;}
-.planboxes .planbx{ min-height: 100%; border-radius: 20px; box-shadow: #e5e5e5 0px 5px 15px; background-color: #f6f6f6;}
+.planboxes .planbx{ margin-bottom: 1em; min-height: 100%; border-radius: 20px; box-shadow: #e5e5e5 0px 5px 15px; background-color: #f6f6f6;}
 .planboxes .planbx h3{color:#fff; font-weight: 300;;}
 .planboxes .planbx span{font-weight:700;}
 .planboxes .cost{ font-size:30px; }
