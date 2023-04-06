@@ -1,5 +1,5 @@
 <h4>Completed Transactions</h4>
-<table id="sorttable">
+<table class="sorttable">
     <thead>
         <tr>
             <th>Payment Ref</th>

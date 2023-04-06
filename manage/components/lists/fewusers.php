@@ -1,5 +1,5 @@
 <h4>Recently Added Users</h4>
-<table id="sorttable">
+<table class="sorttable">
     <thead>
         <tr>
             <th>User's Name</th>

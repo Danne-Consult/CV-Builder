@@ -1,6 +1,9 @@
-<script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+<script src="//cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
 <script>
-    $(document).ready( function(){
-        $('#sorttable').DataTable();
+    $(document).ready( function () {
+        $('.sorttable').DataTable({
+            searching: false,
+            paging:false
+        });
     });
 </script>

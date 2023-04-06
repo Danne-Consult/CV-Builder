@@ -1,3 +1,8 @@
+<?php
+    include "_db/dbconf.php";
+    $db = new DBconnect;
+    $prefix = $db->prefix;
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,15 +22,58 @@
 </head>
 <body>
     <?php include "includes/nav/header.inc"; ?>
-    <div class="container12">
+    <div class="container12 workbx">
         <article>
-            <h3>Templates</h3>
             <div class="row">
-                <div class="col-lg-4">
+                <div class="col-lg-1">
                     <?php include "includes/nav/sidenav.inc"; ?>
                 </div>
-                <div class="col-lg-8">
+                <div class="col-lg-11">
+                    <h3>Resume Templates</h3>
+                    <div class="slidex row">
+                    <?php
+                        $sql3="SELECT * FROM ".$prefix."resume_templates ORDER BY FIELD(probasic, 'Basic', 'Pro', 'Premium')";
+                        $result3= $db->conn->query($sql3);
+                        $tempbx="";
+                        $temptype="";
+                        while($rws3 = $result3->fetch_array()){
+                            
+                            $tempbx = "<div class='col-lg-3'>";
+                            $tempbx .= "<div class='tempimg' style='background:url(manage/cv-views/".$rws3['tempimg'].") no-repeat center; background-size:cover'>";
+                            $tempbx .= "<div class='cont aligncenter'><h5 class='aligncenter'>".$rws3['tempname']."</h5><br /><p><a class='small-round-btn' href='cv.php?cvtpl=".$rws3['id']."'>Use Template</a></p></div><div class='probasic ".$rws3['probasic']."'>".$rws3['probasic']."</div>";
+                            $tempbx .= "</div></div>";
+
+                            echo $tempbx;
+                        }
+                    ?>
+                </div>
                     
+
+                    <h3>Cover Letter Templates</h3>
+                    <table class="sorttable">
+                        <thead>
+                            <tr>
+                                <th>Template Name</th>
+                                <th>Type</th>
+                                <th>Created on</th>
+                                <th>Edit/View</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
+                                $sql1="SELECT * FROM ".$prefix."coverletter_templates ORDER BY createdon ASC";
+                                $result1= $db->conn->query($sql1);
+                                while($rws1 = $result1->fetch_array()){
+                                    $n = "<tr><td>".$rws1['tempname']."</td>";
+                                    $n .= "<td>".$rws1['probasic']."</td>";
+                                    $n .= "<td> ".$rws1['createdon']."</td>";
+                                    $n .= "<td><a style='text-align:center; display:block' href='edittemplate.php?tpl=".$rws1['id']."'><i class='fa-solid fa-eye'></i></a></td>";
+                                    $n .= "</tr>";
+                                    echo $n;
+                                }
+                            ?>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </article>

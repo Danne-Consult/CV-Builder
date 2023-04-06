@@ -691,7 +691,7 @@ header .social li a{padding-left: 0px; margin-left: 0px;}
 .whyus .whybx{ margin-bottom:3em;}
 .loginbx { width: 86vw; align-self: center; margin: 8em auto 2em auto;}
 
-.intro .col-lg-10{display:flex}
+/*.intro .col-lg-10{display:flex}*/
 
 .inner .intro .introimg {width: 100%; order: 1; float: left; height: 22em;}
 .inner .intro .cap {float: left; padding: 0em 2em; width: 100%; order: 2;}
