@@ -360,6 +360,7 @@
 
                         <div class="section" id="section10">
                             <h4>References</h4>
+                            <i class="italic">*Provide a minimum of 3 (three) references</i>
                             <div class="refbar">
                             <?php if(!$rwres['referees']==""){
                                 $refs= explode("||", $rwres['referees']);

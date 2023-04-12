@@ -307,8 +307,8 @@ header nav .lastnav a:hover{background-color: var(--light-orange); color:var(---
 .banner{position:relative; height:60vh; }
 .banner .bannerimg{height:60vh; width:100%; position:relative;} 
 .banner .bannerimg::before{content:""; height:100%; width:100%; position:absolute; background:url(../images/dots.png) repeat;} 
-.banner .caption{ position: absolute; bottom: 2em;  color: var(--white);  left: 4em;  width: 41%;  font-size: 23px; font-weight: 300;}
-.banner .caption h1{color:var(--white);  font-size: 37px;}
+.banner .caption{ position: absolute; bottom: 2em;  color: var(--white);  left: 4em;  width: 41%;  font-size: 18px; font-weight: 300;}
+.banner .caption h1{color:var(--white);  font-size: 35px;}
 
 .inner .banner{margin-top: -34px; height: 300px; margin-bottom:3em;}
 .inner .banner .bannerimg { height: 100%; width: 100%; position: relative;}

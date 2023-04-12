@@ -359,15 +359,24 @@ function snipMe() {
 
 if (document.getElementById("initials") !== null) {
 
-var name = document.getElementById("fname").value;
-var matches = name.match(/\b(\w)/g);
-var firstItem = matches[0];
-var lastItem = matches[matches.length-1];
+  var name = document.getElementById("fname").value;
+  var matches = name.match(/\b(\w)/g);
+  var firstItem = matches[0];
+  var lastItem = matches[matches.length-1];
 
-document.getElementById("initials").innerHTML = "<span>"+firstItem+"</span><hr /><span>"+lastItem+"</span>";
-  
+  document.getElementById("initials").innerHTML = "<span>"+firstItem+"</span><hr /><span>"+lastItem+"</span>";
+
 }
 
+if(document.getElementById("initials2")!== null){
+  var name = document.getElementById("fname").value;
+  var matches = name.match(/\b(\w)/g);
+  var firstItem = matches[0];
+  var lastItem = matches[matches.length-1];
+
+  document.getElementById("initials2").innerHTML = "<span class='fletter'>"+firstItem+"</span><div class='diagg'></div><span class='lletter'>"+lastItem+"</span>";
+}
+        
 var modal = document.getElementById("myModal");
 var btn = document.getElementById("myBtn");
 var modalcontent = document.getElementById("modal-content");

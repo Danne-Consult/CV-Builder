@@ -46,12 +46,21 @@
                         checkbasicpro($temptype,$userid,$tplid,$tempsub);
                     }
                     ?>
-                <p class="aligncenter">Select your favored plan and proceed to pay.</p>
+                
                 <?php
                         if(isset($_GET['error'])){
                             echo "<div class='error-red'>". $_GET['error'] ."</div>";
                         }  
                 ?>
+                </div>
+            </div>  
+        </article>
+    </div>
+    <div class="container12 whybar">
+        <article>
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                <p class="aligncenter">Quickly create and download your resume and coverletter directly from our platform that offers you real time, user friendly, 24/7 access and ATS compliant cover page/ curriculum vitae builder to enable you to apply for that needed job conveniently.</p>
                 </div>
             </div>  
         </article>
