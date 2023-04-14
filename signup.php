@@ -59,7 +59,7 @@
                         </div>
                         <div class="row">
                             <div class="col-lg-12">
-                                <label for="accept"><input type="checkbox" name="accept" id="accept" required> I accept the <a  href="terms.php">Terms of service</a></label>
+                                <label for="accept" class="flexer"><input type="checkbox" name="accept" id="accept" required> &nbsp;I accept the <a  href="terms.php">Terms of service</a></label><br />
                             </div>
                         </div>
 

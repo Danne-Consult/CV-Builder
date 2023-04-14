@@ -156,7 +156,15 @@
                                             
                                             $year=explode("-",$edulist[3]);
 
-                                            $edu= '<div class="educont"> <hr /> <div class="row"> <div class="col-lg-6"> <label for="work">Education Level</label><br /> <select name="educationlevel[]" class="educ" required> <option value="'.$edulist[1].'" selected>'.$edulist[1].'</option><option>...</option> <option value="Secondary">Secondary</option> <option value="Certificate">Certificate</option> <option value="Diploma">Diploma</option> <option value="Bachelors">Bachelors</option> <option value="Post Graduate Diploma">Post Graduate Diploma</option> <option value="Masters">Masters</option> </select> </div> <div class="col-lg-6"> <label for="Institution">School/Institution</label><br /> <input type="text" class="inst" name="institution[]" value="'.$edulist[2].'" required /> </div> </div> <div class="row"> <div class="col-lg-4"> <label for="comyearfrom">From</label><br /> <input type="number" class="edufrom" name="comyearfrom[]" min="1960" max="2099" step="1" value="'.$year[0].'" required /> </div> <div class="col-lg-4"> <label for="comyearto">To</label><br /> <input type="number" class="eduto" name="comyearto[]" min="1960" max="2099" step="1" value="'.$year[1].'" required /> </div> </div> <div class="row"> <div class="col-lg-12"> <label for="schoolcomment">Area of Study/Course</label><br /> <textarea rowspan="3" class="editor eduach" name="schoolcomment[]">'.$edulist[4].'</textarea> </div> </div> <div class="row justify-content-end"> <div class="col-lg-4"> <div class="addbtnbx moreschool"><i class="fa-solid fa-circle-plus"></i></div> <div class="delbtnbx deleteedu"><i class="fa-solid fa-circle-minus"></i></div> </div> </div> </div><br />';
+                                            $edu= '<div class="educont"> <hr /> <div class="row"> <div class="col-lg-6"> <label for="work">Education Level</label><br /> <select name="educationlevel[]" class="educ" required> <option value="'.$edulist[1].'" selected>'.$edulist[1].'</option><option>...</option> <option value="Secondary">Secondary</option> <option value="Certificate">Certificate</option> <option value="Diploma">Diploma</option> <option value="Bachelors">Bachelors</option> <option value="Post Graduate Diploma">Post Graduate Diploma</option> <option value="Masters">Masters</option> </select> </div> <div class="col-lg-6"> <label for="Institution">School/Institution</label><br /> <input type="text" class="inst" name="institution[]" value="'.$edulist[2].'" required /> </div> </div> <div class="row"> <div class="col-lg-4"> <label for="comyearfrom">From</label><br /> <input type="number" class="edufrom" name="comyearfrom[]" min="1960" max="2099" step="1" value="'.$year[0].'" required /> </div>';
+
+                                            if($year[1]=='Current'){
+                                                $edu .='<div class="col-lg-4 edutobx" style="display:none;"><label for="comyearto">To</label><br /><input type="hidden" name="comyearto[]" class="eduto" min="1960" max="2099" step="1" value="'.$year[1].'" /></div><div class="col-lg-4 alignitemscenter"><label class="flexer"><input type="checkbox" value="Current" class="educurrcheck" checked /> &nbsp;Current <i class="italic">(Ongoing)</i></div>';
+                                            }else{
+                                                $edu .='<div class="col-lg-4 edutobx"><label for="comyearto">To</label><br /><input type="number" name="comyearto[]" class="eduto" min="1960" max="2099" step="1" value="'.$year[1].'" /></div><div class="col-lg-4 alignitemscenter"><label class="flexer"><input type="checkbox" value="Current" class="educurrcheck"/> &nbsp;Current <i class="italic">(Ongoing)</i></div>';
+                                            }
+                                            
+                                            $edu .='</div> <div class="row"> <div class="col-lg-12"> <label for="schoolcomment">Area of Study/Course</label><br /> <textarea rowspan="3" class="editor eduach" name="schoolcomment[]">'.$edulist[4].'</textarea> </div> </div> <div class="row justify-content-end"> <div class="col-lg-4"> <div class="addbtnbx moreschool"><i class="fa-solid fa-circle-plus"></i></div> <div class="delbtnbx deleteedu"><i class="fa-solid fa-circle-minus"></i></div> </div> </div> </div><br />';
                                             echo $edu;
                                         }
 
@@ -186,9 +194,12 @@
                                             <label for="comyearfrom">From</label><br />
                                             <input type="number" name="comyearfrom[]" class="edufrom" min="1960" max="2099" step="1" />
                                         </div>
-                                        <div class="col-lg-4">
+                                        <div class="col-lg-4 edutobx">
                                             <label for="comyearto">To</label><br />
                                             <input type="number" name="comyearto[]" class="eduto" min="1960" max="2099" step="1" />
+                                        </div>
+                                        <div class="col-lg-4 alignitemscenter">
+                                            <label class="flexer"><input type="checkbox" value="Current" class="educurrcheck"/> &nbsp;Current <i class="italic">(Ongoing)</i>  
                                         </div>
                                     </div>
                                     <div class="row">
@@ -224,7 +235,15 @@
                                         $wklist = explode("/~",$value);	
                                         $yearx = explode("~",$wklist[3]);
 
-                                        $works= '<div class="workcont"> <hr /> <div class="row"> <div class="col-lg-6"> <label for="work">Company/Organization</label><br /> <input type="text" class="company" name="company[]" value="'.$wklist[1].'" /> </div> <div class="col-lg-6"> <label for="occupation">Position</label><br /> <input type="text" class="pos" name="occupation[]" value="'.$wklist[2].'" /> </div> </div> <div class="row"> <div class="col-lg-4"> <label for="workyearcorfrom">From</label><br /> <input type="month" class="comfrom" name="workyearfrom[]" placeholder="YYYY-MM" value="'.$yearx[0].'" /> </div> <div class="col-lg-4"> <label for="workyearto">To</label><br /> <input type="month" class="comto" name="workyearto[]" placeholder="YYYY-MM" value="'.$yearx[1].'" /> </div> </div> <div class="row"> <div class="col-lg-12"> <label for="workcomment">Key Responsibilities</label><br /> <textarea rowspan="3" class="editor comach" name="workcomment[]" >'.$wklist[4].'</textarea> </div> </div> <div class="row justify-content-end"> <div class="col-lg-4"> <div class="addbtnbx morework"><i class="fa-solid fa-circle-plus" id="addbtn"></i></div> <div class="delbtnbx deletework"><i class="fa-solid fa-circle-minus"></i></div> </div> </div> </div><br />';
+                                        $works= '<div class="workcont"> <hr /> <div class="row"> <div class="col-lg-6"> <label for="work">Company/Organization</label><br /> <input type="text" class="company" name="company[]" value="'.$wklist[1].'" /> </div> <div class="col-lg-6"> <label for="occupation">Position</label><br /> <input type="text" class="pos" name="occupation[]" value="'.$wklist[2].'" /> </div> </div> <div class="row"> <div class="col-lg-4"> <label for="workyearcorfrom">From</label><br /> <input type="month" class="comfrom" name="workyearfrom[]" placeholder="YYYY-MM" value="'.$yearx[0].'" /> </div>';
+
+                                        if($yearx[1]=='Current'){
+                                            $works .='<div class="col-lg-4 comtobx" style="display:none;"> <label for="workyearto">To</label><br /> <input type="hidden" class="comto" name="workyearto[]" placeholder="YYYY-MM" value="'.$yearx[1].'" /> </div><div class="col-lg-4 alignitemscenter"><label class="flexer"><input type="checkbox" value="Current" class="currcheck" checked/> &nbsp;Current <i class="italic">(Ongoing)</i></div>';
+                                        }else{
+                                            $works .='<div class="col-lg-4 comtobx"> <label for="workyearto">To</label><br /> <input type="month" class="comto" name="workyearto[]" placeholder="YYYY-MM" value="'.$yearx[1].'" /> </div> <div class="col-lg-4 alignitemscenter"><label class="flexer"><input type="checkbox" value="Current" class="currcheck"/> &nbsp;Current <i class="italic">(Ongoing)</i></div>';
+                                        }
+                                        
+                                        $works .='</div> <div class="row"> <div class="col-lg-12"> <label for="workcomment">Key Responsibilities</label><br /> <textarea rowspan="3" class="editor comach" name="workcomment[]" >'.$wklist[4].'</textarea> </div> </div> <div class="row justify-content-end"> <div class="col-lg-4"> <div class="addbtnbx morework"><i class="fa-solid fa-circle-plus" id="addbtn"></i></div> <div class="delbtnbx deletework"><i class="fa-solid fa-circle-minus"></i></div> </div> </div> </div><br />';
 
 
                                         echo $works;
@@ -247,9 +266,12 @@
                                             <label for="workyearcorfrom">From</label><br />
                                             <input type="month" class="comfrom"  name="workyearfrom[]" placeholder="YYYY-MM" />
                                         </div>
-                                        <div class="col-lg-4">
+                                        <div class="col-lg-4 comtobx">
                                             <label for="workyearto">To</label><br />
-                                            <input type="month" class="comto"  name="workyearto[]" placeholder="YYYY-MM" />
+                                            <input type="month" class="comto"  name="workyearto[]" placeholder="YYYY-MM" />  
+                                        </div>
+                                        <div class="col-lg-4 alignitemscenter">
+                                        <label class="flexer"><input type="checkbox" value="Current" class="currcheck"/> &nbsp;Current <i class="italic">(Ongoing)</i>  
                                         </div>
                                     </div>
                                     <div class="row">
@@ -454,12 +476,11 @@
     <script src="assets/js/slick.js" referrerpolicy="origin"></script>
     
     <script>
-        
         $(document).ready(function() {
             mce();
 
 			$(document).on('click', '.moreschool' ,function(){
-				$('.com-edu').append('<div class="educont"> <hr /> <div class="row"> <div class="col-lg-6"> <label for="work">Education Level</label><br /> <select name="educationlevel[]" class="educ" required> <option>...</option> <option value="Secondary">Secondary</option> <option value="Certificate">Certificate</option> <option value="Diploma">Diploma</option> <option value="Bachelors">Bachelors</option> <option value="Post Graduate Diploma">Post Graduate Diploma</option> <option value="Masters">Masters</option> </select> </div> <div class="col-lg-6"> <label for="Institution">School/Institution</label><br /> <input type="text" class="inst" name="institution[]" required /> </div> </div> <div class="row"> <div class="col-lg-4"> <label for="comyearfrom">From</label><br /> <input type="number" name="comyearfrom[]" class="edufrom" min="1960" max="2099" step="1" required /> </div> <div class="col-lg-4"> <label for="comyearto">To</label><br /> <input type="number" name="comyearto[]" class="eduto" min="1960" max="2099" step="1" required /> </div> </div> <div class="row"> <div class="col-lg-12"> <label for="schoolcomment">Area of Study/Course</label><br /> <textarea rowspan="3" class="editor eduach" name="schoolcomment[]"></textarea> </div> </div> <div class="row justify-content-end"> <div class="col-lg-4"> <div class="addbtnbx moreschool"><i class="fa-solid fa-circle-plus"></i></div> <div class="delbtnbx deleteedu"><i class="fa-solid fa-circle-minus"></i></div> </div> </div> </div>');
+				$('.com-edu').append('<div class="educont"> <hr /> <div class="row"> <div class="col-lg-6"> <label for="work">Education Level</label><br /> <select name="educationlevel[]" class="educ" required> <option>...</option> <option value="Secondary">Secondary</option> <option value="Certificate">Certificate</option> <option value="Diploma">Diploma</option> <option value="Bachelors">Bachelors</option> <option value="Post Graduate Diploma">Post Graduate Diploma</option> <option value="Masters">Masters</option> </select> </div> <div class="col-lg-6"> <label for="Institution">School/Institution</label><br /> <input type="text" class="inst" name="institution[]" required /> </div> </div> <div class="row"> <div class="col-lg-4"> <label for="comyearfrom">From</label><br /> <input type="number" name="comyearfrom[]" class="edufrom" min="1960" max="2099" step="1" required /> </div> <div class="col-lg-4 edutobx"><label for="comyearto">To</label><br /><input type="number" name="comyearto[]" class="eduto" min="1960" max="2099" step="1" /></div><div class="col-lg-4 alignitemscenter"><label class="flexer"><input type="checkbox" value="Current" class="educurrcheck"/> &nbsp;Current <i class="italic">(Ongoing)</i></div> </div> <div class="row"> <div class="col-lg-12"> <label for="schoolcomment">Area of Study/Course</label><br /> <textarea rowspan="3" class="editor eduach" name="schoolcomment[]"></textarea> </div> </div> <div class="row justify-content-end"> <div class="col-lg-4"> <div class="addbtnbx moreschool"><i class="fa-solid fa-circle-plus"></i></div> <div class="delbtnbx deleteedu"><i class="fa-solid fa-circle-minus"></i></div> </div> </div> </div>');
                 mce();
  
 			});
@@ -470,7 +491,7 @@
 			});
 
             $(document).on('click', '.morework' ,function(){
-				$('.com-work').append('<div class="workcont"> <hr /> <div class="row"> <div class="col-lg-6"> <label for="work">Company/Organization</label><br /> <input type="text" class="company" name="company[]" /> </div> <div class="col-lg-6"> <label for="occupation">Position</label><br /> <input type="text" class="pos" name="occupation[]" /> </div> </div> <div class="row"> <div class="col-lg-4"> <label for="workyearcorfrom">From</label><br /> <input type="month" class="comfrom"  name="workyearfrom[]" placeholder="YYYY-MM" /> </div> <div class="col-lg-4"> <label for="workyearto">To</label><br /> <input type="month"  class="comto"  name="workyearto[]" placeholder="YYYY-MM" /> </div> </div> <div class="row"> <div class="col-lg-12"> <label for="workcomment">Key Responsibilities</label><br /> <textarea rowspan="3" class="editor comach" name="workcomment[]" ></textarea> </div> </div> <div class="row justify-content-end"> <div class="col-lg-4"> <div class="addbtnbx morework"><i class="fa-solid fa-circle-plus" id="addbtn"></i></div> <div class="delbtnbx deletework"><i class="fa-solid fa-circle-minus"></i></div> </div> </div> </div>');
+				$('.com-work').append('<div class="workcont"> <hr /> <div class="row"> <div class="col-lg-6"> <label for="work">Company/Organization</label><br /> <input type="text" class="company" name="company[]" /> </div> <div class="col-lg-6"> <label for="occupation">Position</label><br /> <input type="text" class="pos" name="occupation[]" /> </div> </div> <div class="row"> <div class="col-lg-4"> <label for="workyearcorfrom">From</label><br /> <input type="month" class="comfrom"  name="workyearfrom[]" placeholder="YYYY-MM" /> </div> <div class="col-lg-4 comtobx"><label for="workyearto">To</label><br /><input type="month" class="comto"  name="workyearto[]" placeholder="YYYY-MM" /> </div><div class="col-lg-4 alignitemscenter"><label class="flexer"><input type="checkbox" value="Current" class="currcheck"/> &nbsp;Current <i class="italic">(Ongoing)</i></div> </div> <div class="row"> <div class="col-lg-12"> <label for="workcomment">Key Responsibilities</label><br /> <textarea rowspan="3" class="editor comach" name="workcomment[]" ></textarea> </div> </div> <div class="row justify-content-end"> <div class="col-lg-4"> <div class="addbtnbx morework"><i class="fa-solid fa-circle-plus" id="addbtn"></i></div> <div class="delbtnbx deletework"><i class="fa-solid fa-circle-minus"></i></div> </div> </div> </div>');
                 mce();
 			});
 			$(document).on('click','.deletework', function(){
@@ -499,6 +520,31 @@
                 };
 			});
 
+            $(document).on('click',".educurrcheck",function(){
+                var $comtobx1 = $(this).closest('.row').find('.edutobx');
+                var $datetoinput1  = $(this).closest('.row').find(".eduto");
+                if($(this).is(':checked')) {
+                    $comtobx1.css("display", "none");
+                    $datetoinput1.attr({'value': 'Current', 'type':'hidden'})
+                } else {
+                    $comtobx1.css("display", "block");
+                    $datetoinput1.attr({'value': '', 'type':'number', 'min':'1960','max':'2099','step':'1'})
+                }
+            });
+
+            $(document).on('click',".currcheck",function(){
+                var $comtobx = $(this).closest('.row').find('.comtobx');
+                var $datetoinput  = $(this).closest('.row').find(".comto");
+                if($(this).is(':checked')) {
+                    $comtobx.css("display", "none");
+                    $datetoinput.attr({'value': 'Current', 'type':'hidden'})
+                } else {
+                    $comtobx.css("display", "block");
+                    $datetoinput.attr({'value': '', 'type':'month'})
+                }
+            });
+
+           
             function mce(){
                 tinymce.init({
                 selector: 'textarea.editor',

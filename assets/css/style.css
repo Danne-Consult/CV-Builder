@@ -419,6 +419,8 @@ header nav .lastnav a:hover{background-color: var(--light-orange); color:var(---
 }
 
 .workbx .workarea{background-color:var(--white); border-radius:20px; box-shadow: #f1f1f1 3px 3px 13px 3px; width:100%; margin-bottom:3em; padding: 20px;}
+.alignitemscenter{display: flex; align-items: center;}
+
 
 .scrollwork::-webkit-scrollbar { display: none;}
 
@@ -587,13 +589,14 @@ header nav .lastnav a:hover{background-color: var(--light-orange); color:var(---
 .contactForm input, .contactForm textarea, .contactForm select{ border-radius: 12px; border: #ddd 1px solid; background-color: #f2f2f2;}
 .contactForm p{ margin-bottom:0px;}
 .contactForm input, .contactForm textarea, .contactForm select{ margin-bottom:20px; padding: 10px; width: 100%;}
-.contactForm input[type="checkbox"]{width: 20px !important; width: 20px !important; height: 19px;}
-.contactForm input:focus, .contactForm textarea:focus, .contactForm input:hover, .contactForm textarea:hover{background:#f2f2f2;}
+.contactForm input[type="checkbox"]{border-radius: 20px; width: 26px !important; height: 26px; margin-bottom: 0px; padding: 0; accent-color: #f2f2f2;}
+.contactForm input:focus, .contactForm textarea:focus, .contactForm input:hover, .contactForm textarea:hover{background:#f2f2f2; }
 .contactForm .submit{background-color: var(--orange);  padding: 15px 34px;  color: var(--white);  text-decoration: none;  border-radius: 200px; transition: all 0.3s ease-in-out; text-transform: uppercase; font-size:1rem; font-weight:400; border:none; width: auto;}
 
 .contactForm .submit:hover, .contactForm .submit:focus{background-color:var(--light-orange); color:var(--black);}
 
-.contactForm label{padding: 0;cursor: pointer;text-decoration: none;text-align: left;background:none;margin-bottom:6px;}
+.contactForm label{padding: 0;cursor: pointer;text-decoration: none;text-align: left;background:none;}
+.contactForm label.flexer{display: flex; align-items: center; float: left; height: 3em; }
 .contactForm input{ margin-bottom:20px;}
 .contactForm .short{ width:43%;}
 .contactForm input[type="radio"]{width:20px;}
