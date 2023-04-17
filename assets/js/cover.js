@@ -190,3 +190,22 @@ function getUrlParameter(sParam) {
     html2pdf().set(opt).from(element).save();
   });
   } 
+
+  setInterval(function() {
+
+    tinymce.activeEditor.setProgressState(true);
+    tinymce.triggerSave();
+    
+    $.ajax({
+      url: 'controller/coversubmit.php', // replace with your form submit URL
+      method: 'POST', // use the appropriate HTTP method for your form
+      data: $('form#coverform').serialize(), // serialize the form data
+      success: function(response) {
+        tinymce.activeEditor.setProgressState(false, 2000);
+        console.log(response); // log the server response
+      },
+      error: function(jqXHR, textStatus, errorThrown) {
+        console.log(textStatus, errorThrown); // log any errors
+      }
+    });
+  }, 15000); // 10000ms = 15 seconds

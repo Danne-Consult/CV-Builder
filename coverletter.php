@@ -69,7 +69,7 @@
                         ?>
                         
                         
-                        <form class="contactForm" method="POST" action="controller/coversubmit.php">
+                        <form class="contactForm" id="coverform" method="POST" action="controller/coversubmit.php">
                         <div class="sectionholder">
                                 <div class="section secshow" id="section1">
                                     <h4>Personal Details</h4>
@@ -266,6 +266,9 @@
                 var section = $(this).attr("data-next-prev");
                 $(".section").removeClass("secshow");
                 $("#"+section).addClass("secshow");
+                $('html,body').animate({
+                scrollTop: $('body').offset().top},
+                'slow');
              });
 
              $('.slidex').slick({

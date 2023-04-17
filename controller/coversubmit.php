@@ -1,6 +1,6 @@
 <?php 
 session_start();
-if(isset($_POST["submitcov"])){
+if(isset($_POST['covertpl']) || isset($_POST["submitcov"])){
 
     date_default_timezone_set("Africa/Nairobi");
     include "../manage/_db/dbconf.php";
