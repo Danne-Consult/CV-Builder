@@ -65,7 +65,7 @@
                         $rwresume = $resultres->fetch_array();
                 
                     ?>
-                   <form class="contactForm" action="controller/resumesubmit.php" method="POST">
+                   <form class="contactForm" id="cvform" action="controller/resumesubmit.php" method="POST">
                     <input type="hidden" value="<?php echo $cvtpl; ?>" name="cvtpl" />
                     <div class="sectionholder">
                         <div class="section secshow" id="section1">
@@ -589,7 +589,7 @@
                 hiddentpls.toggle(function(){
                     hiddentpls.removeClass("hidebx");
                 });
-            })    
+            })  
             
             
         });

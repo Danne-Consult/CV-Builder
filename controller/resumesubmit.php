@@ -1,7 +1,7 @@
 <?php 
     session_start();
 
-    if(isset($_POST['saveresume'])){
+    if(isset($_POST['cvtpl']) || isset($_POST['saveresume'])){
         date_default_timezone_set("Africa/Nairobi");
         include "../manage/_db/dbconf.php";
         $db = new DBconnect;
