@@ -129,7 +129,7 @@
                         </div>
                         <div class="whycont">
                             <h5>Easy Resume Creator</h5>
-                            <p>With our tested templates you stand a 45% chance of getting shortlist and interviews.</p>
+                            <p>With our tested templates you stand a 90% chance of getting shortlist and interviews.</p>
                         </div>
                     </div>
                     <div class="whybx">

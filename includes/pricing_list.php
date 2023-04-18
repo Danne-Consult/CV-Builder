@@ -39,7 +39,7 @@
                             <div class="cost">Kes. <?php echo number_format($rws['cost']); ?></div>
                         </div>
                         <div class="cont">
-                            <p><span><?php echo $rws['downlimit']; ?> unique <?php echo $protemp; ?> CVs</span><br /><span><?php echo $rws['downlimit']; ?> unique <?php echo $protemp; ?> Cover Letter</span><br />Unlimited Access: <span>Yes</span><br />Share link for your CV/resume &nbsp;<i class="fa-solid fa-check"></i></p><br />
+                            <p>Pay and download a maximum of<br /><span><?php echo $rws['downlimit']; ?> unique <?php echo $protemp; ?> CVs</span><br /><span><?php echo $rws['downlimit']; ?> unique <?php echo $protemp; ?> Cover Letter</span><br />Unlimited Access: <span>Yes</span><br />Share link for your CV/resume &nbsp;<i class="fa-solid fa-check"></i></p><br />
                             <p><a href="controller/subscription.php?t=<?php echo $rws['subscription']; ?>&w=<?php echo $rws['weeks']; ?>&cost=<?php echo $rws['cost']; ?>" class="rounded-white-btn" >Select Plan</a></p>
                         </div>
                         
