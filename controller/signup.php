@@ -33,12 +33,17 @@
         $sql = "INSERT INTO ".$prefix."users (usercode, fname, lname, email, password, createdon, status) VALUES('$ran','$firstname','$lastname','$email','$hashedpw','$currentdate','1')";
         $result = $db->conn->query($sql);
 
+        if(!$result){
+            header('location:../signup.php?error=Something went wrong. Please try again later.');
+            exit();
+        }
+
         $sql1 = "SELECT * FROM ".$prefix."users WHERE email='$email'";
         $result1 = $db->conn->query($sql1);
         $trws = mysqli_num_rows($result1);
         $rws = $result1->fetch_array();
 
-        if($trws=1){   
+        if($trws==1){   
             $_SESSION['user']= $rws['id'];
             $_SESSION['userid']= $rws['usercode'];
             $_SESSION['fname'] = $rws['fname'];

@@ -52,7 +52,7 @@
                     exit();
                 }
             }else{
-                header('location:../login.php?error=Invalid password');
+                header('location:../login.php?error=Invalid email or password');
                 exit();
             }
         }else{
