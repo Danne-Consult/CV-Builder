@@ -75,11 +75,11 @@
     if(isset($_POST['signupx'])){
 
         $randstr = generateRandomString();
-        $fname = $_POST['fname'];
-        $lname = $_POST['lname'];
-        $useremail = $_POST['useremail'];
-        $pass = $_POST['passx'];
-        $repass = $_POST['repassx'];
+        $fname = addslashes($_POST['fname']);
+        $lname = addslashes($_POST['lname']);
+        $useremail = addslashes($_POST['useremail']);
+        $pass = addslashes($_POST['passx']);
+        $repass = addslashes($_POST['repassx']);
 
         signup($fname,$lname, $useremail, $pass, $repass, $randstr);
 

@@ -4,8 +4,8 @@
 		header('location:../home.php');
 	}else{
         if(isset($_POST['loginx'])){
-            $username = $_POST['username'];
-            $password = $_POST['passx'];
+            $username = addslashes($_POST['username']);
+            $password = addslashes($_POST['passx']);
 
             login($username,$password);
         }else{

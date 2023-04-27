@@ -54,16 +54,17 @@
                         }
 
                         if(isset($_GET['cvtpl'])){
-                            $cvtpl = $_GET['cvtpl'];
-                        }else{
-                            $cvtpl = $rwres["cvtemp"];
+                            $cvtpl = addslashes($_GET['cvtpl']);
+                        }else if($rwres["cvtemp"]){
+                            $cvtpl = addslashes($rwres["cvtemp"]);
                         }
                        
-                    
                         $sqlres="SELECT * FROM ".$prefix."resume_templates WHERE id='$cvtpl'";
                         $resultres= $db->conn->query($sqlres);
                         $rwresume = $resultres->fetch_array();
-                
+                        if(!$rwresume){
+                            header("location:404.php");
+                        }
                     ?>
                    <form class="contactForm" id="cvform" action="controller/resumesubmit.php" method="POST">
                     <input type="hidden" value="<?php echo $cvtpl; ?>" name="cvtpl" />

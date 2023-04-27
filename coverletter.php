@@ -14,17 +14,22 @@
     }
 
     if(isset($_GET['clt'])){
-        $coverid =$_GET['clt'];
-    }else{
-        $coverid = $rwsx["covertemp"];
+        $coverid = addslashes($_GET['clt']);
+    }else if (isset($rwsx["covertemp"])){
+        $coverid = addslashes($rwsx["covertemp"]);
     }
 
     $sql="SELECT * FROM ".$prefix."coverletter_templates WHERE id='$coverid'";
     $result= $db->conn->query($sql);
     $rws = $result->fetch_array();
+    if(!$rws){
+        header("location:404.php");
+    }
 
     $sampletexts = "SELECT * FROM ".$prefix."coverletter_formats";
     $resultst= $db->conn->query($sampletexts);
+
+    
    
 ?>
 <!DOCTYPE html>
