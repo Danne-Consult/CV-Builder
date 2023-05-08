@@ -1,4 +1,9 @@
 <?php 
+    session_start();
+    if(!isset($_SESSION['admin'])){
+        header('location:login.php');
+    }
+
     include "_db/dbconf.php";
     $db = new DBconnect;
     $prefix = $db->prefix;

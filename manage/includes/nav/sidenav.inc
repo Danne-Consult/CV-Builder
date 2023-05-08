@@ -8,4 +8,9 @@
     <div class="sidenav">
             <a href="cl-templates.php"><div class="link"><i class="fa-solid fa-envelope-open-text"></i><br />Cover Letters</div></a>
     </div>
+    <div class="sidenav">
+            <a href="payments.php"><div class="link"><i class="fa-solid fa-file-invoice"></i><br />Invoice/<br />Payments</div></a>
+    </div>
+
+    
 </div>
