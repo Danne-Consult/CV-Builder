@@ -32,6 +32,9 @@
     <script src="assets/js/jquery.min.js"></script>
 </head>
 <body class="login">
+    <div class="logobx">
+        <a href="index.php"><img src="assets/images/logo.svg" alt="Realtime CVs"></a>
+    </div>
     <div class="container12">
         <div class="row justify-content-center">
             <div class="col-lg-5">
