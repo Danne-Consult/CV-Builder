@@ -5,5 +5,10 @@
             searching: false,
             paging:false
         });
+
+        $('.sorttablesearch').DataTable({
+            searching: true,
+            paging:true
+        });
     });
 </script>

@@ -563,6 +563,10 @@ header{background-color:var(--navyblue); color:var(--white);     margin-bottom: 
     width: 55px;
 }
 
+.dataTables_filter{margin:9px 0px;}
+.dataTables_filter input[type=search]{border-radius:4px;}
+.paginate_button{padding: 10px; border-radius: 8px; background: #efefef; text-decoration: none; margin-right: 13px; margin-top: 1em; float: left;}
+.dataTables_paginate .current{background-color: var(--navyblue); color:#fff;}
 
 .contactForm{ margin: 0px auto 3em auto;}
 .contactForm input, .contactForm textarea, .contactForm select{ border-radius: 12px; border: #ddd 1px solid; background-color: #f2f2f2;}
