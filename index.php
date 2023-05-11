@@ -64,7 +64,7 @@
         <article>
             <div class="slidex row">
                <?php
-                    $sql="SELECT * FROM ".$prefix."resume_templates";
+                    $sql="SELECT * FROM ".$prefix."resume_templates WHERE status='1'";
                     $result= $db->conn->query($sql);
                     $tempbx="";
                     
