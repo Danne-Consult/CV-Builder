@@ -78,6 +78,7 @@
     $amount = $res->amount;
     $created_date  = $res->created_date;
     $confirmation_code = $res->confirmation_code;
+    $invoiceid = $res->merchant_reference;
     $status = $res->payment_status_description;
     $description = $res->description;
     $payment_account = $res->payment_account;
